@@ -1,0 +1,27 @@
+{
+  "name": "network-plus-learning-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A CompTIA Network+ N10-009 learning app seeded from the official exam objective domains.",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5174",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/unit/*.test.js",
+    "test:e2e": "playwright test",
+    "test:a11y": "playwright test tests/e2e/accessibility.spec.js",
+    "validate": "npm test && npm run build && npm run test:e2e"
+  },
+  "dependencies": {
+    "lucide-react": "^1.21.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "@playwright/test": "^1.61.0",
+    "@vitejs/plugin-react": "^6.0.2",
+    "vite": "^8.0.16"
+  }
+}
