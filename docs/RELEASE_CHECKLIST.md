@@ -11,13 +11,15 @@
 - [x] Add learner-facing readiness signals and weak-objective remediation.
 - [x] Expand subnetting practice into mixed calculation, binary, CIDR, host-sizing, and VLSM drills.
 - [x] Add instructor-pass expansions and focused mini-drills for objectives previously marked weak.
-- [x] Add in-app learner validation feedback capture and Progress review/export summary.
-- [x] Add Validation Lab workflow for Tier 1 trial runner, tier session scripts, learner session logging, tier coverage, and blocker tracking.
-- [x] Add activity confidence checks, Progress revisit list, and lesson recap prompts to support content/UI learner trials.
-- [x] Make confidence-review items launch the activity directly and include confidence ratings in validation exports.
+- [x] Add in-app learner validation feedback capture.
+- [x] Add activity confidence checks and lesson recap prompts to support content/UI learner trials.
 - [x] Add browser launch notes, known limitations, learner validation summary, and deployment plan.
+- [x] Add final exam remediation maps in exam results.
+- [x] Add automated editorial depth gates for lessons and scenarios.
+- [x] Replace scaffold-style scenario wording with objective-specific workplace cases.
+- [x] Add automated Security+ sidebar/navigation parity guard while preserving Network+-specific curriculum content.
 - [ ] Complete final human bullet-by-bullet signoff against the official PDF.
-- [ ] Replace any generated draft wording that feels repetitive after editorial review.
+- [ ] Complete final human editorial review for repetitive wording and explanation clarity.
 - [ ] Confirm all examples are original and free of exam-dump material.
 
 ## Product Validation
@@ -25,7 +27,8 @@
 - [x] Unit tests pass.
 - [x] Production build passes.
 - [x] Run desktop, tablet, and phone Playwright accessibility and smoke checks.
-- [x] Add Playwright smoke coverage for final exam practice/exam launch, Progress revisit launch, and Validation Lab package export.
+- [x] Add Playwright smoke coverage for final exam practice/exam launch, responsive navigation, subnetting, flashcards, and feedback capture.
+- [x] Verify subnetting remains reachable through curriculum search/activity flow without adding extra sidebar shortcuts.
 - [ ] Complete keyboard-only journeys for lessons, cards, quizzes, scenarios, and the final exam.
 - [ ] Verify focus order, visible focus, announcements, headings, contrast, reduced motion, and mobile layouts.
 
@@ -33,4 +36,4 @@
 
 For each tier, recruit at least three learners and record device, completion outcome, confusing content, difficulty jumps, navigation friction, and accessibility problems in `docs/VALIDATION_LOG.md`. Critical and high findings block launch.
 
-Use the Validation Lab Tier 1 Trial Runner to launch required Tier 1 activities in order. Record learner/device/outcome/severity, monitor the three-learner-per-tier gate, and copy the validation package after a session. Use the in-app learner validation form on each activity to capture confusing content, difficulty jumps, missing examples, and strong explanations during those sessions.
+Use the in-app learner validation form on each activity to capture confusing content, difficulty jumps, missing examples, and strong explanations during sessions. Record learner/device/outcome/severity and follow-up in `docs/VALIDATION_LOG.md`.

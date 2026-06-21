@@ -1,15 +1,54 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import { allActivities, tiers, masterFlashcardsActivity } from '../../src/content/studyData.js'
 import { getBeginnerBridge } from '../../src/content/beginnerReadiness.js'
 import { getEditorialExpansion, tierOneEditorialObjectives } from '../../src/content/editorialExpansion.js'
 import { buildTraceabilityMatrix, curriculumMetadata, objectiveHasCurriculumCoverage, officialObjectiveCodes } from '../../src/content/curriculumMetadata.js'
+
+const networkAppSource = readFileSync(new URL('../../src/app/App.jsx', import.meta.url), 'utf8')
+const securityAppSource = readFileSync(new URL('../../../GitHub/Security-Project/src/app/App.jsx', import.meta.url), 'utf8')
+
+function extractNavItems(source, constantName) {
+  const start = source.indexOf(`const ${constantName} = [`)
+  assert.notEqual(start, -1, `${constantName} not found`)
+  const end = source.indexOf('];', start)
+  assert.notEqual(end, -1, `${constantName} terminator not found`)
+  return source
+    .slice(start, end)
+    .split('\n')
+    .filter((line) => line.includes('{ id:'))
+    .map((line) =>
+      line
+        .trim()
+        .replace(/,$/, '')
+        .replaceAll('Security+', 'Network+')
+        .replaceAll('why-security', 'why-network')
+        .replaceAll('Why the Network+?', 'Why Network+?'),
+    )
+}
 
 test('Network+ metadata records the verified N10-009 objective source', () => {
   assert.equal(curriculumMetadata.certification, 'CompTIA Network+')
   assert.equal(curriculumMetadata.examCode, 'N10-009')
   assert.equal(curriculumMetadata.objectiveDocumentVersion, '4.0')
   assert.equal(curriculumMetadata.objectiveVersionVerified, true)
+})
+
+test('Network+ sidebar navigation stays in Security+ parity', () => {
+  assert.deepEqual(
+    extractNavItems(networkAppSource, 'primaryNavItems'),
+    extractNavItems(securityAppSource, 'primaryNavItems'),
+  )
+  assert.deepEqual(
+    extractNavItems(networkAppSource, 'aboutNavItems'),
+    extractNavItems(securityAppSource, 'aboutNavItems'),
+  )
+  assert.equal(networkAppSource.includes('sidebar__mission'), true)
+  assert.equal(networkAppSource.includes('className="profile"'), true)
+  assert.equal(networkAppSource.includes('{active === "progress"'), true)
+  assert.equal(networkAppSource.includes('{ id: "subnetting"'), false)
+  assert.equal(networkAppSource.includes('{ id: "subnetting-explain"'), false)
 })
 
 test('every numbered official N10-009 objective has a complete learning loop', () => {
@@ -69,6 +108,38 @@ test('every objective section ships lesson, scenario, flashcards, coached check,
   }
 })
 
+test('lessons and scenarios meet launch editorial depth gates', () => {
+  const lessonActivities = allActivities.filter((activity) => activity.type === 'lesson')
+  const scenarioActivities = allActivities.filter((activity) => activity.type === 'scenario')
+  const scaffoldPhrases = [
+    'Apply osi reference model to a realistic Network+ decision.',
+    'objective evidence should let the technician',
+    'decision should preserve service',
+    'This OSI Reference Model scenario is testing objective',
+  ]
+
+  for (const lesson of lessonActivities) {
+    assert.ok(lesson.learningObjectives?.length >= 3, lesson.id)
+    assert.ok(lesson.headings?.length >= 6, lesson.id)
+    assert.ok(lesson.content?.length >= 6, lesson.id)
+    for (const paragraph of lesson.content) {
+      assert.ok(paragraph.length >= 120, `${lesson.id} has a short paragraph: ${paragraph}`)
+    }
+  }
+
+  for (const scenario of scenarioActivities) {
+    assert.equal(scenario.evidence.length, 3, scenario.id)
+    assert.equal(scenario.actions.filter((action) => action.correct).length, 3, scenario.id)
+    assert.equal(scenario.actions.filter((action) => !action.correct).length, 2, scenario.id)
+    assert.ok(scenario.summary.length >= 70, scenario.id)
+    assert.ok(scenario.explanation.length >= 180, scenario.id)
+    for (const evidence of scenario.evidence) assert.ok(evidence.length >= 70, `${scenario.id} evidence too short`)
+    for (const action of scenario.actions) assert.ok(action.label.length >= 65, `${scenario.id} action too short`)
+    const combined = [scenario.summary, ...scenario.evidence, ...scenario.actions.map((action) => action.label), scenario.explanation].join(' ')
+    for (const phrase of scaffoldPhrases) assert.equal(combined.includes(phrase), false, `${scenario.id} contains scaffold phrase "${phrase}"`)
+  }
+})
+
 test('tier checkpoints and final exam match launch counts and domain weighting', () => {
   for (const tier of tiers.slice(0,5)) {
     const checkpoint = tier.modules.flatMap((module) => module.activities).find((activity) => activity.type === 'checkpoint')
@@ -89,6 +160,14 @@ test('assessment questions have valid shape, unique ids, and useful explanations
     'A learner is choosing between two plausible answers',
     'Restart every device',
     'Core concept for',
+    'A Network+ learner is reviewing',
+    'Which description correctly matches',
+    'choose the newest technology term',
+    'ignore scope because all network symptoms have the same cause',
+    'restart unrelated devices',
+    'A successful test of an unrelated service only',
+    'A change made without a rollback plan',
+    'A guess based only on the device brand',
   ]
   for (const question of questions) {
     assert.equal(question.options.length, 4, question.id)

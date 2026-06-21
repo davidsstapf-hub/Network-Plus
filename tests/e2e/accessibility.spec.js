@@ -4,7 +4,7 @@ import AxeBuilder from '@axe-core/playwright'
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
     localStorage.setItem('networkplus-learner-progress', JSON.stringify({
-      version: 6,
+      version: 7,
       learnerName: 'David',
       completedOnboarding: true,
       completedActivityIds: [],
@@ -13,6 +13,7 @@ test.beforeEach(async ({ page }) => {
       examAttempts: [],
       learnerFeedback: [],
       confidenceRatings: {},
+      manualQaChecks: {},
       validationSessions: [],
       totalStudyMinutes: 0,
       currentActivityId: 'n11-osi-reference-model-lesson',
@@ -32,7 +33,9 @@ test.beforeEach(async ({ page }) => {
 
 test('overview renders Network+ workspace and passes basic axe scan', async ({ page }) => {
   await expect(page.getByText(/NET\+ FIELD GUIDE/i)).toBeVisible()
-  await expect(page.getByRole('heading', { name: /New to networking/i })).toBeVisible()
+  await expect(page.locator('.start-card--primary')).toBeVisible()
+  await expect(page.locator('.start-card--primary')).toContainText(/start here|keep going|review recommended/i)
+  await expect(page.locator('.start-card--primary')).toContainText(/OSI Reference Model|New to networking/i)
   const results = await new AxeBuilder({ page }).analyze()
   expect(results.violations).toEqual([])
 })
@@ -43,13 +46,15 @@ test('responsive core surfaces render on narrow viewports @responsive', async ({
     const menuButton = page.getByRole('button', { name: /Open navigation/i })
     if (await menuButton.isVisible()) await menuButton.click()
   }
-  await expect(page.getByRole('heading', { name: /New to networking/i })).toBeVisible()
+  await expect(page.locator('.start-card--primary')).toBeVisible()
+  await expect(page.locator('.start-card--primary')).toContainText(/OSI Reference Model|New to networking/i)
   await openNavigationIfNeeded()
-  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /Progress/i }).click()
+  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /Learning Path/i }).click()
+  await expect(page.getByRole('heading', { name: /See the whole mountain/i })).toBeVisible()
+  await openNavigationIfNeeded()
+  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /^Progress$/i }).click()
   await expect(page.getByRole('heading', { name: /Your learning telemetry/i })).toBeVisible()
-  await openNavigationIfNeeded()
-  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /Subnetting Practice/i }).click()
-  await expect(page.locator('.subnet-phone-shell').getByRole('heading', { name: /Subnetting Practice/i })).toBeVisible()
+  await expect(page.locator('body')).not.toHaveCSS('overflow-x', 'scroll')
 })
 
 test('learning path opens the first lesson activity', async ({ page }) => {
@@ -57,7 +62,36 @@ test('learning path opens the first lesson activity', async ({ page }) => {
   await expect(page.locator('.activity-title h1')).toContainText(/OSI Reference Model/i)
 })
 
-test('learner validation feedback can be captured and reviewed', async ({ page }) => {
+test('global Continue learning opens the next recommended Network+ activity', async ({ page }) => {
+  await page.locator('.topbar').getByRole('button', { name: /continue learning/i }).click()
+  await expect(page.getByRole('dialog')).toBeVisible()
+  await expect(page.getByLabel(/activity location/i)).toContainText(/Lesson/i)
+  await expect(page.locator('.activity-title h1')).toContainText(/OSI Reference Model/i)
+})
+
+test('activity dialog receives focus and restores it on exit', async ({ page }) => {
+  const menu = page.getByRole('button', { name: /open navigation/i })
+  if (await menu.isVisible()) await menu.click()
+  await page.getByRole('button', { name: /learning path/i }).click()
+  await page.locator('.tier-node').first().click()
+  const trigger = page.locator('.activity-row').first()
+  await trigger.click()
+  await expect(page.getByRole('dialog')).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Exit', exact: true })).toBeFocused()
+  await page.getByRole('button', { name: 'Exit', exact: true }).click()
+  await expect(trigger).toBeFocused()
+})
+
+test('sidebar shield returns to Overview home', async ({ page }) => {
+  const menu = page.getByRole('button', { name: /open navigation/i })
+  if (await menu.isVisible()) await menu.click()
+  await page.getByRole('button', { name: /learning path/i }).click()
+  if (await menu.isVisible()) await menu.click()
+  await page.getByRole('button', { name: /return to overview home/i }).click()
+  await expect(page.getByRole('heading', { name: 'Overview', exact: true })).toBeVisible()
+})
+
+test('learner validation feedback and confidence can be captured', async ({ page }) => {
   await page.getByRole('button', { name: /Open next activity/i }).click()
   await expect(page.getByRole('heading', { name: /Flag this activity for review/i })).toBeVisible()
   await page.getByRole('button', { name: /Needs example/i }).click()
@@ -65,32 +99,21 @@ test('learner validation feedback can be captured and reviewed', async ({ page }
   await page.getByRole('button', { name: /Save validation note/i }).click()
   await expect(page.getByText(/Feedback saved/i)).toBeVisible()
   await page.getByRole('button', { name: /Almost/i }).click()
-  await page.getByRole('button', { name: /FIELD HQ/i }).click()
-  await page.getByRole('button', { name: /Progress/i }).click()
-  await expect(page.getByRole('heading', { name: /Feedback captured during study/i })).toBeVisible()
-  await expect(page.getByText(/Add another beginner-friendly analogy/i)).toBeVisible()
-  await expect(page.getByRole('heading', { name: /Activities to revisit/i })).toBeVisible()
-  await expect(page.locator('.confidence-review-list').getByText(/OSI Reference Model/i)).toBeVisible()
-  await page.locator('.confidence-review-list').getByRole('button', { name: /OSI Reference Model/i }).click()
-  await expect(page.locator('.activity-title h1')).toContainText(/OSI Reference Model/i)
+  await expect(page.getByText(/Saved: Almost/i)).toBeVisible()
 })
 
-test('validation lab logs a Tier 1 learner session', async ({ page }) => {
-  await page.getByRole('button', { name: /Validation Lab/i }).click()
-  await expect(page.getByRole('heading', { name: /Turn learner sessions/i })).toBeVisible()
-  await expect(page.getByRole('heading', { name: /Run the first learner session in order/i })).toBeVisible()
-  await page.getByRole('button', { name: '1 OSI Reference Model Lesson' }).click()
-  await expect(page.locator('.activity-title h1')).toContainText(/OSI Reference Model/i)
-  await page.getByRole('button', { name: /FIELD HQ/i }).click()
-  await page.getByRole('button', { name: /Validation Lab/i }).click()
-  await page.getByLabel('Learner ID').fill('Beginner 01')
-  await page.getByLabel('Device/browser').fill('Mac Chrome')
-  await page.getByLabel('Notes').fill('Completed Tier 1 but wanted more subnetting examples.')
-  await page.getByRole('button', { name: /Save learner session/i }).click()
-  await expect(page.getByText(/1\/3 learners/i)).toBeVisible()
-  await page.getByRole('button', { name: /Copy validation package/i }).click()
-  const copied = await page.evaluate(() => window.__copiedText)
-  expect(JSON.parse(copied).type).toBe('network-plus-validation-package')
+test('Security+ parity navigation exposes Progress but keeps Validation Lab hidden', async ({ page }) => {
+  await expect(page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /Validation Lab/i })).toHaveCount(0)
+  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /^Progress$/i }).click()
+  await expect(page.getByRole('heading', { name: /Your learning telemetry/i })).toBeVisible()
+})
+
+test('why Network+ page uses network-specific career framing', async ({ page }) => {
+  await page.getByRole('button', { name: /Why Network\+/i }).click()
+  await expect(page.getByRole('heading', { name: /Networking is the layer every IT path has to cross/i })).toBeVisible()
+  await expect(page.getByText(/\$96,800/i)).toBeVisible()
+  await expect(page.getByText(/14,300/i)).toBeVisible()
+  await expect(page.locator('.info-copy small').getByText(/Network and Computer Systems Administrators/i)).toBeVisible()
 })
 
 test('final exam practice and timed modes launch cleanly', async ({ page }) => {
@@ -120,7 +143,8 @@ test('curriculum filter finds subnetting and shows recoverable empty state', asy
 })
 
 test('subnetting practice checks answers and advances questions', async ({ page }) => {
-  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /Subnetting Practice/i }).click()
+  await page.getByRole('textbox', { name: /filter guided curriculum/i }).fill('Subnetting Practice Calculator')
+  await page.getByRole('button', { name: /Subnetting Practice Calculator/i }).click()
   await expect(page.locator('.subnet-phone-shell').getByRole('heading', { name: /Subnetting Practice/i })).toBeVisible()
   await page.getByLabel('Network Address').fill('100.47.0.0')
   await page.getByLabel('Broadcast Address').fill('100.47.255.255')
@@ -133,8 +157,9 @@ test('subnetting practice checks answers and advances questions', async ({ page 
 })
 
 test('subnetting lessons are separate from practice', async ({ page }) => {
-  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /Subnetting Lessons/i }).click()
-  await expect(page.getByRole('heading', { name: /Learn the pattern/i })).toBeVisible()
+  await page.getByRole('textbox', { name: /filter guided curriculum/i }).fill('Subnetting Binary')
+  await page.getByRole('button', { name: /Subnetting Binary and CIDR Explanations/i }).click()
+  await expect(page.locator('.activity-title h1')).toContainText(/Subnetting Binary and CIDR Explanations/i)
   await expect(page.getByRole('heading', { name: /Binary octets/i })).toBeVisible()
 })
 
@@ -143,4 +168,18 @@ test('flash card page launches the cumulative Network+ deck', async ({ page }) =
   await expect(page.getByRole('heading', { name: /Shuffle the whole Network\+ deck/i })).toBeVisible()
   await page.getByRole('button', { name: /Start shuffled deck/i }).click()
   await expect(page.locator('.activity-title h1')).toContainText(/Master Network\+ flashcards/i)
+})
+
+test('common ports page supports flashcards, matching, and explanations', async ({ page }) => {
+  await page.getByRole('button', { name: /Common Ports/i }).click()
+  await expect(page.getByRole('heading', { name: /Build the port-number reflex/i })).toBeVisible()
+  await page.getByRole('button', { name: /Tap to reveal port/i }).click()
+  await expect(page.locator('.matching-columns').getByRole('button', { name: '20/21', exact: true })).toBeVisible()
+  await page.locator('.matching-columns').getByRole('button', { name: /^22$/ }).click()
+  await page.locator('.matching-columns').getByRole('button', { name: 'SSH/SFTP/SCP', exact: true }).click()
+  await expect(page.getByText(/Matched\. Nice\./i)).toBeVisible()
+  const httpsReference = page.locator('.ports-reference__list').getByRole('button', { name: /443 HTTPS/i })
+  await httpsReference.scrollIntoViewIfNeeded()
+  await httpsReference.click()
+  await expect(page.getByText(/Carries encrypted web traffic using TLS/i)).toBeVisible()
 })

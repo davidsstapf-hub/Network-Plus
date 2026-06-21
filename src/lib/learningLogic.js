@@ -67,7 +67,28 @@ export function getObjectiveRemediation(objective) {
     lesson: related.find((activity) => activity.type === 'lesson') ?? null,
     flashcards: related.find((activity) => activity.type === 'flashcards') ?? null,
     quiz: related.find((activity) => activity.type === 'quiz') ?? null,
+    checkpoint: related.find((activity) => activity.type === 'checkpoint') ?? null,
+    subnetting: objective === '1.7' ? allActivities.find((activity) => activity.type === 'subnetting') ?? null : null,
   }
+}
+
+export function getExamRemediationMap(attemptOrResult) {
+  const misses = [...new Set(attemptOrResult?.objectiveMisses ?? [])]
+  return misses.map((objective) => {
+    const remediation = getObjectiveRemediation(objective)
+    const domain = domains.find((item) => item.id === String(objective).split('.')[0])
+    return {
+      objective,
+      domainId: domain?.id ?? String(objective).split('.')[0],
+      domainTitle: domain?.title ?? `Domain ${String(objective).split('.')[0]}`,
+      ...remediation,
+    }
+  }).sort((a, b) => a.objective.localeCompare(b.objective, undefined, { numeric: true }))
+}
+
+export function getLatestExamAttempt(progress) {
+  const attempts = progress.examAttempts ?? []
+  return attempts.length ? attempts[attempts.length - 1] : null
 }
 
 export function getReadinessSignals(progress) {

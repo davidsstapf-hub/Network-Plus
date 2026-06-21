@@ -16,6 +16,7 @@ import { getBeginnerBridge } from "../../content/beginnerReadiness.js";
 import { getEditorialExpansion } from "../../content/editorialExpansion.js";
 import { allActivities, getTier } from "../../content/studyData.js";
 import { getObjectiveVisual } from "../../content/objectiveVisuals.js";
+import { getExamRemediationMap } from "../../lib/learningLogic.js";
 import {
   isValidQuestionOrder,
   shuffleQuestionOrder,
@@ -730,7 +731,7 @@ export function ScenarioActivity({ activity, onComplete, nextTitle }) {
 
 const letters = ["A", "B", "C", "D", "E", "F"];
 
-export function ExamActivity({ activity, onComplete, nextTitle }) {
+export function ExamActivity({ activity, onComplete, nextTitle, onOpenActivity }) {
   const storageKey = `secplus-exam-v3-${activity.id}`;
   const initial = useMemo(() => {
     try {
@@ -816,6 +817,7 @@ export function ExamActivity({ activity, onComplete, nextTitle }) {
       ),
     };
   }, [activity.config.durationMinutes, answers, orderedQuestions, remaining]);
+  const remediationMap = useMemo(() => getExamRemediationMap(result).slice(0, 6), [result]);
   const begin = (selectedMode) => {
     const deadline = Date.now() + activity.config.durationMinutes * 60000;
     setMode(selectedMode);
@@ -911,6 +913,28 @@ export function ExamActivity({ activity, onComplete, nextTitle }) {
           <strong>{Math.round(result.score * 100)}%</strong>
           <span>accuracy</span>
         </div>
+        {remediationMap.length > 0 && (
+          <section className="exam-remediation-inline" aria-label="Missed objective remediation">
+            <p className="eyebrow">Remediation map</p>
+            <h3>Repair these before the next attempt</h3>
+            <div>
+              {remediationMap.map((item) => {
+                const primary = item.lesson ?? item.flashcards ?? item.quiz ?? item.checkpoint ?? item.subnetting;
+                return (
+                  <article key={item.objective}>
+                    <span>Objective {item.objective}</span>
+                    <strong>{item.domainTitle}</strong>
+                    {primary && (
+                      <button type="button" onClick={() => onOpenActivity?.(primary.id)}>
+                        Start review <ArrowRight size={14} />
+                      </button>
+                    )}
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+        )}
         <button
           className="button button--primary"
           onClick={() => {
@@ -1171,11 +1195,12 @@ export function ActivityView({
               onComplete={finish}
             />
           ) : activity.type === "exam" ? (
-            <ExamActivity
-              activity={activity}
-              nextTitle={nextActivity?.title}
-              onComplete={finish}
-            />
+          <ExamActivity
+            activity={activity}
+            nextTitle={nextActivity?.title}
+            onComplete={finish}
+            onOpenActivity={onOpenNext}
+          />
           ) : activity.type === "subnetting" ? (
             <SubnettingActivity
               activity={activity}

@@ -14651,8 +14651,8 @@ export const tiers = [
             "content": [
               "Every IPv4 octet is eight bits. The bit weights are 128, 64, 32, 16, 8, 4, 2, and 1. Decimal values are just the sum of the enabled bit weights.",
               "A CIDR prefix tells you how many bits are fixed as network bits. A /29 has 29 network bits and 3 host bits, so each subnet has 8 total addresses.",
-              "The network address is the first address in the block. The broadcast address is the last address in the block. Traditional usable host addresses sit between those two endpoints.",
-              "The wildcard mask is the inverse of the subnet mask. If the subnet mask is 255.255.255.248, the wildcard is 0.0.0.7.",
+              "The network address is the first address in the block and identifies the subnet itself, not a device. The broadcast address is the last address in the block and reaches every host in that IPv4 subnet. Traditional usable host addresses sit between those two endpoints, so a technician should never assign the network or broadcast address to an end device.",
+              "The wildcard mask is the inverse of the subnet mask. If the subnet mask is 255.255.255.248, the wildcard is 0.0.0.7. Wildcards show which host bits are flexible, which is why they appear in ACLs, route filters, and subnet practice answers.",
               "Usable host count is 2 raised to the number of host bits, minus 2 for traditional IPv4 subnets. A /29 has 3 host bits, so 2^3 - 2 = 6 usable hosts.",
               "Use the practice calculator by solving on paper first, then checking. Repeat the same sequence every time: prefix, mask, block size, containing block, network, broadcast, wildcard, valid hosts."
             ]
@@ -14662,6 +14662,526 @@ export const tiers = [
     ]
   }
 ]
+
+const scenarioEditorialCases = {
+  "1.1": {
+    summary: "Use the OSI model to narrow an HTTPS failure after lower-layer tests already passed.",
+    evidence: [
+      "The workstation has link light, the correct VLAN, a valid IP address, and can ping the web server.",
+      "Only HTTPS to the application fails, while DNS resolves the name and other local resources work.",
+      "The change record shows a firewall policy update and a web service certificate renewal earlier that morning."
+    ],
+    correct: [
+      "Treat Layers 1 through 3 as mostly proven and focus next on transport ports, TLS, or the application service.",
+      "Test TCP 443 reachability and review firewall/web service logs before changing cabling, VLANs, or IP settings.",
+      "Document which OSI layers were verified so the next technician does not repeat low-layer tests."
+    ],
+    wrong: [
+      "Replace the patch cable because all website failures start at the Physical layer.",
+      "Change the default gateway even though ping to the destination already works."
+    ],
+    explanation: "The OSI model is useful because it lets the technician eliminate healthy layers with evidence. Link, VLAN, IP addressing, DNS, and ICMP already look good, so the next useful tests are Layer 4 through Layer 7 checks such as TCP 443, TLS, firewall policy, and web application health."
+  },
+  "1.2": {
+    summary: "Choose the right network appliance functions for a small company publishing a resilient web app.",
+    evidence: [
+      "The company needs employee internet access, remote VPN users, and a public web app split across two servers.",
+      "Management wants inbound web traffic filtered and distributed without exposing the internal server VLAN.",
+      "The budget allows one edge security appliance plus a separate virtual load balancer in the server network."
+    ],
+    correct: [
+      "Use a firewall or UTM at the edge for policy enforcement, NAT, and VPN termination.",
+      "Place a load balancer in front of the web servers to distribute HTTPS sessions across healthy back ends.",
+      "Keep switching focused on local frame forwarding instead of expecting a switch alone to secure internet traffic."
+    ],
+    wrong: [
+      "Use only an unmanaged switch because switches inspect and block all application attacks by default.",
+      "Put a proxy in place of routing so it can forward every IP packet between subnets."
+    ],
+    explanation: "Routers, switches, firewalls, proxies, and load balancers solve different problems. This design needs edge control, VPN, NAT, and server distribution, so the learner should match appliance function to the traffic path instead of treating every box as interchangeable."
+  },
+  "1.3": {
+    summary: "Select a cloud connectivity pattern for a branch that needs reliable access to private workloads.",
+    evidence: [
+      "A branch office uses SaaS normally but also needs private access to a cloud-hosted inventory database.",
+      "The first phase has moderate traffic and can tolerate internet-based encryption, but the design may grow.",
+      "Security wants private addressing, route control, and clear separation between cloud subnets."
+    ],
+    correct: [
+      "Start with a site-to-site VPN when encrypted private connectivity over the internet meets bandwidth and latency needs.",
+      "Plan for direct cloud connectivity later if throughput, latency, or availability requirements outgrow VPN.",
+      "Verify VPC or VNet route tables, security groups, and network ACLs before blaming the application."
+    ],
+    wrong: [
+      "Assume SaaS, IaaS, VPCs, and direct connect all mean the same thing because they are cloud terms.",
+      "Expose the database directly to the public internet so branch users do not need routing."
+    ],
+    explanation: "Cloud questions often test vocabulary and connectivity choices. VPN, direct connect, VPC/VNet routing, and security controls each have a role. A beginner should first identify whether the workload is public SaaS or private cloud infrastructure, then choose the connection and routes that fit."
+  },
+  "1.4": {
+    summary: "Use ports and protocols to diagnose why one network service works while another fails.",
+    evidence: [
+      "Users can browse HTTPS sites, but new laptops fail to obtain addresses on the guest VLAN.",
+      "A packet capture shows DHCP Discover broadcasts leaving the clients but no DHCP Offer returning.",
+      "A firewall change recently restricted UDP traffic between the guest VLAN and the infrastructure services VLAN."
+    ],
+    correct: [
+      "Focus on DHCP behavior and UDP ports 67 and 68 instead of troubleshooting HTTPS.",
+      "Check DHCP relay/helper configuration if the server is not on the same broadcast domain.",
+      "Use the protocol symptoms to prove whether the failure is service reachability, relay, or server scope exhaustion."
+    ],
+    wrong: [
+      "Open TCP 443 because all client network access depends on HTTPS instead of checking DHCP behavior.",
+      "Replace DNS records because DHCP uses hostnames to assign every lease."
+    ],
+    explanation: "Ports and protocols help connect symptoms to the right service. DHCP address assignment uses broadcast/relay behavior and UDP 67/68, while HTTPS success proves only that web traffic can work after a host already has usable addressing."
+  },
+  "1.5": {
+    summary: "Pick media and transceivers for links with different speed, distance, and interference needs.",
+    evidence: [
+      "An access point in the ceiling needs one cable for data and power, while a building-to-building uplink crosses an electrically noisy area.",
+      "The access switch has RJ45 copper ports for endpoint drops and two SFP+ uplink slots reserved for closet connections.",
+      "The campus design calls for 10 Gb/s between closets and 1 Gb/s to endpoints."
+    ],
+    correct: [
+      "Use twisted-pair copper with PoE for the access point when distance and power budget fit.",
+      "Use fiber with matching SFP+ optics for the longer 10 Gb/s closet or building uplink.",
+      "Match transceiver type, connector, fiber mode, and speed to the switch slot and cable plant."
+    ],
+    wrong: [
+      "Use any SFP module in any slot because all transceivers negotiate every speed and fiber type.",
+      "Choose coaxial cable for the AP because it carries power and Ethernet frames by default."
+    ],
+    explanation: "Media selection is physical but still design-driven. Copper is common for endpoint drops and PoE, while fiber handles distance and electrical isolation. Transceivers must match the port, speed, connector, and fiber type."
+  },
+  "1.6": {
+    summary: "Compare topology choices for a small office, campus, data center, and WAN.",
+    evidence: [
+      "A small office needs simple access switching, a campus needs redundant distribution, and a data center needs predictable east-west traffic.",
+      "The WAN team wants alternate paths between sites without buying a full mesh everywhere.",
+      "Operations wants a design that is easy to explain during outages and simple enough for junior staff to trace."
+    ],
+    correct: [
+      "Use a simple star-like access design for a small office where endpoints connect back to access switches.",
+      "Use hierarchical or spine-leaf thinking where scale, redundancy, and predictable paths matter.",
+      "Use partial mesh WAN links when only key sites need direct redundancy."
+    ],
+    wrong: [
+      "Use full mesh for every network because more links always make troubleshooting easier.",
+      "Use bus topology as the default for modern switched Ethernet offices."
+    ],
+    explanation: "Topology questions are really about tradeoffs. Small offices, campus networks, data centers, cloud networks, and WANs optimize for different scale, redundancy, cost, and traffic patterns."
+  },
+  "1.7": {
+    summary: "Use subnet math to decide whether a proposed IPv4 network can support a department.",
+    evidence: [
+      "A department needs at least 50 usable host addresses and has been offered 192.168.40.64/27.",
+      "The team also needs the network address, broadcast address, wildcard mask, and usable range for documentation.",
+      "Several learners confuse total addresses with usable host addresses when they choose the subnet size."
+    ],
+    correct: [
+      "Reject /27 for 50 hosts because it provides 32 total addresses and 30 traditional usable host addresses.",
+      "Choose /26 or larger for at least 50 usable host addresses, then calculate the block boundaries.",
+      "Practice binary/block-size steps so the network, broadcast, wildcard, and host count agree."
+    ],
+    wrong: [
+      "Approve /27 because the number 27 is larger than 26 and therefore has more hosts.",
+      "Count the network and broadcast addresses as assignable workstation addresses."
+    ],
+    explanation: "Subnetting requires connecting CIDR length, host bits, block size, and usable addresses. The common beginner mistake is reversing prefix size or forgetting that traditional IPv4 subnets reserve the first and last address."
+  },
+  "1.8": {
+    summary: "Explain modern networking terms without losing the basic traffic-flow model.",
+    evidence: [
+      "A company is adding IoT sensors, edge gateways, automation, and a SASE service for remote users.",
+      "A manager asks whether SDN means switches are no longer needed or whether the control model changed.",
+      "Security wants policy applied consistently for users outside the office."
+    ],
+    correct: [
+      "Describe SDN as separating control and policy from individual device-by-device configuration.",
+      "Treat SASE as cloud-delivered networking and security functions for users and branches.",
+      "Keep basic addressing, routing, segmentation, and monitoring in the explanation because modern overlays still depend on fundamentals."
+    ],
+    wrong: [
+      "Say IoT devices do not need segmentation because they are small and low power.",
+      "Assume automation removes the need to understand routing, switching, or security policy."
+    ],
+    explanation: "Modern environments add abstraction, but they do not remove fundamentals. Network+ expects learners to recognize SDN, SASE, IoT, edge, and automation while still reasoning about traffic, policy, segmentation, and operations."
+  },
+  "2.1": {
+    summary: "Choose routing behavior for a branch network with local and remote destinations.",
+    evidence: [
+      "A branch has multiple VLANs, one internet edge, and a private WAN route back to the data center.",
+      "Only traffic to internal server networks should cross the WAN; internet traffic should leave locally.",
+      "A new static route caused users to lose access to a server subnet that worked before the change."
+    ],
+    correct: [
+      "Check the route table for longest-prefix match, default route behavior, and next-hop reachability.",
+      "Use static routes for simple known paths and dynamic routing when many routes or changes must be learned.",
+      "Verify return routing so packets can travel back to the branch instead of proving only one direction."
+    ],
+    wrong: [
+      "Troubleshoot only DNS because routing problems always appear as name-resolution failures.",
+      "Add a second default gateway to every client to make routing decisions more reliable."
+    ],
+    explanation: "Routing moves packets between networks by choosing next hops. The practical mental model is destination, matching route, next hop, and return path. When a route change breaks only certain destinations, the technician should inspect route specificity, next-hop reachability, and whether the far side knows how to send traffic back."
+  },
+  "2.2": {
+    summary: "Troubleshoot a VLAN and trunk problem after a department move changes where users connect.",
+    evidence: [
+      "Phones work on one floor, but moved workstations receive addresses from the wrong VLAN.",
+      "The access port configuration differs from the documented user VLAN, and the uplink trunk does not allow the new VLAN.",
+      "Spanning Tree is stable and no physical link errors are reported, narrowing the issue toward VLAN configuration."
+    ],
+    correct: [
+      "Verify access VLAN assignment on the endpoint ports before assuming upper-layer services failed.",
+      "Verify the trunk allows the VLAN between access and distribution switches.",
+      "Check DHCP scope or relay only after confirming Layer 2 VLAN placement."
+    ],
+    wrong: [
+      "Disable STP everywhere because VLAN problems are always caused by blocked ports.",
+      "Move the default gateway to every workstation instead of fixing the VLAN path."
+    ],
+    explanation: "Switching scenarios often combine access ports, trunks, VLANs, and STP. If a device lands in the wrong VLAN or a VLAN is missing from a trunk, upper-layer services may look broken even though the physical link is fine."
+  },
+  "2.3": {
+    summary: "Improve wireless coverage without creating more roaming and interference problems.",
+    evidence: [
+      "Users in a training room report slow wireless during classes, but the hallway has strong signal.",
+      "The room has many clients, two neighboring APs on overlapping channels, and legacy 2.4 GHz devices.",
+      "Authentication failures are not reported; the issue appears after clients associate."
+    ],
+    correct: [
+      "Review channel plan, band steering, AP density, transmit power, and client capacity.",
+      "Prefer 5 GHz or 6 GHz where supported for capacity, while keeping necessary 2.4 GHz coverage for legacy clients.",
+      "Validate roaming and interference with survey data instead of judging only by signal bars."
+    ],
+    wrong: [
+      "Raise every AP to maximum transmit power because stronger signal always improves roaming.",
+      "Change the SSID name because throughput problems after association are always naming problems."
+    ],
+    explanation: "Wireless design is a balance of coverage, capacity, channels, power, roaming, and authentication. More signal is not automatically better if it increases overlap or interference. In dense rooms, the better design often comes from channel planning, capacity, and client behavior rather than simply adding power."
+  },
+  "2.4": {
+    summary: "Plan physical installation details before mounting network equipment in a new closet.",
+    evidence: [
+      "A new closet will support access switches, AP cabling, UPS power, and fiber uplinks.",
+      "The site survey finds limited cooling, unlabeled cable bundles, and no clear grounding plan.",
+      "The team wants the install to be serviceable after the contractor leaves."
+    ],
+    correct: [
+      "Confirm rack space, power, cooling, grounding, cable management, labeling, and pathway limits before installation.",
+      "Document patch-panel, switchport, and cable labels so troubleshooting remains practical.",
+      "Verify environmental requirements for equipment instead of treating the closet as generic storage."
+    ],
+    wrong: [
+      "Install first and label later because labels only matter during audits.",
+      "Ignore cooling because network switches do not generate enough heat to affect reliability."
+    ],
+    explanation: "Physical installation is part of network reliability. Power, cooling, rack layout, labeling, grounding, and cable management directly affect uptime and troubleshooting speed. A clean install also gives the next technician enough context to replace, trace, or isolate equipment without guessing."
+  },
+  "3.1": {
+    summary: "Use change management to reduce outage risk during a switch replacement.",
+    evidence: [
+      "A switch replacement affects a department with phones, printers, and point-of-sale devices.",
+      "The proposed work has no rollback plan and no list of affected ports, which makes impact and recovery unclear.",
+      "The maintenance window is short and the business owner needs a clear communication plan."
+    ],
+    correct: [
+      "Create a change plan with scope, risk, approval, backup configuration, validation steps, and rollback.",
+      "Notify affected users and schedule the work for an approved maintenance window.",
+      "Record final port mappings and outcomes after the change so future troubleshooting has a baseline."
+    ],
+    wrong: [
+      "Skip approval because replacing hardware with a similar model is never risky.",
+      "Troubleshoot after users complain instead of defining success checks before the change."
+    ],
+    explanation: "Operations objectives test disciplined work. Change management, documentation, asset records, and communication prevent small technical tasks from becoming business outages. The point is not paperwork for its own sake; it is controlling risk, proving success, and preserving knowledge."
+  },
+  "3.2": {
+    summary: "Choose monitoring evidence for a recurring WAN slowdown reported at the same time each day.",
+    evidence: [
+      "Users report slow file transfers every afternoon between two offices during a predictable business window.",
+      "Interface counters show no physical errors, but NetFlow shows backup traffic consuming most WAN bandwidth.",
+      "SNMP graphs show utilization spikes that match the complaint window and help confirm timing."
+    ],
+    correct: [
+      "Use SNMP or telemetry for utilization trends and NetFlow/sFlow for traffic conversations.",
+      "Compare current behavior to a baseline before declaring the WAN underbuilt.",
+      "Use syslog or event data to correlate changes and device warnings with the slowdown."
+    ],
+    wrong: [
+      "Use only ping because round-trip time identifies every bandwidth consumer.",
+      "Erase baselines after each incident because old measurements make new troubleshooting harder."
+    ],
+    explanation: "Monitoring is about evidence. Utilization, flows, logs, baselines, and alerts answer different questions, and together they turn vague slowness into a cause the team can act on. The goal is to compare symptoms against measured behavior instead of relying on user perception alone."
+  },
+  "3.3": {
+    summary: "Match recovery design to RPO, RTO, and service importance for different business systems.",
+    evidence: [
+      "A ticketing system can lose up to one hour of data but must return within four hours.",
+      "A call-center voice platform has a much shorter downtime tolerance because calls stop revenue immediately.",
+      "The current backup completes nightly and has never been restored in a test."
+    ],
+    correct: [
+      "Use RPO to decide acceptable data loss and RTO to decide required restoration speed.",
+      "Test restores so the recovery plan is proven before a real outage.",
+      "Spend redundancy budget first on services with the tightest business requirements."
+    ],
+    wrong: [
+      "Assume backups guarantee availability even when restore time has never been measured.",
+      "Use MTBF as the amount of data the business can afford to lose, confusing reliability with recovery tolerance."
+    ],
+    explanation: "Disaster recovery terms guide design decisions. RPO, RTO, MTTR, MTBF, backups, redundancy, and testing should line up with business impact instead of generic best effort. A plan that has never been restored is still an assumption, so testing is part of the design."
+  },
+  "3.4": {
+    summary: "Troubleshoot client access by separating DNS, DHCP, IPAM, NTP, and address-family clues.",
+    evidence: [
+      "A client has an APIPA address and cannot reach internal names or internet sites.",
+      "Another client with a valid lease can reach sites by IP address but not by hostname.",
+      "Server logs show DHCP scope exhaustion and an old DNS forwarder setting."
+    ],
+    correct: [
+      "Treat APIPA as a DHCP assignment clue before blaming DNS or changing resolver settings.",
+      "Treat successful IP reachability with failed names as a DNS clue.",
+      "Use IPAM or lease data to find exhaustion, conflicts, and address planning problems."
+    ],
+    wrong: [
+      "Change NTP settings because time synchronization assigns IPv4 leases.",
+      "Disable IPv6 everywhere because any name-resolution problem must be caused by IPv6."
+    ],
+    explanation: "Network services support basic client operation, but their symptoms differ. DHCP provides configuration, DNS maps names, IPAM tracks use, NTP synchronizes time, and IPv4/IPv6 behavior needs evidence."
+  },
+  "3.5": {
+    summary: "Select remote access methods for users, administrators, and emergency management.",
+    evidence: [
+      "Remote staff need encrypted access to internal apps, admins need device management, and network engineers need console access during WAN outages.",
+      "Security wants MFA and logging for user access so remote sessions are attributable and reviewable.",
+      "The router has an out-of-band cellular management option that does not depend on the production WAN."
+    ],
+    correct: [
+      "Use VPN or ZTNA-style access for remote user application access when policy requires it.",
+      "Use SSH or secure management tools for administrators instead of insecure legacy protocols.",
+      "Use out-of-band management for access when the production network path is down."
+    ],
+    wrong: [
+      "Use Telnet for administrator access because encryption is unnecessary on internal networks.",
+      "Assume user VPN and out-of-band management are the same because both are remote."
+    ],
+    explanation: "Remote access questions test purpose. User access, administrative access, and out-of-band recovery have different risk, authentication, encryption, and path requirements. A good answer names who needs access, what they need to reach, and whether the production network must be working."
+  },
+  "4.1": {
+    summary: "Apply basic security concepts to protect an internal network segment with mixed trust levels.",
+    evidence: [
+      "Guest wireless users should reach only the internet, while employees need internal applications.",
+      "A vendor device needs limited access to one server and no lateral movement.",
+      "The team wants authentication, authorization, logging, and least privilege."
+    ],
+    correct: [
+      "Use segmentation and ACLs or firewall rules to limit each group to required destinations.",
+      "Use AAA, NAC, or identity-aware controls where device/user trust must be verified.",
+      "Log security-relevant decisions so access can be reviewed and investigated."
+    ],
+    wrong: [
+      "Put every device in one VLAN because internal traffic is automatically trusted.",
+      "Use encryption as a replacement for authorization decisions, even though encrypted traffic can still be unauthorized."
+    ],
+    explanation: "Security fundamentals are about reducing trust and controlling access. Segmentation, least privilege, authentication, authorization, accounting, and encryption work together but do not replace one another."
+  },
+  "4.2": {
+    summary: "Recognize attack behavior from network symptoms and connect it to likely business impact.",
+    evidence: [
+      "Users report certificate warnings on public Wi-Fi, and logs show a rogue gateway answering ARP requests.",
+      "A separate server shows many half-open connections and rising CPU during a traffic spike.",
+      "Security asks for the likely attack categories before choosing controls."
+    ],
+    correct: [
+      "Associate rogue gateway or ARP manipulation with on-path interception risk.",
+      "Associate floods or many half-open sessions with denial-of-service behavior.",
+      "Tie each attack to impact such as confidentiality loss, service disruption, or credential theft."
+    ],
+    wrong: [
+      "Assume certificate warnings prove a harmless browser preference issue.",
+      "Treat every spike as malware on the victim server before checking traffic patterns."
+    ],
+    explanation: "Attack questions rarely require forensics depth, but they do require symptom recognition. Match behaviors such as spoofing, interception, flooding, evil twin, or credential attacks to likely impact and first controls."
+  },
+  "4.3": {
+    summary: "Choose defensive controls for switch ports, wireless access, and perimeter inspection.",
+    evidence: [
+      "A conference room has open wall jacks, wireless guests need internet-only access, and public web traffic reaches an internal application.",
+      "Security wants to reduce rogue device access and inspect suspicious inbound traffic.",
+      "Operations needs controls that can be explained and supported during audits and outage calls."
+    ],
+    correct: [
+      "Use port security or NAC to limit unauthorized wired access at exposed switchports.",
+      "Segment guest wireless from internal resources with firewall or ACL policy.",
+      "Use IDS/IPS, WAF, or firewall features where traffic inspection is required."
+    ],
+    wrong: [
+      "Rely on SSID hiding as the main wireless security control instead of authentication and segmentation.",
+      "Use a load balancer as the only control for detecting malicious payloads."
+    ],
+    explanation: "Defensive controls should match the risk and location. Port security, NAC, segmentation, ACLs, firewalls, IDS/IPS, WAFs, and wireless security settings each protect different parts of the path."
+  },
+  "5.1": {
+    summary: "Follow troubleshooting methodology instead of jumping straight to a favorite fix.",
+    evidence: [
+      "Several users cannot print after a weekend change, but one printer and one application are involved.",
+      "A technician wants to reboot switches immediately before gathering scope.",
+      "The business owner needs updates and proof the original issue is fixed."
+    ],
+    correct: [
+      "Identify the problem by gathering symptoms, scope, recent changes, and expected behavior.",
+      "Form and test a theory before implementing a plan so the fix follows evidence instead of habit.",
+      "Verify full system functionality and document findings after the fix."
+    ],
+    wrong: [
+      "Make multiple changes at once so one of them is likely to work, even though it hides the real cause.",
+      "Close the ticket after a single successful ping even if printing was the original symptom."
+    ],
+    explanation: "The troubleshooting process protects the network and the technician. It turns pressure into a repeatable path: identify, theorize, test, plan, implement, verify, and document. That order matters because it keeps evidence tied to the original user symptom and avoids accidental new outages."
+  },
+  "5.2": {
+    summary: "Separate cabling and interface faults from higher-layer service problems.",
+    evidence: [
+      "A workstation drops offline when the desk is moved, and the switchport reports flapping with CRC errors.",
+      "Another user on the same VLAN remains connected, which helps narrow the issue to one drop or endpoint path.",
+      "The patch cable jacket is damaged near the desk grommet where the workstation was moved."
+    ],
+    correct: [
+      "Inspect and replace the suspect patch cable or wall path before changing DNS or routing.",
+      "Check interface counters, speed/duplex negotiation, link state, and physical damage.",
+      "Verify the link remains stable after the physical fix and that the original user symptom is gone."
+    ],
+    wrong: [
+      "Flush the DNS cache because CRC errors are name-resolution failures.",
+      "Add a static route because link flapping proves the gateway is missing."
+    ],
+    explanation: "Physical symptoms leave physical evidence: link state, errors, flaps, damaged media, wrong optics, or speed/duplex mismatch. Start where the evidence points. If only one desk moved and counters show physical errors, higher-layer service changes should wait until the link is stable."
+  },
+  "5.3": {
+    summary: "Diagnose network service failures by matching the symptom to the supporting service.",
+    evidence: [
+      "New clients cannot get leases, but existing clients with leases can still reach internal resources.",
+      "A separate group can reach web servers by IP address but not by name, which points toward DNS behavior.",
+      "Monitoring shows the DHCP server disk is full and one DNS forwarder is unreachable."
+    ],
+    correct: [
+      "Separate DHCP symptoms from DNS symptoms before changing firewall policy.",
+      "Check DHCP scope health, relay, and server status for lease failures.",
+      "Check DNS records, forwarders, and resolver settings for name failures."
+    ],
+    wrong: [
+      "Replace all access switches because DHCP and DNS are always Layer 2 features.",
+      "Disable the firewall entirely before identifying which service path is failing."
+    ],
+    explanation: "Service troubleshooting improves when symptoms are sorted by function. DHCP, DNS, NTP, authentication, and IPAM problems can look like network outages, but each has different evidence and tests."
+  },
+  "5.4": {
+    summary: "Use performance clues to distinguish congestion, latency, packet loss, and jitter.",
+    evidence: [
+      "Voice calls sound choppy during backups, file transfers are slow, and interface graphs show high utilization.",
+      "Pings show variable delay but almost no loss outside the backup window.",
+      "QoS markings exist but are not trusted on the WAN edge, so real-time traffic may not be protected."
+    ],
+    correct: [
+      "Use utilization and flow data to identify congestion sources during the reported slowdown window.",
+      "Measure latency, jitter, packet loss, and errors separately because they imply different causes.",
+      "Review QoS trust and scheduling when real-time traffic suffers during bulk transfers."
+    ],
+    wrong: [
+      "Assume low packet loss means voice quality cannot be affected, ignoring jitter and delay variation.",
+      "Increase Wi-Fi transmit power because every performance issue begins with wireless coverage."
+    ],
+    explanation: "Performance troubleshooting needs the right measurement. Congestion, latency, jitter, packet loss, errors, and application delay overlap, but they are not the same fault. The learner should choose tools and counters that isolate which condition changed during the complaint window."
+  },
+  "5.5": {
+    summary: "Pick the right troubleshooting tool for the evidence the technician needs.",
+    evidence: [
+      "A user can ping a web server by IP, but the hostname resolves to an unexpected address.",
+      "Another path fails after the second hop, and the switchport location for a device is unknown.",
+      "The technician needs command output that can be attached to the ticket."
+    ],
+    correct: [
+      "Use nslookup or dig to inspect DNS answers for the hostname and compare them to expected records.",
+      "Use traceroute or tracert to identify where a routed path stops responding.",
+      "Use LLDP/CDP, ARP, MAC tables, packet capture, or interface commands based on the layer being investigated."
+    ],
+    wrong: [
+      "Use only ping for every problem because reachability proves DNS, routing, and application health.",
+      "Use a cable tester to verify public DNS records, mixing a physical-layer tool with a name-service problem."
+    ],
+    explanation: "Tools answer specific questions. Network+ expects learners to know what ping, traceroute, nslookup/dig, ipconfig/ifconfig/ip, arp, netstat/ss, tcpdump, LLDP/CDP, and cable testers can prove."
+  }
+}
+
+for (const tier of tiers) {
+  for (const module of tier.modules) {
+    for (const activity of module.activities) {
+      if (activity.type !== "scenario") continue
+      const scenario = scenarioEditorialCases[activity.objective]
+      if (!scenario) continue
+      activity.summary = scenario.summary
+      activity.evidence = scenario.evidence
+      activity.actions = [
+        ...scenario.correct.map((label) => ({ label, correct: true })),
+        ...scenario.wrong.map((label) => ({ label, correct: false })),
+      ]
+      activity.explanation = scenario.explanation
+    }
+  }
+}
+
+const networkQuestionOptionReplacements = new Map([
+  [
+    "They should choose the newest technology term in the objective list.",
+    "They should verify only the device brand and model before changing the setting.",
+  ],
+  [
+    "They should ignore scope because all network symptoms have the same cause.",
+    "They should treat one user's symptom as a site-wide outage without checking scope.",
+  ],
+  [
+    "They should restart unrelated devices until the symptom disappears.",
+    "They should change a nearby service because it is easier to access than the affected path.",
+  ],
+  [
+    "A successful test of an unrelated service only.",
+    "A test from a different VLAN or service that never touched the affected path.",
+  ],
+  [
+    "A change made without a rollback plan.",
+    "A proposed fix that cannot be reversed if it worsens the outage.",
+  ],
+  [
+    "A guess based only on the device brand.",
+    "A conclusion based on vendor/model instead of counters, logs, or packet evidence.",
+  ],
+])
+
+function polishNetworkQuestionBank() {
+  for (const activity of tiers.flatMap((tier) => tier.modules).flatMap((module) => module.activities)) {
+    if (!activity.questions) continue
+    for (const question of activity.questions) {
+      question.prompt = question.prompt
+        .replace(
+          /A Network\+ learner is reviewing ([^.]+)\. Which description correctly matches ([^?]+)\?/,
+          "During a Network+ review of $1, which description best identifies $2 in a real ticket?",
+        )
+        .replace(
+          /\[([^\]]+)\] A Network\+ learner is reviewing ([^.]+)\. Which description correctly matches ([^?]+)\?/,
+          "[$1] During a Network+ review of $2, which description best identifies $3 in a real ticket?",
+        )
+
+      question.options = question.options.map((option) =>
+        networkQuestionOptionReplacements.get(option) ?? option,
+      )
+    }
+  }
+}
+
+polishNetworkQuestionBank()
 
 export const masterFlashcardsActivity = {
   id: 'master-flashcards',

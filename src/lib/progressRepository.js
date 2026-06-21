@@ -1,5 +1,5 @@
 const STORAGE_KEY = 'networkplus-learner-progress'
-export const CURRENT_PROGRESS_VERSION = 6
+export const CURRENT_PROGRESS_VERSION = 7
 export const PROGRESS_EXPORT_TYPE = 'network-plus-progress'
 
 const ACTIVITY_ID_ALIASES = {
@@ -19,6 +19,7 @@ export function createDefaultProgress() {
     learnerFeedback: [],
     validationSessions: [],
     confidenceRatings: {},
+    manualQaChecks: {},
     totalStudyMinutes: 0,
     currentActivityId: 'n11-osi-reference-model-lesson',
     lastStudiedAt: null,
@@ -54,6 +55,7 @@ export function migrateProgress(value) {
       ? value.validationSessions.filter((entry) => entry && typeof entry === 'object' && typeof entry.tier === 'string')
       : [],
     confidenceRatings: value.confidenceRatings && typeof value.confidenceRatings === 'object' ? value.confidenceRatings : {},
+    manualQaChecks: value.manualQaChecks && typeof value.manualQaChecks === 'object' ? value.manualQaChecks : {},
   }
 }
 

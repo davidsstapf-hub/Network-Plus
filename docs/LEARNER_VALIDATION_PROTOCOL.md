@@ -19,7 +19,7 @@ During the session, the learner should use the in-app activity validation form w
 
 ## Session Logging
 
-Use the in-app Validation Lab to record:
+Record each observed session in `docs/VALIDATION_LOG.md` with:
 
 - Learner ID.
 - Tier.
@@ -29,7 +29,7 @@ Use the in-app Validation Lab to record:
 - Severity.
 - Notes.
 
-Use the Tier 1 Trial Runner in Validation Lab to launch required Tier 1 activities in order. After a session, use Copy validation package to capture learner sessions, activity feedback, tier gate status, and objective feedback for review.
+During the session, have the learner use the activity feedback form and confidence checks inside the app. After the session, group those notes by objective and add the session-level summary to the validation log.
 
 Critical and high severity findings block launch until resolved and retested.
 

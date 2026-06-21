@@ -23,6 +23,7 @@ export function validationGateStatus(progress, tiers) {
   const summary = tierValidationSummary(progress, tiers)
   const feedback = progress.learnerFeedback ?? []
   const blockers = (progress.validationSessions ?? []).filter((session) => launchBlockingSeverities.includes(session.severity))
+  const qa = manualQaSummary(progress)
   return {
     tierSummary: summary,
     readyTiers: summary.filter((tier) => tier.ready).length,
@@ -30,7 +31,7 @@ export function validationGateStatus(progress, tiers) {
     feedbackCount: feedback.length,
     blockerCount: blockers.length,
     readyForLearningTrials: summary[0]?.learners >= 1 && feedback.length > 0,
-    readyForLaunch: summary.every((tier) => tier.ready) && blockers.length === 0,
+    readyForLaunch: summary.every((tier) => tier.ready) && blockers.length === 0 && qa.blockers === 0 && qa.open === 0,
   }
 }
 
@@ -48,4 +49,17 @@ export function feedbackByObjective(progress) {
     grouped.set(key, row)
   }
   return [...grouped.values()].sort((a, b) => b.total - a.total || a.objective.localeCompare(b.objective, undefined, { numeric: true }))
+}
+
+export function manualQaSummary(progress) {
+  const checks = Object.values(progress.manualQaChecks ?? {})
+  return checks.reduce((summary, check) => {
+    const status = check?.status ?? 'open'
+    summary.total += 1
+    if (status === 'pass') summary.pass += 1
+    else if (status === 'issue') summary.issue += 1
+    else if (status === 'blocker') summary.blockers += 1
+    else summary.open += 1
+    return summary
+  }, { total: 0, pass: 0, issue: 0, blockers: 0, open: 0 })
 }

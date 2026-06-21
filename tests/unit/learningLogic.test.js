@@ -1,9 +1,9 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { allActivities, tiers } from '../../src/content/studyData.js'
-import { getModuleProgress, getNextActivity, getObjectiveRemediation, getOverallProgress, getReadiness, getReadinessSignals, getRecommendation, getTierProgress, getWeakObjectives, moduleNeedsReview, requiredActivitiesForTier } from '../../src/lib/learningLogic.js'
+import { getExamRemediationMap, getLatestExamAttempt, getModuleProgress, getNextActivity, getObjectiveRemediation, getOverallProgress, getReadiness, getReadinessSignals, getRecommendation, getTierProgress, getWeakObjectives, moduleNeedsReview, requiredActivitiesForTier } from '../../src/lib/learningLogic.js'
 import { createDefaultProgress, createProgressRepository, migrateProgress } from '../../src/lib/progressRepository.js'
-import { feedbackByObjective, tierValidationSummary, validationGateStatus } from '../../src/lib/validationLogic.js'
+import { feedbackByObjective, manualQaSummary, tierValidationSummary, validationGateStatus } from '../../src/lib/validationLogic.js'
 
 test('a new learner starts at the first Network+ lesson', () => {
   const progress = createDefaultProgress()
@@ -53,6 +53,23 @@ test('weak objective remediation maps misses back to learning activities', () =>
   assert.equal(remediation.quiz.type, 'quiz')
 })
 
+test('exam remediation map links missed objectives to review activities', () => {
+  const progress = {
+    ...createDefaultProgress(),
+    examAttempts: [
+      { activityId: 'older', score: 0.75, objectiveMisses: ['2.1'] },
+      { activityId: 't6-practice-exam', score: 0.62, objectiveMisses: ['1.1', '1.7', '1.7'] },
+    ],
+  }
+  const latest = getLatestExamAttempt(progress)
+  assert.equal(latest.activityId, 't6-practice-exam')
+  const map = getExamRemediationMap(latest)
+  assert.deepEqual(map.map((item) => item.objective), ['1.1', '1.7'])
+  assert.equal(map[0].lesson.type, 'lesson')
+  assert.equal(map[0].flashcards.type, 'flashcards')
+  assert.equal(map[1].subnetting.type, 'subnetting')
+})
+
 test('readiness signals expose beginner launch gates', () => {
   const progress = createDefaultProgress()
   const signals = getReadinessSignals(progress)
@@ -70,6 +87,7 @@ test('progress repository persists and rejects invalid imports', () => {
     completedActivityIds:[allActivities[0].id],
     learnerFeedback:[{ id:'fb-1', activityId:allActivities[0].id, signal:'confusing', note:'Need another example.' }],
     confidenceRatings:{ [allActivities[0].id]: { activityId:allActivities[0].id, rating:'medium' } },
+    manualQaChecks:{ 'keyboard-lesson': { id:'keyboard-lesson', status:'pass' } },
     validationSessions:[{ id:'session-1', tier:'1', learnerId:'beginner-1', severity:'none' }],
   }
   const imported = repository.import(repository.export(original))
@@ -77,6 +95,7 @@ test('progress repository persists and rejects invalid imports', () => {
   assert.equal(imported.learnerFeedback.length, 1)
   assert.equal(imported.learnerFeedback[0].signal, 'confusing')
   assert.equal(imported.confidenceRatings[allActivities[0].id].rating, 'medium')
+  assert.equal(imported.manualQaChecks['keyboard-lesson'].status, 'pass')
   assert.equal(imported.validationSessions.length, 1)
   assert.throws(() => repository.import('{"type":"unrelated","progress":{}}'), /not a Network\+ learner export/)
   assert.throws(() => repository.import('not json'), /not valid JSON/)
@@ -84,11 +103,12 @@ test('progress repository persists and rejects invalid imports', () => {
 
 test('migration repairs malformed progress and deduplicates activity ids', () => {
   const first = allActivities[0].id
-  const migrated = migrateProgress({ version: 0, completedActivityIds: [first, first], results: null, learnerFeedback: [{ activityId:first, signal:'too-hard' }, null, { signal:'bad' }], confidenceRatings: null, validationSessions: [{ tier:'1', learnerId:'A' }, { learnerId:'B' }] })
+  const migrated = migrateProgress({ version: 0, completedActivityIds: [first, first], results: null, learnerFeedback: [{ activityId:first, signal:'too-hard' }, null, { signal:'bad' }], confidenceRatings: null, manualQaChecks: null, validationSessions: [{ tier:'1', learnerId:'A' }, { learnerId:'B' }] })
   assert.deepEqual(migrated.completedActivityIds, [first])
   assert.deepEqual(migrated.results, {})
   assert.equal(migrated.learnerFeedback.length, 1)
   assert.deepEqual(migrated.confidenceRatings, {})
+  assert.deepEqual(migrated.manualQaChecks, {})
   assert.equal(migrated.validationSessions.length, 1)
 })
 
@@ -116,4 +136,23 @@ test('validation gate summarizes learner sessions and feedback by objective', ()
   const grouped = feedbackByObjective(progress)
   assert.equal(grouped[0].objective, '1.1')
   assert.equal(grouped[0].total, 2)
+})
+
+test('manual QA summary counts open, pass, issue, and blocker statuses', () => {
+  const progress = {
+    ...createDefaultProgress(),
+    manualQaChecks: {
+      a: { status: 'pass' },
+      b: { status: 'issue' },
+      c: { status: 'blocker' },
+      d: { status: 'open' },
+    },
+  }
+  const summary = manualQaSummary(progress)
+  assert.deepEqual(summary, { total: 4, pass: 1, issue: 1, blockers: 1, open: 1 })
+  const gate = validationGateStatus({
+    ...progress,
+    validationSessions: tiers.map((tier) => [1,2,3].map((learner) => ({ tier: String(tier.number), learnerId: `learner-${learner}`, severity: 'none' }))).flat(),
+  }, tiers)
+  assert.equal(gate.readyForLaunch, false)
 })
