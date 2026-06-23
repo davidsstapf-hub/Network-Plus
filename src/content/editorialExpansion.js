@@ -141,7 +141,7 @@ export const editorialExpansion = {
     workplaceExample: 'Before changing a trunk, an admin records the current config, gets approval, schedules a window, prepares rollback, and updates documentation after verification.',
     misconception: 'Change management is not paperwork for its own sake. It prevents surprise outages and gives the team a way back.',
     examReasoning: 'Look for words like baseline, rollback, approval, asset, SLA, MOU, and diagram; the best answer usually reduces risk and preserves evidence.',
-    practiceCluster: { title: 'Operations mini-drill', prompts: ['Need compare current utilization to normal: baseline.', 'Need undo a failed change: rollback plan.', 'Need know switch ownership and warranty: asset inventory.', 'Need schedule disruptive upgrade: maintenance window.'] },
+    practiceCluster: { title: 'Operations mini-drill', prompts: ['You need to compare current utilization to normal: use a baseline.', 'You need to undo a failed change: use a rollback plan.', 'You need to know switch ownership and warranty status: use the asset inventory.', 'You need to schedule a disruptive upgrade: use a maintenance window.'] },
   },
   '3.2': {
     title: 'Monitoring evidence',

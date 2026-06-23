@@ -57,6 +57,39 @@ test('responsive core surfaces render on narrow viewports @responsive', async ({
   await expect(page.locator('body')).not.toHaveCSS('overflow-x', 'scroll')
 })
 
+test('shared UI surfaces do not overflow horizontally', async ({ page }) => {
+  const checkNoHorizontalOverflow = async () => {
+    const overflow = await page.evaluate(() => {
+      const selectors = [
+        'body',
+        '.topbar',
+        '.sidebar',
+        '.start-card--primary',
+        '.stats-row',
+        '.journey-panel',
+      ]
+      return selectors
+        .map((selector) => {
+          const node = document.querySelector(selector)
+          if (!node) return null
+          return {
+            selector,
+            scrollWidth: Math.ceil(node.scrollWidth),
+            clientWidth: Math.ceil(node.clientWidth),
+          }
+        })
+        .filter(Boolean)
+        .filter((entry) => entry.scrollWidth > entry.clientWidth + 2)
+    })
+    expect(overflow).toEqual([])
+  }
+
+  await checkNoHorizontalOverflow()
+  await page.getByRole('button', { name: /Open next activity/i }).click()
+  await expect(page.getByRole('dialog')).toBeVisible()
+  await checkNoHorizontalOverflow()
+})
+
 test('learning path opens the first lesson activity', async ({ page }) => {
   await page.getByRole('button', { name: /Open next activity/i }).click()
   await expect(page.locator('.activity-title h1')).toContainText(/OSI Reference Model/i)

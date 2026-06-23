@@ -278,24 +278,24 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--green); out
 .learning-objectives { margin: 8px 0 54px; padding: 19px 0; border: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; }
 .lesson-body { display: block; }
 .lesson-body .lesson-section { padding: 0; margin: 0 0 54px; display: grid; grid-template-columns: 38px minmax(0,1fr); gap: 18px; border: 0; border-radius: 0; background: transparent; }
-.lesson-section__number { padding-top: 9px; color: var(--green); font: 600 9px 'DM Mono',monospace; }
+.lesson-section__number { padding-top: 9px; color: var(--green); font: 600 15px 'DM Mono',monospace; }
 .lesson-body .lesson-section h2 { margin: 0 0 16px; color: #f1f8fb; font-size: clamp(24px,3.5vw,34px); line-height: 1.18; letter-spacing: -.045em; }
-.lesson-body .lesson-section p { margin: 0; color: #c4d5db; font-size: 15px; line-height: 1.9; letter-spacing: -.01em; }
+.lesson-body .lesson-section p { margin: 0; color: #c4d5db; font-size: 22px; line-height: 1.75; letter-spacing: 0; }
 .beginner-bridge { margin: 20px 0 46px; padding: 20px; border: 1px solid rgba(0,217,255,.2); border-radius: 14px; background: radial-gradient(circle at 100% 0%,rgba(0,217,255,.08),transparent 34%),rgba(4,15,20,.82); box-shadow: inset 0 1px rgba(255,255,255,.025); }
-.beginner-bridge h2 { margin: 0 0 16px; color: #f1f8fb; font-size: 22px; line-height: 1.25; letter-spacing: -.035em; }
+.beginner-bridge h2 { margin: 0 0 16px; color: #f1f8fb; font-size: 30px; line-height: 1.2; letter-spacing: -.02em; }
 .beginner-bridge__grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
 .beginner-bridge article { padding: 14px; border: 1px solid rgba(139,231,255,.13); border-radius: 10px; background: rgba(255,255,255,.018); }
-.beginner-bridge strong { display: block; margin-bottom: 8px; color: #8be7ff; font-size: 11px; }
-.beginner-bridge p { margin: 0; color: #b8ced6; font-size: 11px; line-height: 1.7; }
+.beginner-bridge strong { display: block; margin-bottom: 10px; color: #8be7ff; font-size: 20px; line-height: 1.25; }
+.beginner-bridge p { margin: 0; color: #b8ced6; font-size: 21px; line-height: 1.6; }
 .editorial-expansion { margin: 0 0 52px; padding: 22px; border: 1px solid rgba(53,240,160,.2); border-radius: 16px; background: radial-gradient(circle at 0% 0%,rgba(53,240,160,.075),transparent 32%),linear-gradient(145deg,rgba(5,20,24,.94),rgba(4,12,18,.94)); box-shadow: inset 0 1px rgba(255,255,255,.025),0 24px 70px rgba(0,0,0,.2); }
-.editorial-expansion__intro h2 { margin: 0 0 12px; color: #f1f8fb; font-size: 24px; line-height: 1.2; letter-spacing: -.04em; }
-.editorial-expansion__intro p:not(.eyebrow) { margin: 0 0 18px; color: #c4d5db; font-size: 14px; line-height: 1.8; }
+.editorial-expansion__intro h2 { margin: 0 0 18px; color: #f1f8fb; font-size: 38px; line-height: 1.14; letter-spacing: -.02em; }
+.editorial-expansion__intro p:not(.eyebrow) { margin: 0 0 28px; color: #c4d5db; font-size: 25px; line-height: 1.55; letter-spacing: 0; }
 .editorial-expansion__grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
-.editorial-expansion article { padding: 15px; border: 1px solid rgba(139,231,255,.12); border-radius: 11px; background: rgba(255,255,255,.018); }
-.editorial-expansion article strong,.practice-cluster > strong { display: block; margin-bottom: 8px; color: #75f0c2; font-size: 11px; }
-.editorial-expansion article p { margin: 0; color: #b8ced6; font-size: 11px; line-height: 1.7; }
-.practice-cluster { margin-top: 12px; padding: 16px; border: 1px solid rgba(0,217,255,.14); border-radius: 12px; background: rgba(0,217,255,.035); }
-.practice-cluster ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; color: #c4d5db; font-size: 12px; line-height: 1.6; }
+.editorial-expansion article { padding: 24px; border: 1px solid rgba(139,231,255,.12); border-radius: 11px; background: rgba(255,255,255,.018); }
+.editorial-expansion article strong,.practice-cluster > strong { display: block; margin-bottom: 14px; color: #75f0c2; font-size: 21px; line-height: 1.25; }
+.editorial-expansion article p { margin: 0; color: #b8ced6; font-size: 22px; line-height: 1.58; }
+.practice-cluster { margin-top: 24px; padding: 24px 28px; border: 1px solid rgba(0,217,255,.14); border-radius: 12px; background: rgba(0,217,255,.035); }
+.practice-cluster ul { margin: 0; padding-left: 24px; display: grid; gap: 16px; color: #c4d5db; font-size: 24px; line-height: 1.5; }
 .lesson-recap {
   margin: -12px 0 44px 56px;
   padding: 22px;
@@ -625,18 +625,18 @@ button:disabled { cursor:not-allowed; opacity:.5; }.sr-only { position:absolute;
 .button { font-size:16px; }
 .sidebar__mission strong,.profile strong,.path-summary span strong { font-size:17px; }
 .sidebar__mission>span,.profile span,.hero__copy>p:not(.eyebrow),.page-intro p:not(.eyebrow),.tier-banner>div>p:not(.eyebrow) { font-size:19px; }
-.eyebrow,.status-pill,.nav__badge,.text-button,.back-button,.trend-up,.quiz-head span,.activity-header__type,.lesson-objective span,.activity-status,.tier-bars span b,.tier-bars>div>strong,.domain-row__progress,.domain-card small,.domain-card__bottom strong,.topic-chips b,.practice-feature>div span,.exam-mode-picker button b,.search-tier>header span,.search-module button span { font-size:14px; }
-.stats-row p,.stats-row small,.domain-row__name small,.weight-key,.domain-card p,.topic-chips span,.tier-node__copy em,.path-summary span small,.guidance-note span,.activity-copy small,.activity-time,.preview-badge,.quiz-footer>span,.results-score span,.welcome-card>small,.welcome-tiers span,.flashcard span,.flashcard small,.completion-toast small,.lesson-media figcaption,.resources-disclosure { font-size:16px; }
-.domain-row__name strong,.challenge-card>p:not(.eyebrow),.domain-detail p:not(.eyebrow),.practice-feature p,.practice-option p:not(.eyebrow),.mastery-panel>p:not(.eyebrow),.guidance-note strong,.module-heading p:not(.eyebrow),.activity-copy em,.learning-objectives span,.key-idea strong,.key-idea p,.explanation strong,.explanation p,.reassurance-card>p:not(.eyebrow),.study-method-grid article>p:not(.eyebrow),.study-rhythm li span,.study-disclaimer p,.additional-resources>div>p:not(.eyebrow),.exam-status span,.search-module button small { font-size:19px; }
-.activity-copy strong,.path-summary span strong,.exam-mode-picker>p:not(.eyebrow),.exam-mode-picker button span,.scenario-brief>p:not(.eyebrow),.scenario-hints p,.scenario-evidence,.scenario-hints,.activity-instruction,.inline-check button,.lesson-body .inline-check__explanation { font-size:20px; }
-.answer { font-size:20px; line-height:1.5; }
-.lesson-body section p { font-size:20px; }
+.eyebrow,.status-pill,.nav__badge,.text-button,.back-button,.trend-up,.quiz-head span,.activity-header__type,.lesson-objective span,.activity-status,.tier-bars span b,.tier-bars>div>strong,.domain-row__progress,.domain-card small,.domain-card__bottom strong,.topic-chips b,.practice-feature>div span,.exam-mode-picker button b,.search-tier>header span,.search-module button span { font-size:15px; }
+.stats-row p,.stats-row small,.domain-row__name small,.weight-key,.domain-card p,.topic-chips span,.tier-node__copy em,.path-summary span small,.guidance-note span,.activity-copy small,.activity-time,.preview-badge,.quiz-footer>span,.results-score span,.welcome-card>small,.welcome-tiers span,.flashcard span,.flashcard small,.completion-toast small,.lesson-media figcaption,.resources-disclosure { font-size:18px; }
+.domain-row__name strong,.challenge-card>p:not(.eyebrow),.domain-detail p:not(.eyebrow),.practice-feature p,.practice-option p:not(.eyebrow),.mastery-panel>p:not(.eyebrow),.guidance-note strong,.module-heading p:not(.eyebrow),.activity-copy em,.learning-objectives span,.key-idea strong,.key-idea p,.explanation strong,.explanation p,.reassurance-card>p:not(.eyebrow),.study-method-grid article>p:not(.eyebrow),.study-rhythm li span,.study-disclaimer p,.additional-resources>div>p:not(.eyebrow),.exam-status span,.search-module button small { font-size:21px; }
+.activity-copy strong,.path-summary span strong,.exam-mode-picker>p:not(.eyebrow),.exam-mode-picker button span,.scenario-brief>p:not(.eyebrow),.scenario-hints p,.scenario-evidence,.scenario-hints,.activity-instruction,.inline-check button,.lesson-body .inline-check__explanation { font-size:22px; }
+.answer { font-size:22px; line-height:1.5; }
+.lesson-body section p { font-size:22px; }
 
 @media(max-width:560px){
   .nav__item { font-size:18px; }
-  .activity-copy strong { font-size:20px; }
-  .activity-copy em { font-size:19px; }
-  .answer { font-size:20px; }
+  .activity-copy strong { font-size:21px; }
+  .activity-copy em { font-size:20px; }
+  .answer { font-size:22px; }
 }
 
 /* 2026 interface polish: calmer hierarchy, clearer action states, richer depth. */
@@ -1562,13 +1562,13 @@ body {
 .objective-visual::before { content:""; position:absolute; inset:0; opacity:.52; background: radial-gradient(circle at 18% 16%,rgba(0,217,255,.22),transparent 26%), radial-gradient(circle at 86% 20%,rgba(124,92,255,.18),transparent 28%), linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px); background-size: auto,auto,44px 44px,44px 44px; pointer-events:none; }
 .objective-visual__header, .objective-visual__diagram { position: relative; z-index: 1; }
 .objective-visual__header { display:grid; gap:8px; max-width: 650px; }
-.objective-visual__header h2 { margin:0; color:#f4fbff; font-size: clamp(22px,3vw,31px); line-height:1.1; letter-spacing:-.045em; }
-.objective-visual__header p { margin:0; color:#a8c0c9; font-size:13px; line-height:1.65; }
+.objective-visual__header h2 { margin:0; color:#f4fbff; font-size: clamp(30px,3vw,40px); line-height:1.1; letter-spacing:-.02em; }
+.objective-visual__header p { margin:0; color:#a8c0c9; font-size:21px; line-height:1.55; }
 .objective-visual__diagram { margin-top:20px; display:grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap:10px; }
-.objective-visual__node { min-height:112px; padding:15px; display:flex; flex-direction:column; justify-content:space-between; gap:12px; border:1px solid rgba(139,231,255,.18); border-radius:16px; background: rgba(3,13,17,.72); box-shadow: inset 0 1px 0 rgba(255,255,255,.05); }
-.objective-visual__node b { color:#eafaff; font-size:13px; line-height:1.2; letter-spacing:-.015em; }
-.objective-visual__node span { color:#8fb0bb; font-size:11px; line-height:1.45; }
-.objective-visual__node::before { content: counter(step); counter-increment: step; width:28px; height:28px; display:grid; place-items:center; border-radius:10px; color:#051014; background: var(--green); font:700 12px 'DM Mono',monospace; box-shadow:0 0 24px rgba(0,217,255,.24); }
+.objective-visual__node { min-height:172px; padding:22px; display:flex; flex-direction:column; justify-content:space-between; gap:16px; border:1px solid rgba(139,231,255,.18); border-radius:16px; background: rgba(3,13,17,.72); box-shadow: inset 0 1px 0 rgba(255,255,255,.05); }
+.objective-visual__node b { color:#eafaff; font-size:21px; line-height:1.25; letter-spacing:0; }
+.objective-visual__node span { color:#8fb0bb; font-size:19px; line-height:1.45; }
+.objective-visual__node::before { content: counter(step); counter-increment: step; width:36px; height:36px; display:grid; place-items:center; border-radius:10px; color:#051014; background: var(--green); font:700 16px 'DM Mono',monospace; box-shadow:0 0 24px rgba(0,217,255,.24); }
 .objective-visual__diagram { counter-reset: step; }
 .objective-visual--triad .objective-visual__diagram { grid-template-columns: repeat(4,minmax(0,1fr)); }
 .objective-visual--flow .objective-visual__node, .objective-visual--attack .objective-visual__node, .objective-visual--timeline .objective-visual__node, .objective-visual--signal .objective-visual__node { position:relative; }
@@ -1678,4 +1678,130 @@ body {
   .subnet-answer-line { grid-template-columns: minmax(0,1fr) minmax(150px,.9fr); gap: 10px; font-size: 18px; }
   .subnet-action { font-size: 21px; }
   .subnet-explain-grid, .subnet-binary-strip { grid-template-columns: 1fr; }
+}
+
+/* Shared learning-readiness layer: readable lessons without dense UI overflow. */
+:root {
+  --learn-body: clamp(17px, 1.25vw, 20px);
+  --learn-support: clamp(15px, 1vw, 18px);
+  --learn-small: clamp(12px, .82vw, 15px);
+  --learn-heading: clamp(25px, 3vw, 36px);
+}
+
+.lesson-body .lesson-section p,
+.lesson-body section p,
+.beginner-bridge p,
+.editorial-expansion article p,
+.practice-cluster ul,
+.key-idea p,
+.explanation p,
+.scenario-brief > p:not(.eyebrow),
+.scenario-hints p,
+.scenario-evidence,
+.activity-instruction,
+.lesson-body .inline-check__explanation {
+  font-size: var(--learn-body);
+  line-height: 1.7;
+  letter-spacing: 0;
+}
+
+.lesson-body .lesson-section h2,
+.beginner-bridge h2,
+.editorial-expansion__intro h2,
+.objective-visual__header h2 {
+  font-size: var(--learn-heading);
+  line-height: 1.16;
+  letter-spacing: -.025em;
+}
+
+.learning-objectives span,
+.beginner-bridge strong,
+.editorial-expansion article strong,
+.practice-cluster > strong,
+.inline-check button,
+.answer,
+.objective-visual__node b {
+  font-size: var(--learn-support);
+  line-height: 1.45;
+}
+
+.objective-visual__header p,
+.objective-visual__node span,
+.lesson-media figcaption,
+.activity-copy em,
+.activity-copy small,
+.flashcard span,
+.flashcard small,
+.search-module button small {
+  font-size: var(--learn-small);
+  line-height: 1.55;
+}
+
+.start-card,
+.stats-row article,
+.tier-node,
+.activity-row,
+.domain-row,
+.ports-reference__list button,
+.answer,
+.inline-check button,
+.objective-visual__node {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.stats-row p,
+.stats-row small,
+.domain-row__name small,
+.tier-node__copy em,
+.activity-time,
+.preview-badge,
+.results-score span,
+.resources-disclosure,
+.ports-counter,
+.ports-feedback {
+  font-size: var(--learn-small);
+  line-height: 1.45;
+}
+
+.objective-visual__node {
+  min-height: 132px;
+  padding: clamp(16px, 2vw, 22px);
+}
+
+@media (max-width: 760px) {
+  :root {
+    --learn-body: 18px;
+    --learn-support: 17px;
+    --learn-small: 13px;
+    --learn-heading: clamp(24px, 7vw, 32px);
+  }
+
+  .beginner-bridge__grid,
+  .editorial-expansion__grid,
+  .objective-visual__diagram {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-body .lesson-section {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .lesson-section__number {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --learn-body: 17px;
+    --learn-support: 16px;
+    --learn-small: 12px;
+  }
+
+  .answer,
+  .inline-check button {
+    min-height: 48px;
+  }
 }
