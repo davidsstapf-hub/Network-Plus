@@ -1028,8 +1028,20 @@ export function ActivityView({
             </span>
           </div>
           <div className="activity-header__actions">
+            {!completed && nextActivity && (
+              <button
+                type="button"
+                className="activity-skip"
+                onClick={() => onOpenNext(nextActivity.id)}
+                aria-label={`Skip to next objective: ${nextActivity.title}`}
+              >
+                Skip
+                <ArrowRight size={14} />
+              </button>
+            )}
             {completed && nextActivity && (
               <button
+                type="button"
                 className="activity-next"
                 onClick={() => onOpenNext(nextActivity.id)}
               >

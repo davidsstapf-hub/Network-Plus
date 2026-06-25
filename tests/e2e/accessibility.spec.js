@@ -228,6 +228,19 @@ test('completing an activity opens the next activity at the top', async ({ page 
   await expect.poll(async () => dialog.evaluate((node) => node.scrollTop)).toBe(0)
 })
 
+test('activity skip advances without completing the objective @responsive', async ({ page }) => {
+  await page.getByRole('button', { name: /Open next activity/i }).click()
+  await expect(page.getByRole('dialog')).toBeVisible()
+  await expect(page.getByLabel(/activity location/i)).toContainText(/Activity 1 of/i)
+  await page.getByRole('button', { name: /Skip to next objective/i }).click()
+  await expect(page.getByLabel(/activity location/i)).toContainText(/Activity 2 of/i)
+  const completedIds = await page.evaluate(() => {
+    const progress = JSON.parse(localStorage.getItem('networkplus-learner-progress'))
+    return progress.completedActivityIds
+  })
+  expect(completedIds).toEqual([])
+})
+
 test('global Continue learning opens the next recommended Network+ activity', async ({ page }) => {
   await page.locator('.topbar').getByRole('button', { name: /continue learning/i }).click()
   await expect(page.getByRole('dialog')).toBeVisible()
