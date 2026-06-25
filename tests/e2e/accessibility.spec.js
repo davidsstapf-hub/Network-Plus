@@ -90,9 +90,16 @@ test('shared UI surfaces do not overflow horizontally @responsive', async ({ pag
     const menuButton = page.getByRole('button', { name: /Open navigation/i })
     if (await menuButton.isVisible()) await menuButton.click()
   }
+  const mainNavigation = () => page.getByRole('navigation', { name: /main navigation/i })
   const navigate = async (name) => {
     await openNavigationIfNeeded()
-    await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name }).click()
+    await mainNavigation().getByRole('button', { name }).click()
+  }
+  const navigatePacketSection = async (name) => {
+    await openNavigationIfNeeded()
+    const nav = mainNavigation()
+    await nav.getByRole('button', { name: /^Life of a Packet$/i }).click()
+    await nav.getByRole('button', { name }).click()
   }
   const checkNoHorizontalOverflow = async (extraSelectors = []) => {
     const overflow = await page.evaluate((selectorsFromTest) => {
@@ -151,7 +158,7 @@ test('shared UI surfaces do not overflow horizontally @responsive', async ({ pag
   }
 
   await checkNoHorizontalOverflow()
-  await navigate(/Life of a Packet/i)
+  await navigatePacketSection(/Packet Path/i)
   await expect(page.locator('.packet-lab')).toBeVisible()
   await expect(page.locator('.arp-lab')).toHaveCount(0)
   await expect(page.locator('.packet-mode-tabs')).toHaveCount(0)
@@ -162,7 +169,7 @@ test('shared UI surfaces do not overflow horizontally @responsive', async ({ pag
   await expect(page.locator('.packet-dot')).toHaveCount(2)
   await expect(page.locator('.packet-node')).toHaveCount(4)
   await checkNoHorizontalOverflow()
-  await navigate(/Life of ARP/i)
+  await navigatePacketSection(/Life of ARP/i)
   await expect(page.locator('.packet-lab')).toHaveCount(0)
   await expect(page.getByRole('heading', { name: /ARP: IP question, MAC answer/i })).toBeVisible()
   await expect(page.getByRole('button', { name: /Replay ARP flow/i })).toBeVisible()
@@ -190,6 +197,17 @@ test('shared UI surfaces do not overflow horizontally @responsive', async ({ pag
   await page.locator('.activity-row').first().click()
   await expect(page.getByRole('dialog')).toBeVisible()
   await checkNoHorizontalOverflow()
+})
+
+test('life of a packet parent expands without navigating', async ({ page }) => {
+  await expect(page.getByRole('heading', { name: 'Overview' })).toBeVisible()
+  const nav = page.getByRole('navigation', { name: /main navigation/i })
+  await nav.getByRole('button', { name: /^Life of a Packet$/i }).click()
+  await expect(page.getByRole('heading', { name: 'Overview' })).toBeVisible()
+  await expect(nav.getByRole('button', { name: /^Packet Path$/i })).toBeVisible()
+  await expect(nav.getByRole('button', { name: /^Life of ARP$/i })).toBeVisible()
+  await nav.getByRole('button', { name: /^Packet Path$/i }).click()
+  await expect(page.getByRole('heading', { name: 'Life of a Packet', exact: true })).toBeVisible()
 })
 
 test('learning path opens the first lesson activity', async ({ page }) => {

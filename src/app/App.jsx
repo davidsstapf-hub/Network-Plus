@@ -160,13 +160,13 @@ function Sidebar({ active, onNavigate, open, onClose, progress }) {
       return (
         <div className="nav-collapsible" key={id}>
           <button
+            type="button"
             className={`nav__item nav__item--parent ${packetSectionActive ? "nav__item--active" : ""}`}
             onClick={() => {
-              setPacketNavOpen(true);
-              onNavigate(id);
-              onClose();
+              setPacketNavOpen((current) => !current);
             }}
             aria-expanded={packetNavOpen}
+            aria-controls="life-of-a-packet-submenu"
           >
             <Icon size={18} />
             <span>{label}</span>
@@ -176,7 +176,11 @@ function Sidebar({ active, onNavigate, open, onClose, progress }) {
             />
           </button>
           {packetNavOpen && (
-            <div className="nav-submenu" aria-label="Life of a Packet sections">
+            <div
+              className="nav-submenu"
+              id="life-of-a-packet-submenu"
+              aria-label="Life of a Packet sections"
+            >
               <button
                 type="button"
                 className={`nav-subitem ${active === "life-of-a-packet" ? "nav-subitem--active" : ""}`}
