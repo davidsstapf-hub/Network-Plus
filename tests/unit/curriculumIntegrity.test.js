@@ -38,7 +38,7 @@ test('Network+ metadata records the verified N10-009 objective source', () => {
 
 test('Network+ sidebar navigation stays in Security+ parity', () => {
   const networkPrimaryNav = extractNavItems(networkAppSource, 'primaryNavItems')
-  const networkParityNav = networkPrimaryNav.filter((item) => !item.includes('"life-of-a-packet"') && !item.includes('"osi-model"'))
+  const networkParityNav = networkPrimaryNav.filter((item) => !item.includes('"life-of-a-packet"') && !item.includes('"osi-model"') && !item.includes('"common-cables"'))
   const networkAboutNav = extractNavItems(networkAppSource, 'aboutNavItems')
   const networkAboutParityNav = networkAboutNav.filter((item) => !item.includes('"privacy"'))
   assert.deepEqual(
@@ -47,6 +47,7 @@ test('Network+ sidebar navigation stays in Security+ parity', () => {
   )
   assert.equal(networkPrimaryNav.includes('{ id: "life-of-a-packet", label: "Life of a Packet", icon: Activity }'), true)
   assert.equal(networkPrimaryNav.includes('{ id: "osi-model", label: "OSI Model", icon: Command }'), true)
+  assert.equal(networkPrimaryNav.includes('{ id: "common-cables", label: "Common Cables", icon: Cable }'), true)
   assert.deepEqual(
     networkAboutParityNav,
     extractNavItems(securityAppSource, 'aboutNavItems'),

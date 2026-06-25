@@ -37,7 +37,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 test('overview renders Network+ workspace and passes basic axe scan', async ({ page }) => {
-  await expect(page.getByText(/NET\+ FIELD GUIDE/i)).toBeVisible()
+  await expect(page.getByText(/NETWORK\+ EXAM PREP/i)).toBeVisible()
   await expect(page.locator('.start-card--primary')).toBeVisible()
   await expect(page.locator('.start-card--primary')).toContainText(/start here|keep going|review recommended/i)
   await expect(page.locator('.start-card--primary')).toContainText(/OSI Reference Model|New to networking/i)
@@ -298,6 +298,7 @@ test('global topbar home button returns from every main app page', async ({ page
   const routes = [
     { nav: /Learning Path/i, title: 'Learning Path' },
     { nav: /OSI Model/i, title: 'OSI Model' },
+    { nav: /Common Cables/i, title: 'Common Cables' },
     { nav: /Exam Domains/i, title: 'Exam Domains' },
     { nav: /^Flash Cards$/i, title: 'Flash Cards' },
     { nav: /Common Ports/i, title: 'Common Ports' },
@@ -392,6 +393,15 @@ test('OSI Model sidebar page explains layers and troubleshooting use', async ({ 
   await expect(page.getByText(/Use OSI to avoid guessing/i)).toBeVisible()
 })
 
+test('Common Cables sidebar page explains exam cable choices', async ({ page }) => {
+  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /Common Cables/i }).click()
+  await expect(page.getByRole('heading', { name: /Know the medium/i })).toBeVisible()
+  await expect(page.getByRole('heading', { name: /Twisted-pair copper/i })).toBeVisible()
+  await expect(page.getByRole('heading', { name: /Fiber optic/i })).toBeVisible()
+  await expect(page.getByRole('cell', { name: 'Cat6a' })).toBeVisible()
+  await expect(page.getByText(/PoE needs twisted-pair copper/i)).toBeVisible()
+})
+
 test('final exam practice and timed modes launch cleanly', async ({ page }) => {
   const search = page.getByRole('textbox', { name: /filter guided curriculum/i })
   await search.fill('practice exam')
@@ -444,6 +454,18 @@ test('flash card page launches the cumulative Network+ deck', async ({ page }) =
   await expect(page.getByRole('heading', { name: /Shuffle the whole Network\+ deck/i })).toBeVisible()
   await page.getByRole('button', { name: /Start shuffled deck/i }).click()
   await expect(page.locator('.activity-title h1')).toContainText(/Master Network\+ flashcards/i)
+})
+
+test('flashcards support left and right edge navigation', async ({ page }) => {
+  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: 'Flash Cards', exact: true }).click()
+  await page.getByRole('button', { name: /Start shuffled deck/i }).click()
+  const card = page.locator('.flashcard')
+  await expect(card).toBeVisible()
+  const firstTerm = await card.locator('strong').textContent()
+  await page.locator('.flashcard-edge--next').click()
+  await expect(card.locator('strong')).not.toHaveText(firstTerm)
+  await page.locator('.flashcard-edge--previous').click()
+  await expect(card.locator('strong')).toHaveText(firstTerm)
 })
 
 test('common ports page supports flashcards, matching, and explanations', async ({ page }) => {

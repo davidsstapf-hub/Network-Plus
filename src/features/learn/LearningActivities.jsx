@@ -244,6 +244,14 @@ export function FlashcardActivity({
     setShuffleNonce((value) => value + 1);
     restartDeck();
   };
+  const goToPreviousCard = () => {
+    setIndex((current) => Math.max(current - 1, 0));
+    setFlipped(false);
+  };
+  const goToNextCard = () => {
+    setIndex((current) => Math.min(current + 1, cards.length - 1));
+    setFlipped(false);
+  };
   return (
     <>
       <p className="activity-instruction">
@@ -257,27 +265,52 @@ export function FlashcardActivity({
         <span>{cardsRemaining} remaining</span>
         <span>Space / Enter to flip</span>
       </div>
-      <button
+      <div
         className={`flashcard ${flipped ? "flashcard--flipped" : ""}`}
-        onClick={() => setFlipped(!flipped)}
-        aria-pressed={flipped}
-        aria-label={`${flipped ? "Definition" : "Term"} card ${index + 1} of ${cards.length}. ${flipped ? "Activate to show term." : "Activate to reveal definition."}`}
       >
-        <span>
-          {flipped
-            ? "Definition"
-            : `Term ${index + 1} of ${cards.length}`}
-        </span>
-        {flipped ? (
-          <span className="flashcard__answer">
-            <strong className="flashcard__term">{revealTerm}</strong>
-            <span className="flashcard__definition">{card[1]}</span>
+        <button
+          className="flashcard-edge flashcard-edge--previous"
+          type="button"
+          disabled={index === 0}
+          aria-label="Previous flashcard"
+          onClick={goToPreviousCard}
+        >
+          <ArrowLeft size={20} />
+          <span className="sr-only">Previous flashcard</span>
+        </button>
+        <button
+          className="flashcard-face"
+          type="button"
+          onClick={() => setFlipped(!flipped)}
+          aria-pressed={flipped}
+          aria-label={`${flipped ? "Definition" : "Term"} card ${index + 1} of ${cards.length}. ${flipped ? "Activate to show term." : "Activate to reveal definition."}`}
+        >
+          <span>
+            {flipped
+              ? "Definition"
+              : `Term ${index + 1} of ${cards.length}`}
           </span>
-        ) : (
-          <strong>{card[0]}</strong>
-        )}
-        <small>{flipped ? "Definition shown · tap to see term" : "Tap, Space, or Enter to reveal"}</small>
-      </button>
+          {flipped ? (
+            <span className="flashcard__answer">
+              <strong className="flashcard__term">{revealTerm}</strong>
+              <span className="flashcard__definition">{card[1]}</span>
+            </span>
+          ) : (
+            <strong>{card[0]}</strong>
+          )}
+          <small>{flipped ? "Definition shown · tap to see term" : "Tap, Space, or Enter to reveal"}</small>
+        </button>
+        <button
+          className="flashcard-edge flashcard-edge--next"
+          type="button"
+          disabled={index === cards.length - 1}
+          aria-label="Next flashcard"
+          onClick={goToNextCard}
+        >
+          <ArrowRight size={20} />
+          <span className="sr-only">Next flashcard</span>
+        </button>
+      </div>
       <div className="flashcard-tools">
         <button className="text-button" onClick={restartDeck}>
           <RotateCcw size={14} />
@@ -294,10 +327,7 @@ export function FlashcardActivity({
         <button
           className="button button--ghost"
           disabled={index === 0}
-          onClick={() => {
-            setIndex(index - 1);
-            setFlipped(false);
-          }}
+          onClick={goToPreviousCard}
         >
           <ArrowLeft size={16} />
           Previous
@@ -305,10 +335,7 @@ export function FlashcardActivity({
         {index < cards.length - 1 ? (
           <button
             className="button button--primary"
-            onClick={() => {
-              setIndex(index + 1);
-              setFlipped(false);
-            }}
+            onClick={goToNextCard}
           >
             Next card <ArrowRight size={16} />
           </button>

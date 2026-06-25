@@ -7,6 +7,7 @@ import {
   BarChart3,
   BookOpen,
   Calculator,
+  Cable,
   Check,
   CheckCircle2,
   ChevronRight,
@@ -16,6 +17,7 @@ import {
   Contact,
   Gauge,
   GraduationCap,
+  House,
   Layers3,
   LayoutDashboard,
   LockKeyhole,
@@ -76,6 +78,7 @@ const primaryNavItems = [
   { id: "dashboard", label: "Overview", icon: LayoutDashboard },
   { id: "path", label: "Learning Path", icon: Layers3 },
   { id: "osi-model", label: "OSI Model", icon: Command },
+  { id: "common-cables", label: "Common Cables", icon: Cable },
   { id: "life-of-a-packet", label: "Life of a Packet", icon: Activity },
   { id: "domains", label: "Exam Domains", icon: BookOpen },
   { id: "flashcards", label: "Flash Cards", icon: Contact },
@@ -206,6 +209,85 @@ const osiImportance = [
   },
 ];
 
+const cableFamilies = [
+  {
+    name: "Twisted-pair copper",
+    badge: "RJ45",
+    summary:
+      "The everyday Ethernet cable for workstations, access points, printers, cameras, and short switch runs. Network+ expects you to know category, distance, PoE, and interference tradeoffs.",
+    examFocus: [
+      "Cat5e: commonly supports 1 Gbps to 100 m.",
+      "Cat6: commonly supports 1 Gbps to 100 m and 10 Gbps on shorter runs.",
+      "Cat6a: supports 10 Gbps to 100 m with better alien crosstalk control.",
+      "UTP has no shielding; STP/FTP variants help around EMI when grounded correctly.",
+    ],
+    choose: "Choose copper for normal access-layer drops, PoE devices, patch panels, and short in-room or same-floor runs.",
+    watch: "Bad terminations, split pairs, kinked cable, too much untwist, EMI, wrong category, and runs over 100 m.",
+  },
+  {
+    name: "Fiber optic",
+    badge: "LC / SC",
+    summary:
+      "Uses light instead of electrical signal, so it is valuable for distance, high bandwidth, and electrical isolation between buildings or noisy environments.",
+    examFocus: [
+      "Multimode fiber is common inside buildings and data centers for shorter high-speed links.",
+      "Single-mode fiber is built for longer distances and service-provider or campus links.",
+      "LC connectors are compact and very common on SFP/SFP+ optics; SC connectors are larger push-pull connectors.",
+      "Fiber does not carry PoE and has bend-radius, polarity, light-level, and cleanliness concerns.",
+    ],
+    choose: "Choose fiber for long uplinks, switch-to-switch trunks, building links, high EMI areas, and electrically isolated paths.",
+    watch: "Dirty ends, Tx/Rx polarity reversed, wrong fiber mode, wrong wavelength, unsupported optic, tight bend, or light levels out of range.",
+  },
+  {
+    name: "Coaxial",
+    badge: "F / BNC",
+    summary:
+      "Less common for modern Ethernet access, but still exam-relevant for cable broadband, RF distribution, legacy networks, and some camera or specialty systems.",
+    examFocus: [
+      "RG-6 is common for cable internet and television-style coax runs.",
+      "RG-59 appears in older CCTV and shorter analog video contexts.",
+      "F-type connectors are common for cable broadband; BNC appears in legacy or video equipment.",
+      "Coax can suffer from bad splitters, poor shielding, loose fittings, and signal loss.",
+    ],
+    choose: "Choose coax when the scenario mentions cable modem handoff, RF distribution, legacy CCTV, or existing coax infrastructure.",
+    watch: "Loose connectors, damaged shielding, splitter loss, water ingress, and impedance mismatch.",
+  },
+];
+
+const cableCategoryRows = [
+  { type: "Cat5e", speed: "1 Gbps", distance: "100 m", note: "Common baseline for access ports and older structured cabling." },
+  { type: "Cat6", speed: "1 Gbps / short 10 Gbps", distance: "100 m for 1G", note: "Better crosstalk performance; 10G distance depends on install quality." },
+  { type: "Cat6a", speed: "10 Gbps", distance: "100 m", note: "Stronger choice when the scenario requires full-distance 10G copper." },
+  { type: "DAC", speed: "10G+ short links", distance: "Short rack runs", note: "Twinax direct-attach cable for nearby switches, servers, or storage." },
+];
+
+const cableConnectorRows = [
+  { connector: "RJ45", media: "Twisted-pair copper", clue: "Endpoint Ethernet, switch ports, patch panels, PoE." },
+  { connector: "LC", media: "Fiber", clue: "Small duplex connector on many SFP/SFP+ transceivers." },
+  { connector: "SC", media: "Fiber", clue: "Larger push-pull fiber connector, often in patch panels or older installs." },
+  { connector: "F-type", media: "Coax", clue: "Cable modem or television-style coax connection." },
+  { connector: "BNC", media: "Coax", clue: "Legacy Ethernet, lab gear, video, or specialty equipment." },
+];
+
+const cableExamRules = [
+  {
+    title: "Distance",
+    body: "Copper Ethernet is usually capped at 100 meters. Longer links usually point toward fiber, an intermediate closet, or active equipment.",
+  },
+  {
+    title: "Interference",
+    body: "Motors, fluorescent lighting, elevators, and industrial spaces are clues for shielding or fiber. Fiber is immune to EMI.",
+  },
+  {
+    title: "Power",
+    body: "PoE needs twisted-pair copper and a compatible switch or injector. Fiber will not power an AP, camera, or phone by itself.",
+  },
+  {
+    title: "Environment",
+    body: "Air-handling spaces call for plenum-rated cable. Vertical shafts often call for riser-rated cable. Outdoor paths need proper outside-plant protection.",
+  },
+];
+
 const typeLabels = {
   lesson: "Lesson",
   flashcards: "Flashcards",
@@ -323,12 +405,12 @@ function Sidebar({ active, onNavigate, open, onClose, progress }) {
             onClose();
           }}
           aria-label="Return to Overview home"
-          title="Field Guide home"
+          title="Network+ Exam Prep home"
         >
           <ShieldCheck size={22} />
         </button>
         <div>
-          <strong>NET+ FIELD GUIDE</strong>
+          <strong>NETWORK+ EXAM PREP</strong>
           <span>N10-009</span>
         </div>
       </div>
@@ -430,9 +512,9 @@ function Topbar({
           className={`topbar-home ${title === "Overview" ? "topbar-home--active" : ""}`}
           onClick={onHome}
           aria-label="Go to Overview home"
-          title="Go to Overview"
+          title="Go Home"
         >
-          <ShieldCheck size={17} />
+          <House size={17} />
           <span>Home</span>
         </button>
       </div>
@@ -1189,6 +1271,144 @@ function OsiModelView() {
           <li><strong>Layer 3</strong><span>IP address, mask, gateway, routes, ICMP.</span></li>
           <li><strong>Layer 4</strong><span>TCP/UDP ports, handshakes, resets, timeout behavior.</span></li>
           <li><strong>Layer 5-7</strong><span>Sessions, certificates, authentication, DNS names, app errors.</span></li>
+        </ol>
+      </section>
+    </div>
+  );
+}
+
+function CommonCablesView() {
+  return (
+    <div className="page cables-page">
+      <section className="cables-hero">
+        <div>
+          <p className="eyebrow">Common Cables</p>
+          <h2>
+            Know the medium.
+            <br />
+            Pick the right link.
+          </h2>
+          <p>
+            Network+ cable questions usually hide the answer in distance,
+            speed, interference, power, connector, or environment clues. This
+            guide turns those clues into quick decisions for copper, fiber,
+            coax, transceivers, and rated cable.
+          </p>
+        </div>
+        <div className="cable-media-strip" aria-label="Cable media comparison">
+          {cableFamilies.map((family) => (
+            <article key={family.name}>
+              <span>{family.badge}</span>
+              <strong>{family.name}</strong>
+              <i aria-hidden="true" />
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="cables-family-grid">
+        {cableFamilies.map((family) => (
+          <article className="cable-family-card" key={family.name}>
+            <header>
+              <span>{family.badge}</span>
+              <h3>{family.name}</h3>
+            </header>
+            <p>{family.summary}</p>
+            <ul>
+              {family.examFocus.map((focus) => (
+                <li key={focus}>{focus}</li>
+              ))}
+            </ul>
+            <div className="cable-choice">
+              <strong>Choose it when</strong>
+              <span>{family.choose}</span>
+            </div>
+            <div className="cable-choice cable-choice--watch">
+              <strong>Watch for</strong>
+              <span>{family.watch}</span>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      <section className="cables-reference-grid">
+        <article className="cable-table-card">
+          <div className="osi-section-heading">
+            <div>
+              <p className="eyebrow">Copper categories</p>
+              <h3>Speed and distance clues.</h3>
+            </div>
+          </div>
+          <div className="cable-table" role="table" aria-label="Copper cable categories">
+            <div role="row">
+              <strong role="columnheader">Type</strong>
+              <strong role="columnheader">Speed</strong>
+              <strong role="columnheader">Distance</strong>
+              <strong role="columnheader">Exam note</strong>
+            </div>
+            {cableCategoryRows.map((row) => (
+              <div role="row" key={row.type}>
+                <span role="cell">{row.type}</span>
+                <span role="cell">{row.speed}</span>
+                <span role="cell">{row.distance}</span>
+                <span role="cell">{row.note}</span>
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <article className="cable-table-card">
+          <div className="osi-section-heading">
+            <div>
+              <p className="eyebrow">Connectors</p>
+              <h3>Recognize what the question describes.</h3>
+            </div>
+          </div>
+          <div className="connector-list">
+            {cableConnectorRows.map((row) => (
+              <div key={row.connector}>
+                <strong>{row.connector}</strong>
+                <span>{row.media}</span>
+                <p>{row.clue}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+      </section>
+
+      <section className="cables-rules">
+        <div className="osi-section-heading">
+          <div>
+            <p className="eyebrow">Exam decision rules</p>
+            <h3>What the scenario is really asking.</h3>
+          </div>
+        </div>
+        <div className="cables-rules__grid">
+          {cableExamRules.map((rule, index) => (
+            <article key={rule.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{rule.title}</strong>
+              <p>{rule.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="cable-troubleshoot panel">
+        <div>
+          <p className="eyebrow">Troubleshooting clues</p>
+          <h3>Match the symptom to the cable evidence.</h3>
+          <p>
+            A cable problem can look like a bad application until you check the
+            physical facts. Start with link state, negotiated speed, counters,
+            PoE draw, cable-test results, optic details, and recent moves.
+          </p>
+        </div>
+        <ol>
+          <li><strong>No link</strong><span>Check cable seating, patch path, port state, transceiver match, and fiber polarity.</span></li>
+          <li><strong>Slow link</strong><span>Look for category limits, damaged pairs, auto-negotiation issues, or a 100 Mbps fallback.</span></li>
+          <li><strong>Errors or drops</strong><span>Check CRC counters, EMI, bend radius, dirty fiber ends, and marginal light levels.</span></li>
+          <li><strong>PoE failure</strong><span>Confirm PoE standard, switch power budget, cable quality, and device draw.</span></li>
         </ol>
       </section>
     </div>
@@ -3146,7 +3366,7 @@ function PrivacyView({ progress, onResetLocalData }) {
           <p className="eyebrow">Data & Privacy</p>
           <h2>Your study data stays on this device.</h2>
           <p>
-            Net+ Field Guide is designed as an offline local-storage study app.
+            Network+ Exam Prep is designed as an offline local-storage study app.
             It does not send learner progress, validation notes, or practice
             results to the developer. App Store purchases and Apple ID account
             handling are managed by Apple, not by this app.
@@ -3246,7 +3466,7 @@ function StudyGuideView() {
             <em>One guided step at a time.</em>
           </h2>
           <p>
-            Net+ Field Guide is built as a complete path from first principles
+            Network+ Exam Prep is built as a complete path from first principles
             through exam synthesis. Start at Tier 1, follow the guided
             recommendations, and let each lesson, scenario, flashcard deck,
             quiz, checkpoint, and practice exam build the next layer of your
@@ -3389,7 +3609,7 @@ function StudyGuideView() {
           </span>
         </div>
         <p className="resources-disclosure">
-          Net+ Field Guide and its creator are not affiliated with, endorsed by,
+          Network+ Exam Prep and its creator are not affiliated with, endorsed by,
           or sponsored by CompTIA. CompTIA, Network+, A+, Security+, and related
           marks are trademarks of CompTIA, Inc. Names are used only to identify
           certification topics.
@@ -3549,7 +3769,7 @@ function WhyChooseAppView() {
           <p className="eyebrow">Why choose this app?</p>
           <h2>Network+ prep without the maze.</h2>
           <p>
-            Net+ Field Guide gives you a clear path, focused lessons, realistic
+            Network+ Exam Prep gives you a clear path, focused lessons, realistic
             scenarios, coached checks, cumulative review, and practice exams
             without burying you in fluff. It is designed to help you learn the
             objective, practice the decision, test the concept, and immediately
@@ -3807,40 +4027,201 @@ function SubnettingActivity({ activity, onComplete, completed }) {
 function FlashcardActivity({ activity, onComplete, completed }) {
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const pointerSwipeStartRef = useRef(null);
+  const touchSwipeStartRef = useRef(null);
+  const mouseSwipeStartRef = useRef(null);
+  const swipeHandledRef = useRef(false);
+  const flashcardRef = useRef(null);
   const card = activity.cards[index];
   const revealTerm = getFlashcardRevealTerm(card[0]);
+  const goToPreviousCard = () => {
+    setIndex((current) => Math.max(current - 1, 0));
+    setFlipped(false);
+  };
+  const goToNextCard = () => {
+    setIndex((current) => Math.min(current + 1, activity.cards.length - 1));
+    setFlipped(false);
+  };
+  const handleCardSwipe = (start, endX, endY) => {
+    if (!start) return false;
+    const deltaX = endX - start.x;
+    const deltaY = endY - start.y;
+    if (Math.abs(deltaX) < 36 || Math.abs(deltaX) < Math.abs(deltaY) * 1.15) {
+      return false;
+    }
+    swipeHandledRef.current = true;
+    if (deltaX < 0 && index < activity.cards.length - 1) {
+      goToNextCard();
+    } else if (deltaX > 0 && index > 0) {
+      goToPreviousCard();
+    }
+    return true;
+  };
+  const handleCardPointerDown = (event) => {
+    swipeHandledRef.current = false;
+    pointerSwipeStartRef.current = {
+      id: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+    };
+  };
+  const handleCardPointerUp = (event) => {
+    const start = pointerSwipeStartRef.current;
+    pointerSwipeStartRef.current = null;
+    if (!start || start.id !== event.pointerId) return;
+    handleCardSwipe(start, event.clientX, event.clientY);
+  };
+  const handleCardPointerMove = (event) => {
+    const start = pointerSwipeStartRef.current;
+    if (!start || start.id !== event.pointerId) return;
+    if (handleCardSwipe(start, event.clientX, event.clientY)) {
+      pointerSwipeStartRef.current = null;
+    }
+  };
+  const handleCardMouseDown = (event) => {
+    swipeHandledRef.current = false;
+    mouseSwipeStartRef.current = {
+      x: event.clientX,
+      y: event.clientY,
+    };
+  };
+  const handleCardMouseUp = (event) => {
+    const start = mouseSwipeStartRef.current;
+    mouseSwipeStartRef.current = null;
+    handleCardSwipe(start, event.clientX, event.clientY);
+  };
+  const handleCardMouseMove = (event) => {
+    const start = mouseSwipeStartRef.current;
+    if (handleCardSwipe(start, event.clientX, event.clientY)) {
+      mouseSwipeStartRef.current = null;
+    }
+  };
+  const handleCardClick = () => {
+    if (swipeHandledRef.current) {
+      swipeHandledRef.current = false;
+      return;
+    }
+    setFlipped(!flipped);
+  };
+  useEffect(() => {
+    const element = flashcardRef.current;
+    if (!element) return undefined;
+
+    const handleNativeTouchStart = (event) => {
+      if (!flashcardRef.current?.contains(event.target)) return;
+      const touch = event.changedTouches[0];
+      if (!touch) return;
+      swipeHandledRef.current = false;
+      touchSwipeStartRef.current = {
+        id: touch.identifier,
+        x: touch.clientX,
+        y: touch.clientY,
+      };
+    };
+    const handleNativeTouchMove = (event) => {
+      const touch = event.changedTouches[0];
+      const start = touchSwipeStartRef.current;
+      if (!touch || !start || start.id !== touch.identifier) return;
+      if (handleCardSwipe(start, touch.clientX, touch.clientY)) {
+        touchSwipeStartRef.current = null;
+        event.preventDefault();
+      }
+    };
+    const handleNativeTouchEnd = (event) => {
+      const touch = event.changedTouches[0];
+      const start = touchSwipeStartRef.current;
+      touchSwipeStartRef.current = null;
+      if (!touch || !start || start.id !== touch.identifier) return;
+      if (handleCardSwipe(start, touch.clientX, touch.clientY)) {
+        event.preventDefault();
+      }
+    };
+    const handleNativeTouchCancel = () => {
+      touchSwipeStartRef.current = null;
+    };
+
+    element.addEventListener("touchstart", handleNativeTouchStart, { passive: true });
+    element.addEventListener("touchmove", handleNativeTouchMove, { passive: false });
+    element.addEventListener("touchend", handleNativeTouchEnd, { passive: false });
+    element.addEventListener("touchcancel", handleNativeTouchCancel, { passive: true });
+    document.addEventListener("touchstart", handleNativeTouchStart, { capture: true, passive: true });
+    document.addEventListener("touchmove", handleNativeTouchMove, { capture: true, passive: false });
+    document.addEventListener("touchend", handleNativeTouchEnd, { capture: true, passive: false });
+    document.addEventListener("touchcancel", handleNativeTouchCancel, { capture: true, passive: true });
+
+    return () => {
+      element.removeEventListener("touchstart", handleNativeTouchStart);
+      element.removeEventListener("touchmove", handleNativeTouchMove);
+      element.removeEventListener("touchend", handleNativeTouchEnd);
+      element.removeEventListener("touchcancel", handleNativeTouchCancel);
+      document.removeEventListener("touchstart", handleNativeTouchStart, { capture: true });
+      document.removeEventListener("touchmove", handleNativeTouchMove, { capture: true });
+      document.removeEventListener("touchend", handleNativeTouchEnd, { capture: true });
+      document.removeEventListener("touchcancel", handleNativeTouchCancel, { capture: true });
+    };
+  }, [index, activity.cards.length]);
   return (
     <>
       <p className="activity-instruction">
-        Tap the card to reveal the meaning. Move at your own pace—this is
-        retrieval practice, not a test.
+        Tap the card to reveal the meaning. Swipe left or right to move through
+        cards. Move at your own pace—this is retrieval practice, not a test.
       </p>
-      <button
+      <div
+        ref={flashcardRef}
         className={`flashcard ${flipped ? "flashcard--flipped" : ""}`}
-        onClick={() => setFlipped(!flipped)}
+        onPointerDown={handleCardPointerDown}
+        onPointerMove={handleCardPointerMove}
+        onPointerUp={handleCardPointerUp}
+        onPointerCancel={() => {
+          pointerSwipeStartRef.current = null;
+        }}
+        onMouseDown={handleCardMouseDown}
+        onMouseMove={handleCardMouseMove}
+        onMouseUp={handleCardMouseUp}
       >
-        <span>
-          {flipped
-            ? "Definition"
-            : `Term ${index + 1} of ${activity.cards.length}`}
-        </span>
-        {flipped ? (
-          <span className="flashcard__answer">
-            <strong className="flashcard__term">{revealTerm}</strong>
-            <span className="flashcard__definition">{card[1]}</span>
+        <button
+          className="flashcard-edge flashcard-edge--previous"
+          type="button"
+          disabled={index === 0}
+          aria-label="Previous flashcard"
+          onClick={goToPreviousCard}
+        >
+          <ArrowLeft size={20} />
+          <span className="sr-only">Previous flashcard</span>
+        </button>
+        <button className="flashcard-face" type="button" onClick={handleCardClick}>
+          <span>
+            {flipped
+              ? "Definition"
+              : `Term ${index + 1} of ${activity.cards.length}`}
           </span>
-        ) : (
-          <strong>{card[0]}</strong>
-        )}
-        <small>{flipped ? "Tap to see term" : "Tap to reveal"}</small>
-      </button>
+          {flipped ? (
+            <span className="flashcard__answer">
+              <strong className="flashcard__term">{revealTerm}</strong>
+              <span className="flashcard__definition">{card[1]}</span>
+            </span>
+          ) : (
+            <strong>{card[0]}</strong>
+          )}
+          <small>{flipped ? "Tap to see term" : "Tap to reveal"}</small>
+        </button>
+        <button
+          className="flashcard-edge flashcard-edge--next"
+          type="button"
+          disabled={index === activity.cards.length - 1}
+          aria-label="Next flashcard"
+          onClick={goToNextCard}
+        >
+          <ArrowRight size={20} />
+          <span className="sr-only">Next flashcard</span>
+        </button>
+      </div>
       <div className="flashcard-controls">
         <button
           className="button button--ghost"
           disabled={index === 0}
           onClick={() => {
-            setIndex(index - 1);
-            setFlipped(false);
+            goToPreviousCard();
           }}
         >
           <ArrowLeft size={16} />
@@ -3850,8 +4231,7 @@ function FlashcardActivity({ activity, onComplete, completed }) {
           <button
             className="button button--primary"
             onClick={() => {
-              setIndex(index + 1);
-              setFlipped(false);
+              goToNextCard();
             }}
           >
             Next card <ArrowRight size={16} />
@@ -4317,6 +4697,7 @@ export default function App() {
           ))}
         {active === "domains" && <DomainsView progress={progress} />}
         {active === "osi-model" && <OsiModelView />}
+        {active === "common-cables" && <CommonCablesView />}
         {active === "life-of-a-packet" && <LifeOfPacketView />}
         {active === "life-of-arp" && <LifeOfArpView />}
         {active === "subnetting" && (
