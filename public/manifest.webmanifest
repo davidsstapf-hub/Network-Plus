@@ -1,7 +1,7 @@
 {
-  "name": "Network+ N10-009 Learning Lab",
-  "short_name": "Network+",
-  "description": "Interactive Network+ N10-009 study, labs, flashcards, and practice exams.",
+  "name": "Net+ Field Guide",
+  "short_name": "Net+ Guide",
+  "description": "Independent study for learners preparing for CompTIA Network+ N10-009.",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#050a0d",

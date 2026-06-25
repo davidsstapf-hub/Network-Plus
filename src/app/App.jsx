@@ -899,8 +899,8 @@ function DomainsView({ progress }) {
             Woven through every tier.
           </h2>
           <p>
-            Use this view to inspect official coverage. Your learning order is
-            guided by difficulty, not the domain numbering.
+            Use this view to inspect published-objective coverage. Your
+            learning order is guided by difficulty, not the domain numbering.
           </p>
         </div>
       </div>
@@ -2175,10 +2175,10 @@ function ProgressView({ progress, onOpenActivity }) {
       <div className="page-intro">
         <div>
           <p className="eyebrow">Performance</p>
-          <h2>Your learning telemetry.</h2>
+          <h2>Your learning progress.</h2>
           <p>
-            Readiness combines weighted domain coverage with checkpoint
-            accuracy. It will become more meaningful as you practice.
+            Progress signals combine weighted domain coverage with checkpoint
+            accuracy. They will become more meaningful as you practice.
           </p>
         </div>
       </div>
@@ -2345,7 +2345,7 @@ const manualQaItems = [
   ["responsive-tablet", "Tablet layout", "Review the same core surfaces on a tablet viewport and confirm navigation does not overlap content."],
   ["a11y-focus", "Focus and reduced motion", "Confirm visible focus, logical focus order, reduced motion behavior, and no keyboard traps."],
   ["a11y-reader", "Screen-reader spot check", "Spot-check headings, labels, status messages, activity overlays, forms, and answer feedback."],
-  ["content-pdf", "PDF objective signoff", "Confirm all official N10-009 numbered objectives map to app learning loops and assessment representation."],
+  ["content-pdf", "Objective signoff", "Confirm all published N10-009 numbered objectives map to app learning loops and assessment representation."],
   ["content-originality", "Originality/editorial review", "Confirm examples, questions, explanations, and scenarios are original and not exam-dump-like."],
 ]
 
@@ -2831,7 +2831,7 @@ function ReadMeView() {
     {
       title: "No pass guarantee",
       body:
-        "Using this app does not guarantee that you will pass any certification exam. Exam readiness depends on your study time, background, practice, and the current official exam objectives.",
+        "Using this app does not guarantee that you will pass any certification exam. Exam preparation depends on your study time, background, practice, and the current certification objectives.",
     },
     {
       title: "Original practice content",
@@ -2841,12 +2841,12 @@ function ReadMeView() {
     {
       title: "Trademarks",
       body:
-        "CompTIA, A+, Network+, Security+, and related marks are trademarks of their respective owners. Names are used only to identify the certification topics the app helps learners study.",
+        "CompTIA, A+, Network+, Security+, and related marks are trademarks of CompTIA, Inc. Names are used only to identify the certification topics the app helps learners study.",
     },
     {
       title: "Educational use",
       body:
-        "Content is provided for educational purposes only. Always compare your preparation against the latest official objectives and policies from the certification provider.",
+        "Content is provided for educational purposes only. Always compare your preparation against the latest objectives and policies from the certification provider.",
     },
   ];
   return (
@@ -2855,7 +2855,7 @@ function ReadMeView() {
         <p className="eyebrow">Read Me</p>
         <h2>Important notes before using this study app.</h2>
         <p>
-          This page explains what the app is, what it is not, and how official
+          This page explains what the app is, what it is not, and how
           certification names are used.
         </p>
       </section>
@@ -2888,7 +2888,7 @@ function PrivacyView({ progress, onResetLocalData }) {
     {
       title: "Local progress only",
       body:
-        "Study progress, exam attempts, and saved practice state stay in this device's app storage unless you manually export them.",
+        "Study progress, exam attempts, validation notes, confidence ratings, and saved practice state stay in this device's app storage unless you manually export or copy them.",
     },
     {
       title: "No tracking stack",
@@ -2909,9 +2909,10 @@ function PrivacyView({ progress, onResetLocalData }) {
           <p className="eyebrow">Data & Privacy</p>
           <h2>Your study data stays on this device.</h2>
           <p>
-            Network+ N10-009 is designed as an offline local-storage study app.
-            App Store purchases and Apple ID account handling are managed by
-            Apple, not by this app.
+            Net+ Field Guide is designed as an offline local-storage study app.
+            It does not send learner progress, validation notes, or practice
+            results to the developer. App Store purchases and Apple ID account
+            handling are managed by Apple, not by this app.
           </p>
         </div>
         <div className="privacy-lock" aria-hidden="true">
@@ -2956,9 +2957,10 @@ function PrivacyView({ progress, onResetLocalData }) {
           </span>
         </div>
         <p>
-          Deleting local data clears learner progress and saved practice-exam
-          drafts from this device. It does not affect App Store purchase
-          history or Apple ID account information.
+          Deleting local data clears learner progress, saved practice-exam
+          drafts, validation notes, and confidence ratings from this device. It
+          does not affect App Store purchase history or Apple ID account
+          information.
         </p>
       </section>
 
@@ -3002,7 +3004,7 @@ function StudyGuideView() {
           </span>
           <p className="eyebrow">How to study for the Network+</p>
           <h2>
-            Go from zero to Network+ ready.
+            Build Network+ exam-topic confidence.
             <br />
             <em>One guided step at a time.</em>
           </h2>
@@ -3011,7 +3013,7 @@ function StudyGuideView() {
             through exam synthesis. Start at Tier 1, follow the guided
             recommendations, and let each lesson, scenario, flashcard deck,
             quiz, checkpoint, and practice exam build the next layer of your
-            Network+ readiness.
+            Network+ exam-topic preparation.
           </p>
         </div>
         <div className="study-guide-mark">
@@ -3075,7 +3077,7 @@ function StudyGuideView() {
           <span>
             <CircleHelp size={20} />
           </span>
-          <p className="eyebrow">04 · Prove readiness</p>
+          <p className="eyebrow">04 · Check preparation</p>
           <h3>Use checkpoints and exam mode</h3>
           <p>
             Complete each tier checkpoint, then use the comprehensive practice
@@ -3118,10 +3120,10 @@ function StudyGuideView() {
         <div>
           <strong>Preparation, not a guarantee.</strong>
           <p>
-            This app is designed to take a learner from zero to Network+
-            readiness, but no study tool can guarantee a passing score. Always
-            compare your preparation against the current official CompTIA
-            Network+ exam objectives and use the resources below when you want
+            This app is designed to build preparation toward Network+ exam
+            topics, but no study tool can guarantee a passing score. Always
+            compare your preparation against the current CompTIA-published
+            Network+ objectives and use the resources below when you want
             another explanation or extra practice.
           </p>
         </div>
@@ -3151,8 +3153,9 @@ function StudyGuideView() {
         </div>
         <p className="resources-disclosure">
           Net+ Field Guide and its creator are not affiliated with, endorsed by,
-          or sponsored by CompTIA. All trademarks and course materials belong to
-          their respective owners.
+          or sponsored by CompTIA. CompTIA, Network+, A+, Security+, and related
+          marks are trademarks of CompTIA, Inc. Names are used only to identify
+          certification topics.
         </p>
       </footer>
     </div>
@@ -3184,11 +3187,11 @@ function MeetDevelopersView() {
           <p className="eyebrow">Meet the developers</p>
           <h2>Network+ study design shaped by real networking professionals.</h2>
           <p>
-            This app was developed strategically by three networking
-            professionals with a combined 30 years of networking expertise.
-            Each developer currently holds an active Network+ certification,
-            so the learning path, assessment style, and review flow were built
-            with both exam readiness and practical network judgment in mind.
+            This app was developed strategically by networking professionals
+            with a combined 30 years of networking expertise and Network+
+            certification experience, so the learning path, assessment style,
+            and review flow were built with both exam-topic preparation and
+            practical network judgment in mind.
           </p>
         </div>
         <div className="developers-badge" aria-hidden="true">
@@ -3201,7 +3204,7 @@ function MeetDevelopersView() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">Meet the team</p>
-            <h3>Three certified network practitioners behind the guide.</h3>
+            <h3>Three network practitioners behind the guide.</h3>
           </div>
         </div>
         <div className="team-grid">
@@ -3223,7 +3226,7 @@ function MeetDevelopersView() {
               </div>
               <h4>{member.name}</h4>
               <p>{member.specialty}</p>
-              <small>Current Network+ certified</small>
+              <small>Network+ certification experience</small>
             </article>
           ))}
         </div>

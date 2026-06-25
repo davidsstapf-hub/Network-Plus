@@ -1,10 +1,10 @@
-# Network+ Security and Privacy Review
+# Net+ Field Guide Security and Privacy Review
 
 ## Local Data
 
 - Learner progress is stored locally in browser storage.
-- Export/import uses a typed learner-progress envelope and rejects unrelated JSON.
-- Validation exports include learner session entries, activity feedback, confidence ratings, tier summaries, and objective feedback captured locally.
+- Validation feedback exports use a typed local-feedback envelope and are copied to the clipboard only when the user selects export.
+- Validation exports may include learner session entries, activity feedback, confidence ratings, tier summaries, objective feedback, and freeform notes captured locally.
 - No account system, backend API, analytics, or third-party tracking is currently implemented.
 - The iOS/Capacitor build is designed as an offline bundle: lessons, labs, flashcards, exams, icons, and styles are packaged with the app.
 - No remote fonts, remote images, external study links, or runtime API calls are required for normal app use after installation.
@@ -14,7 +14,7 @@
 ## App Store Privacy Posture
 
 - Data collection: none sent off-device by the app.
-- Local storage: learner progress, exam attempts, and manual exports remain on the device unless the learner manually exports them.
+- Local storage: learner progress, exam attempts, validation notes, confidence ratings, and user-initiated clipboard exports remain on the device unless the learner manually shares them.
 - Network access: no internet connection is required for normal study flows after download.
 - Tracking: no cross-app tracking, advertising identifiers, analytics SDKs, or remote logging are implemented.
 - iOS metadata: the app includes `ITSAppUsesNonExemptEncryption=false` and a privacy manifest declaring no tracking and no collected data types.
@@ -32,3 +32,4 @@
 - Complete airplane-mode QA on iPhone and iPad simulators before App Store submission.
 - Publish the privacy policy at a public URL and enter it in App Store Connect metadata.
 - Do not add analytics, remote logging, or account sync without a fresh privacy review.
+- Before App Store archive, review the Xcode privacy report and any vendor privacy manifests added by future dependencies.

@@ -22,5 +22,5 @@
 
 - Learner progress is stored locally in browser storage.
 - There is no account sync, backend, analytics, or cloud backup.
-- Export/import is manual.
-- Progress does not sync across devices unless a learner manually exports and imports their data.
+- User-initiated validation and feedback export is clipboard-based.
+- Progress does not sync across devices; there is no user-facing progress import or cloud backup flow.

@@ -268,7 +268,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Layer 1 - Physical matters in objective 1.1 because it covers signals, media, connectors, transceivers, cabling, radio, and link lights. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -286,7 +286,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.1, OSI Reference Model. Layer 4 or Layer 7 because transport ports or the application service are now the likely fault area. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -304,7 +304,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.1: match the symptom to the lowest layer that has not already been proven healthy. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -322,7 +322,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For OSI Reference Model, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -340,7 +340,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For OSI Reference Model, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -371,7 +371,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "IP address matters in objective 1.1 because Layer 3 logical address used for routed delivery. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -389,7 +389,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.1, OSI Reference Model. Layer 4 or Layer 7 because transport ports or the application service are now the likely fault area. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -407,7 +407,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.1: match the symptom to the lowest layer that has not already been proven healthy. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -425,7 +425,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For OSI Reference Model, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -443,7 +443,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For OSI Reference Model, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -461,7 +461,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Layer 7 - Application matters in objective 1.1 because it covers user-facing network services and protocols such as HTTP, DNS, DHCP, and SMB. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -479,7 +479,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 1.1, OSI Reference Model. Layer 4 or Layer 7 because transport ports or the application service are now the likely fault area. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -497,7 +497,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 1.1: match the symptom to the lowest layer that has not already been proven healthy. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -515,7 +515,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For OSI Reference Model, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -533,7 +533,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For OSI Reference Model, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -703,7 +703,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 1.2 because Forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -721,7 +721,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.2, Network Appliances and Functions. A load balancer to distribute client requests across multiple back-end servers. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -739,7 +739,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.2: confirm the needed network function before selecting the device. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -757,7 +757,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Network Appliances and Functions, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -775,7 +775,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Network Appliances and Functions, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -806,7 +806,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "VPN headend matters in objective 1.2 because it terminates VPN tunnels and applies remote-access policy. In a scenario, connect the device function to the access requirement instead of guessing from the label alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -824,7 +824,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.2, Network Appliances and Functions. A load balancer to distribute client requests across multiple back-end servers. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -842,7 +842,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.2: confirm the needed network function before selecting the device. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -860,7 +860,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Network Appliances and Functions, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -878,7 +878,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Network Appliances and Functions, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -896,7 +896,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Proxy matters in objective 1.2 because Makes requests on behalf of clients and can enforce policy. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -914,7 +914,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 1.2, Network Appliances and Functions. A load balancer to distribute client requests across multiple back-end servers. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -932,7 +932,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 1.2: confirm the needed network function before selecting the device. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -950,7 +950,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Network Appliances and Functions, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -968,7 +968,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Network Appliances and Functions, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -1138,7 +1138,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "VPC matters in objective 1.3 because Logically isolated cloud network. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1156,7 +1156,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.3, Cloud Concepts and Connectivity. A NAT gateway or equivalent outbound translation service. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1174,7 +1174,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.3: compare route tables, security policy, and gateway placement. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1192,7 +1192,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Cloud Concepts and Connectivity, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1210,7 +1210,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Cloud Concepts and Connectivity, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -1241,7 +1241,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Multitenancy matters in objective 1.3 because Multiple customers share infrastructure with logical separation. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1259,7 +1259,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.3, Cloud Concepts and Connectivity. A NAT gateway or equivalent outbound translation service. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1277,7 +1277,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.3: compare route tables, security policy, and gateway placement. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1295,7 +1295,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Cloud Concepts and Connectivity, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1313,7 +1313,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Cloud Concepts and Connectivity, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1331,7 +1331,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Dedicated cloud connection matters in objective 1.3 because Private connectivity to a cloud provider. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1349,7 +1349,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 1.3, Cloud Concepts and Connectivity. A NAT gateway or equivalent outbound translation service. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1367,7 +1367,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 1.3: compare route tables, security policy, and gateway placement. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1385,7 +1385,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Cloud Concepts and Connectivity, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1403,7 +1403,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Cloud Concepts and Connectivity, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -1573,7 +1573,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "FTP matters in objective 1.4 because File transfer protocol using ports 20 and 21. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1591,7 +1591,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.4, Ports, Protocols, Services, and Traffic. DNS, because name resolution is failing while IP reachability still works. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1609,7 +1609,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.4: test the specific port, protocol, and service implied by the symptom. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1627,7 +1627,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Ports, Protocols, Services, and Traffic, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1645,7 +1645,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Ports, Protocols, Services, and Traffic, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -1676,7 +1676,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Anycast matters in objective 1.4 because Routes a client to one of several destinations sharing an address. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1694,7 +1694,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.4, Ports, Protocols, Services, and Traffic. DNS, because name resolution is failing while IP reachability still works. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1712,7 +1712,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.4: test the specific port, protocol, and service implied by the symptom. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1730,7 +1730,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Ports, Protocols, Services, and Traffic, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1748,7 +1748,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Ports, Protocols, Services, and Traffic, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1766,7 +1766,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "SNMP matters in objective 1.4 because Monitoring protocol using ports 161 and 162. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1784,7 +1784,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 1.4, Ports, Protocols, Services, and Traffic. DNS, because name resolution is failing while IP reachability still works. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1802,7 +1802,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 1.4: test the specific port, protocol, and service implied by the symptom. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1820,7 +1820,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Ports, Protocols, Services, and Traffic, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -1838,7 +1838,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Ports, Protocols, Services, and Traffic, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -2008,7 +2008,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Twisted pair matters in objective 1.5 because Copper Ethernet cable used for many LAN connections. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2026,7 +2026,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.5, Transmission Media and Transceivers. Fiber type, transceiver type, wavelength, polarity, and light levels. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2044,7 +2044,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.5: check media, connector, and transceiver compatibility before changing Layer 3. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2062,7 +2062,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Transmission Media and Transceivers, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2080,7 +2080,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Transmission Media and Transceivers, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -2111,7 +2111,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Light level matters in objective 1.5 because Fiber signal strength measurement useful for troubleshooting. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2129,7 +2129,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.5, Transmission Media and Transceivers. Fiber type, transceiver type, wavelength, polarity, and light levels. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2147,7 +2147,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.5: check media, connector, and transceiver compatibility before changing Layer 3. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2165,7 +2165,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Transmission Media and Transceivers, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2183,7 +2183,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Transmission Media and Transceivers, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2201,7 +2201,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "BNC matters in objective 1.5 because Connector associated with coaxial cabling. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2219,7 +2219,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 1.5, Transmission Media and Transceivers. Fiber type, transceiver type, wavelength, polarity, and light levels. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2237,7 +2237,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 1.5: check media, connector, and transceiver compatibility before changing Layer 3. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2255,7 +2255,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Transmission Media and Transceivers, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2273,7 +2273,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Transmission Media and Transceivers, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -2443,7 +2443,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Star topology matters in objective 1.6 because Endpoints connect through a central device. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2461,7 +2461,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.6, Topologies, Architectures, and Network Types. Hub-and-spoke, because branches connect through a central hub. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2479,7 +2479,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.6: match topology language to the required traffic pattern and resiliency model. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2497,7 +2497,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Topologies, Architectures, and Network Types, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2515,7 +2515,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Topologies, Architectures, and Network Types, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -2546,7 +2546,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SAN matters in objective 1.6 because Storage area network. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2564,7 +2564,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.6, Topologies, Architectures, and Network Types. Hub-and-spoke, because branches connect through a central hub. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2582,7 +2582,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.6: match topology language to the required traffic pattern and resiliency model. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2600,7 +2600,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Topologies, Architectures, and Network Types, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2618,7 +2618,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Topologies, Architectures, and Network Types, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2636,7 +2636,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Core layer matters in objective 1.6 because High-speed backbone layer. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2654,7 +2654,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 1.6, Topologies, Architectures, and Network Types. Hub-and-spoke, because branches connect through a central hub. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2672,7 +2672,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 1.6: match topology language to the required traffic pattern and resiliency model. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2690,7 +2690,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Topologies, Architectures, and Network Types, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2708,7 +2708,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Topologies, Architectures, and Network Types, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -2878,7 +2878,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "IPv4 matters in objective 1.7 because 32-bit Layer 3 addressing system. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2896,7 +2896,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.7, IPv4 Addressing and Subnetting. The host self-assigned an APIPA address after failing to obtain DHCP configuration. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2914,7 +2914,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.7: compare address, mask, gateway, DHCP lease, and subnet membership. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2932,7 +2932,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For IPv4 Addressing and Subnetting, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2950,7 +2950,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For IPv4 Addressing and Subnetting, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -2981,7 +2981,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Broadcast address matters in objective 1.7 because Address used to reach all hosts in an IPv4 subnet. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -2999,7 +2999,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.7, IPv4 Addressing and Subnetting. The host self-assigned an APIPA address after failing to obtain DHCP configuration. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3017,7 +3017,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.7: compare address, mask, gateway, DHCP lease, and subnet membership. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3035,7 +3035,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For IPv4 Addressing and Subnetting, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3053,7 +3053,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For IPv4 Addressing and Subnetting, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3071,7 +3071,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "172.16.0.0/12 matters in objective 1.7 because Private IPv4 range from 172.16 through 172.31. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3089,7 +3089,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 1.7, IPv4 Addressing and Subnetting. The host self-assigned an APIPA address after failing to obtain DHCP configuration. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3107,7 +3107,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 1.7: compare address, mask, gateway, DHCP lease, and subnet membership. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3125,7 +3125,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For IPv4 Addressing and Subnetting, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3143,7 +3143,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For IPv4 Addressing and Subnetting, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -3313,7 +3313,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SDN matters in objective 1.8 because Centralized software-defined network control. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3331,7 +3331,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.8, Modern Network Environments. SDN, because control decisions are centralized and forwarding is separated into the data plane. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3349,7 +3349,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.8: distinguish control plane, data plane, automation, and policy intent. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3367,7 +3367,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Modern Network Environments, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3385,7 +3385,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Modern Network Environments, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -3416,7 +3416,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Zero trust access matters in objective 1.8 because Access model that verifies context instead of assuming trust. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3434,7 +3434,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 1.8, Modern Network Environments. SDN, because control decisions are centralized and forwarding is separated into the data plane. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3452,7 +3452,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 1.8: distinguish control plane, data plane, automation, and policy intent. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3470,7 +3470,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Modern Network Environments, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3488,7 +3488,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Modern Network Environments, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3506,7 +3506,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "IPv6 matters in objective 1.8 because 128-bit IP addressing system. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3524,7 +3524,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 1.8, Modern Network Environments. SDN, because control decisions are centralized and forwarding is separated into the data plane. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3542,7 +3542,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 1.8: distinguish control plane, data plane, automation, and policy intent. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3560,7 +3560,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Modern Network Environments, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3578,7 +3578,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Modern Network Environments, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -3616,7 +3616,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Layer 1 - Physical matters in objective 1.1 because it covers signals, media, connectors, transceivers, cabling, radio, and link lights. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3634,7 +3634,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 1.2 because Forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3652,7 +3652,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "VPC matters in objective 1.3 because Logically isolated cloud network. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3670,7 +3670,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "FTP matters in objective 1.4 because File transfer protocol using ports 20 and 21. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3688,7 +3688,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Twisted pair matters in objective 1.5 because Copper Ethernet cable used for many LAN connections. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3706,7 +3706,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Star topology matters in objective 1.6 because Endpoints connect through a central device. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3724,7 +3724,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "IPv4 matters in objective 1.7 because 32-bit Layer 3 addressing system. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3742,7 +3742,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SDN matters in objective 1.8 because Centralized software-defined network control. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3760,7 +3760,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Layer 1 - Physical matters in objective 1.1 because it covers signals, media, connectors, transceivers, cabling, radio, and link lights. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3778,7 +3778,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 1.2 because Forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3796,7 +3796,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "VPC matters in objective 1.3 because Logically isolated cloud network. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3814,7 +3814,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "FTP matters in objective 1.4 because File transfer protocol using ports 20 and 21. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3832,7 +3832,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Twisted pair matters in objective 1.5 because Copper Ethernet cable used for many LAN connections. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3850,7 +3850,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Star topology matters in objective 1.6 because Endpoints connect through a central device. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3868,7 +3868,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "IPv4 matters in objective 1.7 because 32-bit Layer 3 addressing system. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3886,7 +3886,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SDN matters in objective 1.8 because Centralized software-defined network control. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3904,7 +3904,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Layer 1 - Physical matters in objective 1.1 because it covers signals, media, connectors, transceivers, cabling, radio, and link lights. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3922,7 +3922,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 1.2 because Forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3940,7 +3940,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "VPC matters in objective 1.3 because Logically isolated cloud network. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -3958,7 +3958,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "FTP matters in objective 1.4 because File transfer protocol using ports 20 and 21. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -4140,7 +4140,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 2.1 because A Layer 3 device that forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4158,7 +4158,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 2.1, Routing Technologies. The host default gateway and the router path for remote networks. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4176,7 +4176,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 2.1: trace host gateway, route table, next hop, NAT, and return path. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4194,7 +4194,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Routing Technologies, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4212,7 +4212,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Routing Technologies, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -4243,7 +4243,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Traceroute matters in objective 2.1 because A tool that reveals Layer 3 hops toward a destination. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4261,7 +4261,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 2.1, Routing Technologies. The host default gateway and the router path for remote networks. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4279,7 +4279,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 2.1: trace host gateway, route table, next hop, NAT, and return path. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4297,7 +4297,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Routing Technologies, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4315,7 +4315,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Routing Technologies, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4333,7 +4333,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Default route matters in objective 2.1 because Fallback route used when no more specific route matches. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4351,7 +4351,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 2.1, Routing Technologies. The host default gateway and the router path for remote networks. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4369,7 +4369,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 2.1: trace host gateway, route table, next hop, NAT, and return path. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4387,7 +4387,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Routing Technologies, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4405,7 +4405,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Routing Technologies, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -4575,7 +4575,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Switch matters in objective 2.2 because Forwards Ethernet frames inside a LAN using MAC addresses. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4593,7 +4593,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 2.2, Switching Technologies. Whether VLAN 30 is allowed and tagged correctly across the 802.1Q trunk. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4611,7 +4611,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 2.2: check port mode, VLAN assignment, trunk allowed list, SVI, and STP state. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4629,7 +4629,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Switching Technologies, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4647,7 +4647,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Switching Technologies, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -4678,7 +4678,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Port security matters in objective 2.2 because Switch feature limiting which MAC addresses can use a port. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4696,7 +4696,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 2.2, Switching Technologies. Whether VLAN 30 is allowed and tagged correctly across the 802.1Q trunk. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4714,7 +4714,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 2.2: check port mode, VLAN assignment, trunk allowed list, SVI, and STP state. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4732,7 +4732,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Switching Technologies, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4750,7 +4750,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Switching Technologies, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4768,7 +4768,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "SVI matters in objective 2.2 because A virtual Layer 3 interface for a VLAN. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4786,7 +4786,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 2.2, Switching Technologies. Whether VLAN 30 is allowed and tagged correctly across the 802.1Q trunk. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4804,7 +4804,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 2.2: check port mode, VLAN assignment, trunk allowed list, SVI, and STP state. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4822,7 +4822,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Switching Technologies, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -4840,7 +4840,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Switching Technologies, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -5010,7 +5010,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SSID matters in objective 2.3 because The wireless network name advertised or configured for clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5028,7 +5028,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 2.3, Wireless Technologies. Channel utilization, interference, SNR, retries, and channel plan. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5046,7 +5046,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 2.3: measure RF quality, authentication, roaming, VLAN mapping, and DHCP behavior. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5064,7 +5064,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Wireless Technologies, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5082,7 +5082,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Wireless Technologies, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -5113,7 +5113,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Roaming matters in objective 2.3 because Client movement between APs while staying connected. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5131,7 +5131,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 2.3, Wireless Technologies. Channel utilization, interference, SNR, retries, and channel plan. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5149,7 +5149,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 2.3: measure RF quality, authentication, roaming, VLAN mapping, and DHCP behavior. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5167,7 +5167,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Wireless Technologies, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5185,7 +5185,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Wireless Technologies, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5203,7 +5203,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "RSSI matters in objective 2.3 because Received signal strength indicator. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5221,7 +5221,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 2.3, Wireless Technologies. Channel utilization, interference, SNR, retries, and channel plan. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5239,7 +5239,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 2.3: measure RF quality, authentication, roaming, VLAN mapping, and DHCP behavior. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5257,7 +5257,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Wireless Technologies, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5275,7 +5275,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Wireless Technologies, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -5445,7 +5445,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "MDF matters in objective 2.4 because Main distribution frame, often the primary network room. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5463,7 +5463,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 2.4, Physical Installation Factors. The IDF power, UPS/PDU status, switch status, patching, and environmental conditions. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5481,7 +5481,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 2.4: inspect closet, rack, cabling, power, grounding, labels, and switch counters. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5499,7 +5499,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Physical Installation Factors, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5517,7 +5517,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Physical Installation Factors, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -5548,7 +5548,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Labeling matters in objective 2.4 because Physical documentation that makes ports and paths traceable. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5566,7 +5566,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 2.4, Physical Installation Factors. The IDF power, UPS/PDU status, switch status, patching, and environmental conditions. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5584,7 +5584,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 2.4: inspect closet, rack, cabling, power, grounding, labels, and switch counters. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5602,7 +5602,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Physical Installation Factors, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5620,7 +5620,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Physical Installation Factors, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5638,7 +5638,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "UPS matters in objective 2.4 because Battery backup that keeps equipment online during power loss. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5656,7 +5656,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 2.4, Physical Installation Factors. The IDF power, UPS/PDU status, switch status, patching, and environmental conditions. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5674,7 +5674,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 2.4: inspect closet, rack, cabling, power, grounding, labels, and switch counters. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5692,7 +5692,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Physical Installation Factors, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5710,7 +5710,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Physical Installation Factors, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -5748,7 +5748,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 2.1 because A Layer 3 device that forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5766,7 +5766,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Switch matters in objective 2.2 because Forwards Ethernet frames inside a LAN using MAC addresses. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5784,7 +5784,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SSID matters in objective 2.3 because The wireless network name advertised or configured for clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5802,7 +5802,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "MDF matters in objective 2.4 because Main distribution frame, often the primary network room. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5820,7 +5820,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 2.1 because A Layer 3 device that forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5838,7 +5838,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Switch matters in objective 2.2 because Forwards Ethernet frames inside a LAN using MAC addresses. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5856,7 +5856,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SSID matters in objective 2.3 because The wireless network name advertised or configured for clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5874,7 +5874,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "MDF matters in objective 2.4 because Main distribution frame, often the primary network room. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5892,7 +5892,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 2.1 because A Layer 3 device that forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5910,7 +5910,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Switch matters in objective 2.2 because Forwards Ethernet frames inside a LAN using MAC addresses. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5928,7 +5928,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SSID matters in objective 2.3 because The wireless network name advertised or configured for clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5946,7 +5946,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "MDF matters in objective 2.4 because Main distribution frame, often the primary network room. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5964,7 +5964,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 2.1 because A Layer 3 device that forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -5982,7 +5982,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Switch matters in objective 2.2 because Forwards Ethernet frames inside a LAN using MAC addresses. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6000,7 +6000,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SSID matters in objective 2.3 because The wireless network name advertised or configured for clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6018,7 +6018,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "MDF matters in objective 2.4 because Main distribution frame, often the primary network room. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6036,7 +6036,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 2.1 because A Layer 3 device that forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6054,7 +6054,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Switch matters in objective 2.2 because Forwards Ethernet frames inside a LAN using MAC addresses. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6072,7 +6072,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SSID matters in objective 2.3 because The wireless network name advertised or configured for clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6090,7 +6090,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "MDF matters in objective 2.4 because Main distribution frame, often the primary network room. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -6272,7 +6272,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Physical diagram matters in objective 3.1 because Shows real-world device, cable, rack, and room relationships. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6290,7 +6290,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 3.1, Organizational Processes and Procedures. A change record with implementation steps, approval, testing, and rollback details. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6308,7 +6308,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 3.1: use diagrams, inventories, change records, runbooks, and lifecycle data. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6326,7 +6326,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Organizational Processes and Procedures, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6344,7 +6344,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Organizational Processes and Procedures, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -6375,7 +6375,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SLA matters in objective 3.1 because Service level agreement describing service expectations. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6393,7 +6393,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 3.1, Organizational Processes and Procedures. A change record with implementation steps, approval, testing, and rollback details. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6411,7 +6411,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 3.1: use diagrams, inventories, change records, runbooks, and lifecycle data. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6429,7 +6429,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Organizational Processes and Procedures, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6447,7 +6447,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Organizational Processes and Procedures, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6465,7 +6465,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "EOL matters in objective 3.1 because End of life; vendor no longer sells or develops a product. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6483,7 +6483,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 3.1, Organizational Processes and Procedures. A change record with implementation steps, approval, testing, and rollback details. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6501,7 +6501,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 3.1: use diagrams, inventories, change records, runbooks, and lifecycle data. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6519,7 +6519,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Organizational Processes and Procedures, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6537,7 +6537,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Organizational Processes and Procedures, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -6707,7 +6707,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Baseline matters in objective 3.2 because Known-normal performance or behavior used for comparison. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6725,7 +6725,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 3.2, Network Monitoring Technologies. Baseline utilization and flow data showing whether traffic volume or top talkers changed. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6743,7 +6743,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 3.2: compare baselines, counters, flow records, logs, captures, and alert timing. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6761,7 +6761,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Network Monitoring Technologies, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6779,7 +6779,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Network Monitoring Technologies, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -6810,7 +6810,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Time sync matters in objective 3.2 because Accurate clocks needed to correlate events. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6828,7 +6828,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 3.2, Network Monitoring Technologies. Baseline utilization and flow data showing whether traffic volume or top talkers changed. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6846,7 +6846,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 3.2: compare baselines, counters, flow records, logs, captures, and alert timing. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6864,7 +6864,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Network Monitoring Technologies, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6882,7 +6882,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Network Monitoring Technologies, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6900,7 +6900,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Interface errors matters in objective 3.2 because Counters such as CRC or drops that indicate link trouble. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6918,7 +6918,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 3.2, Network Monitoring Technologies. Baseline utilization and flow data showing whether traffic volume or top talkers changed. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6936,7 +6936,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 3.2: compare baselines, counters, flow records, logs, captures, and alert timing. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6954,7 +6954,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Network Monitoring Technologies, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -6972,7 +6972,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Network Monitoring Technologies, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -7142,7 +7142,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "RPO matters in objective 3.3 because Maximum acceptable data loss measured in time. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7160,7 +7160,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 3.3, Disaster Recovery Concepts. RTO, the maximum acceptable time to restore service. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7178,7 +7178,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 3.3: match recovery targets to redundancy, backups, sites, and tested procedures. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7196,7 +7196,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Disaster Recovery Concepts, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7214,7 +7214,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Disaster Recovery Concepts, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -7245,7 +7245,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Post-incident review matters in objective 3.3 because Review of what happened and how to improve. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7263,7 +7263,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 3.3, Disaster Recovery Concepts. RTO, the maximum acceptable time to restore service. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7281,7 +7281,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 3.3: match recovery targets to redundancy, backups, sites, and tested procedures. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7299,7 +7299,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Disaster Recovery Concepts, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7317,7 +7317,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Disaster Recovery Concepts, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7335,7 +7335,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Cold site matters in objective 3.3 because Basic recovery location requiring significant setup. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7353,7 +7353,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 3.3, Disaster Recovery Concepts. RTO, the maximum acceptable time to restore service. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7371,7 +7371,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 3.3: match recovery targets to redundancy, backups, sites, and tested procedures. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7389,7 +7389,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Disaster Recovery Concepts, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7407,7 +7407,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Disaster Recovery Concepts, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -7577,7 +7577,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DHCP matters in objective 3.4 because Automatically assigns IP configuration to clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7595,7 +7595,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 3.4, IPv4 and IPv6 Network Services. DHCP scope or relay configuration for the new VLAN. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7613,7 +7613,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 3.4: check DHCP scope, relay, DNS records, NTP, IPAM, and client configuration. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7631,7 +7631,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For IPv4 and IPv6 Network Services, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7649,7 +7649,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For IPv4 and IPv6 Network Services, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -7680,7 +7680,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "IPAM matters in objective 3.4 because IP address management system or process. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7698,7 +7698,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 3.4, IPv4 and IPv6 Network Services. DHCP scope or relay configuration for the new VLAN. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7716,7 +7716,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 3.4: check DHCP scope, relay, DNS records, NTP, IPAM, and client configuration. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7734,7 +7734,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For IPv4 and IPv6 Network Services, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7752,7 +7752,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For IPv4 and IPv6 Network Services, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7770,7 +7770,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "A record matters in objective 3.4 because DNS record mapping a name to IPv4. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7788,7 +7788,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 3.4, IPv4 and IPv6 Network Services. DHCP scope or relay configuration for the new VLAN. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7806,7 +7806,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 3.4: check DHCP scope, relay, DNS records, NTP, IPAM, and client configuration. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7824,7 +7824,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For IPv4 and IPv6 Network Services, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -7842,7 +7842,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For IPv4 and IPv6 Network Services, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -8012,7 +8012,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Site-to-site VPN matters in objective 3.5 because Encrypted connection between networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8030,7 +8030,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 3.5, Remote Access Methods. Out-of-band management through a separate management path. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8048,7 +8048,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 3.5: validate identity, tunnel state, routes, DNS, MFA, logs, and management path. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8066,7 +8066,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Remote Access Methods, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8084,7 +8084,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Remote Access Methods, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -8115,7 +8115,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "VPN concentrator matters in objective 3.5 because Device or service terminating VPN connections. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8133,7 +8133,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 3.5, Remote Access Methods. Out-of-band management through a separate management path. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8151,7 +8151,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 3.5: validate identity, tunnel state, routes, DNS, MFA, logs, and management path. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8169,7 +8169,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Remote Access Methods, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8187,7 +8187,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Remote Access Methods, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8205,7 +8205,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Jump host matters in objective 3.5 because Controlled intermediary used for administrative access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8223,7 +8223,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 3.5, Remote Access Methods. Out-of-band management through a separate management path. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8241,7 +8241,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 3.5: validate identity, tunnel state, routes, DNS, MFA, logs, and management path. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8259,7 +8259,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Remote Access Methods, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8277,7 +8277,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Remote Access Methods, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -8315,7 +8315,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Physical diagram matters in objective 3.1 because Shows real-world device, cable, rack, and room relationships. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8333,7 +8333,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Baseline matters in objective 3.2 because Known-normal performance or behavior used for comparison. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8351,7 +8351,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "RPO matters in objective 3.3 because Maximum acceptable data loss measured in time. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8369,7 +8369,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DHCP matters in objective 3.4 because Automatically assigns IP configuration to clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8387,7 +8387,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Site-to-site VPN matters in objective 3.5 because Encrypted connection between networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8405,7 +8405,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Physical diagram matters in objective 3.1 because Shows real-world device, cable, rack, and room relationships. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8423,7 +8423,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Baseline matters in objective 3.2 because Known-normal performance or behavior used for comparison. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8441,7 +8441,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "RPO matters in objective 3.3 because Maximum acceptable data loss measured in time. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8459,7 +8459,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DHCP matters in objective 3.4 because Automatically assigns IP configuration to clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8477,7 +8477,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Site-to-site VPN matters in objective 3.5 because Encrypted connection between networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8495,7 +8495,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Physical diagram matters in objective 3.1 because Shows real-world device, cable, rack, and room relationships. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8513,7 +8513,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Baseline matters in objective 3.2 because Known-normal performance or behavior used for comparison. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8531,7 +8531,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "RPO matters in objective 3.3 because Maximum acceptable data loss measured in time. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8549,7 +8549,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DHCP matters in objective 3.4 because Automatically assigns IP configuration to clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8567,7 +8567,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Site-to-site VPN matters in objective 3.5 because Encrypted connection between networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8585,7 +8585,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Physical diagram matters in objective 3.1 because Shows real-world device, cable, rack, and room relationships. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8603,7 +8603,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Baseline matters in objective 3.2 because Known-normal performance or behavior used for comparison. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8621,7 +8621,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "RPO matters in objective 3.3 because Maximum acceptable data loss measured in time. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8639,7 +8639,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DHCP matters in objective 3.4 because Automatically assigns IP configuration to clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8657,7 +8657,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Site-to-site VPN matters in objective 3.5 because Encrypted connection between networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -8839,7 +8839,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8857,7 +8857,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 4.1, Basic Network Security Concepts. Least privilege enforced with authorization and segmentation. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8875,7 +8875,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 4.1: check identity, authorization, segmentation, encryption, and trust boundaries. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8893,7 +8893,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Basic Network Security Concepts, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8911,7 +8911,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Basic Network Security Concepts, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -8942,7 +8942,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Trust boundary matters in objective 4.1 because Point where traffic crosses between different risk zones. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8960,7 +8960,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 4.1, Basic Network Security Concepts. Least privilege enforced with authorization and segmentation. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8978,7 +8978,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 4.1: check identity, authorization, segmentation, encryption, and trust boundaries. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -8996,7 +8996,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Basic Network Security Concepts, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9014,7 +9014,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Basic Network Security Concepts, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9032,7 +9032,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "ACL matters in objective 4.1 because Rule list that permits or denies traffic. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9050,7 +9050,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 4.1, Basic Network Security Concepts. Least privilege enforced with authorization and segmentation. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9068,7 +9068,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 4.1: check identity, authorization, segmentation, encryption, and trust boundaries. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9086,7 +9086,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Basic Network Security Concepts, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9104,7 +9104,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Basic Network Security Concepts, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -9274,7 +9274,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DoS matters in objective 4.2 because Attack that denies service from one source or method. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9292,7 +9292,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 4.2, Network Attacks and Impacts. DNS poisoning or spoofing that returns a malicious address. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9310,7 +9310,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 4.2: compare ARP/DNS answers, rogue services, wireless alerts, flow spikes, and logs. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9328,7 +9328,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Network Attacks and Impacts, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9346,7 +9346,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Network Attacks and Impacts, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -9377,7 +9377,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Impact matters in objective 4.2 because Effect on confidentiality, integrity, availability, or control. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9395,7 +9395,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 4.2, Network Attacks and Impacts. DNS poisoning or spoofing that returns a malicious address. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9413,7 +9413,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 4.2: compare ARP/DNS answers, rogue services, wireless alerts, flow spikes, and logs. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9431,7 +9431,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Network Attacks and Impacts, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9449,7 +9449,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Network Attacks and Impacts, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9467,7 +9467,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Evil twin matters in objective 4.2 because Malicious AP imitating a legitimate wireless network. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9485,7 +9485,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 4.2, Network Attacks and Impacts. DNS poisoning or spoofing that returns a malicious address. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9503,7 +9503,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 4.2: compare ARP/DNS answers, rogue services, wireless alerts, flow spikes, and logs. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9521,7 +9521,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Network Attacks and Impacts, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9539,7 +9539,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Network Attacks and Impacts, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -9709,7 +9709,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Device hardening matters in objective 4.3 because Reducing device attack surface and insecure defaults. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9727,7 +9727,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 4.3, Security Features and Defense Techniques. DHCP snooping with trusted ports defined on the switch. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9745,7 +9745,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 4.3: confirm hardening, ACLs, DHCP snooping, ARP inspection, NAC, and management restrictions. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9763,7 +9763,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Security Features and Defense Techniques, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9781,7 +9781,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Security Features and Defense Techniques, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -9812,7 +9812,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Firewall hit counter matters in objective 4.3 because Evidence that a firewall rule is matching traffic. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9830,7 +9830,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 4.3, Security Features and Defense Techniques. DHCP snooping with trusted ports defined on the switch. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9848,7 +9848,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 4.3: confirm hardening, ACLs, DHCP snooping, ARP inspection, NAC, and management restrictions. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9866,7 +9866,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Security Features and Defense Techniques, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9884,7 +9884,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Security Features and Defense Techniques, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9902,7 +9902,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "802.1X matters in objective 4.3 because Port-based network authentication. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9920,7 +9920,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 4.3, Security Features and Defense Techniques. DHCP snooping with trusted ports defined on the switch. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9938,7 +9938,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 4.3: confirm hardening, ACLs, DHCP snooping, ARP inspection, NAC, and management restrictions. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9956,7 +9956,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Security Features and Defense Techniques, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -9974,7 +9974,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Security Features and Defense Techniques, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -10012,7 +10012,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10030,7 +10030,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DoS matters in objective 4.2 because Attack that denies service from one source or method. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10048,7 +10048,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Device hardening matters in objective 4.3 because Reducing device attack surface and insecure defaults. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10066,7 +10066,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10084,7 +10084,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DoS matters in objective 4.2 because Attack that denies service from one source or method. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10102,7 +10102,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Device hardening matters in objective 4.3 because Reducing device attack surface and insecure defaults. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10120,7 +10120,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10138,7 +10138,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DoS matters in objective 4.2 because Attack that denies service from one source or method. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10156,7 +10156,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Device hardening matters in objective 4.3 because Reducing device attack surface and insecure defaults. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10174,7 +10174,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10192,7 +10192,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DoS matters in objective 4.2 because Attack that denies service from one source or method. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10210,7 +10210,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Device hardening matters in objective 4.3 because Reducing device attack surface and insecure defaults. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10228,7 +10228,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10246,7 +10246,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DoS matters in objective 4.2 because Attack that denies service from one source or method. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10264,7 +10264,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Device hardening matters in objective 4.3 because Reducing device attack surface and insecure defaults. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10282,7 +10282,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10300,7 +10300,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DoS matters in objective 4.2 because Attack that denies service from one source or method. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10318,7 +10318,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Device hardening matters in objective 4.3 because Reducing device attack surface and insecure defaults. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10336,7 +10336,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10354,7 +10354,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DoS matters in objective 4.2 because Attack that denies service from one source or method. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -10536,7 +10536,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Identify the problem matters in objective 5.1 because Gather symptoms, scope, users, changes, and expected behavior. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10554,7 +10554,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 5.1, Troubleshooting Methodology. Test the theory and plan the change, including impact and rollback. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10572,7 +10572,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 5.1: follow identify, theorize, test, plan, implement, verify, and document steps. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10590,7 +10590,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Troubleshooting Methodology, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10608,7 +10608,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Troubleshooting Methodology, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -10639,7 +10639,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Change control matters in objective 5.1 because Approval process for production changes. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10657,7 +10657,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 5.1, Troubleshooting Methodology. Test the theory and plan the change, including impact and rollback. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10675,7 +10675,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 5.1: follow identify, theorize, test, plan, implement, verify, and document steps. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10693,7 +10693,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Troubleshooting Methodology, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10711,7 +10711,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Troubleshooting Methodology, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10729,7 +10729,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Verify functionality matters in objective 5.1 because Confirm the service works and no new issues appeared. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10747,7 +10747,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 5.1, Troubleshooting Methodology. Test the theory and plan the change, including impact and rollback. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10765,7 +10765,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 5.1: follow identify, theorize, test, plan, implement, verify, and document steps. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10783,7 +10783,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Troubleshooting Methodology, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10801,7 +10801,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Troubleshooting Methodology, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -10971,7 +10971,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "CRC error matters in objective 5.2 because Frame check error often associated with physical problems. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -10989,7 +10989,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 5.2, Cabling and Physical Interface Issues. Cable, connector, termination, patch path, speed/duplex, or physical damage. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11007,7 +11007,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 5.2: test cabling, interface status, transceiver, PoE, counters, and fiber light levels. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11025,7 +11025,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Cabling and Physical Interface Issues, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11043,7 +11043,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Cabling and Physical Interface Issues, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -11074,7 +11074,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "EMI matters in objective 5.2 because Interference that can disrupt copper signaling. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11092,7 +11092,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 5.2, Cabling and Physical Interface Issues. Cable, connector, termination, patch path, speed/duplex, or physical damage. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11110,7 +11110,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 5.2: test cabling, interface status, transceiver, PoE, counters, and fiber light levels. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11128,7 +11128,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Cabling and Physical Interface Issues, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11146,7 +11146,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Cabling and Physical Interface Issues, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11164,7 +11164,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Cable certifier matters in objective 5.2 because Tool that validates cabling meets a standard. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11182,7 +11182,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 5.2, Cabling and Physical Interface Issues. Cable, connector, termination, patch path, speed/duplex, or physical damage. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11200,7 +11200,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 5.2: test cabling, interface status, transceiver, PoE, counters, and fiber light levels. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11218,7 +11218,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Cabling and Physical Interface Issues, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11236,7 +11236,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Cabling and Physical Interface Issues, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -11406,7 +11406,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "APIPA matters in objective 5.3 because 169.254.0.0/16 address often indicating DHCP failure. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11424,7 +11424,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 5.3, Network Service Issues. DNS resolution, cache, records, or resolver configuration. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11442,7 +11442,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 5.3: separate DHCP, DNS, route, VLAN, firewall, certificate, and service-state evidence. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11460,7 +11460,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Network Service Issues, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11478,7 +11478,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Network Service Issues, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -11509,7 +11509,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Split DNS matters in objective 5.3 because Different DNS answers depending on client location or view. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11527,7 +11527,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 5.3, Network Service Issues. DNS resolution, cache, records, or resolver configuration. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11545,7 +11545,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 5.3: separate DHCP, DNS, route, VLAN, firewall, certificate, and service-state evidence. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11563,7 +11563,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Network Service Issues, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11581,7 +11581,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Network Service Issues, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11599,7 +11599,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Missing route matters in objective 5.3 because No route exists to a destination network. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11617,7 +11617,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 5.3, Network Service Issues. DNS resolution, cache, records, or resolver configuration. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11635,7 +11635,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 5.3: separate DHCP, DNS, route, VLAN, firewall, certificate, and service-state evidence. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11653,7 +11653,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Network Service Issues, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11671,7 +11671,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Network Service Issues, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -11841,7 +11841,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Congestion matters in objective 5.4 because Demand exceeds available capacity. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11859,7 +11859,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 5.4, Performance Issues. Jitter, packet loss, congestion, and QoS handling for real-time traffic. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11877,7 +11877,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 5.4: measure utilization, latency, jitter, packet loss, errors, flow data, and baselines. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11895,7 +11895,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Performance Issues, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11913,7 +11913,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Performance Issues, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -11944,7 +11944,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Flow data matters in objective 5.4 because Traffic summary showing talkers and volume. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11962,7 +11962,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 5.4, Performance Issues. Jitter, packet loss, congestion, and QoS handling for real-time traffic. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11980,7 +11980,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 5.4: measure utilization, latency, jitter, packet loss, errors, flow data, and baselines. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -11998,7 +11998,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Performance Issues, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12016,7 +12016,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Performance Issues, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12034,7 +12034,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Retransmission matters in objective 5.4 because Resending data that was lost or not acknowledged. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12052,7 +12052,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 5.4, Performance Issues. Jitter, packet loss, congestion, and QoS handling for real-time traffic. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12070,7 +12070,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 5.4: measure utilization, latency, jitter, packet loss, errors, flow data, and baselines. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12088,7 +12088,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Performance Issues, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12106,7 +12106,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Performance Issues, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -12276,7 +12276,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "ping matters in objective 5.5 because Tests basic reachability and round-trip time with ICMP. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12294,7 +12294,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 5.5, Troubleshooting Tools and Protocols. nslookup or dig, because they query DNS records directly. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12312,7 +12312,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 5.5: choose the tool that answers the exact reachability, name, path, port, packet, cable, or fiber question. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12330,7 +12330,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Troubleshooting Tools and Protocols, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12348,7 +12348,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Troubleshooting Tools and Protocols, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -12379,7 +12379,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "OTDR matters in objective 5.5 because Fiber troubleshooting tool for distance and faults. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12397,7 +12397,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "The clue points to objective 5.5, Troubleshooting Tools and Protocols. nslookup or dig, because they query DNS records directly. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12415,7 +12415,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "This is the safer Network+ approach for objective 5.5: choose the tool that answers the exact reachability, name, path, port, packet, cable, or fiber question. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12433,7 +12433,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Troubleshooting Tools and Protocols, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12451,7 +12451,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Good Network+ answers tie the concept to proof. For Troubleshooting Tools and Protocols, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12469,7 +12469,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "dig matters in objective 5.5 because Detailed DNS query tool. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12487,7 +12487,7 @@ export const tiers = [
                 "correctIndex": 2,
                 "explanation": "The clue points to objective 5.5, Troubleshooting Tools and Protocols. nslookup or dig, because they query DNS records directly. The distractors are plausible networking ideas, but they do not match the layer, scope, or symptom in this scenario.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12505,7 +12505,7 @@ export const tiers = [
                 "correctIndex": 1,
                 "explanation": "This is the safer Network+ approach for objective 5.5: choose the tool that answers the exact reachability, name, path, port, packet, cable, or fiber question. It keeps troubleshooting tied to observable evidence and limits unnecessary change.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12523,7 +12523,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "The best interpretation follows the specific clue in the ticket. For Troubleshooting Tools and Protocols, the correct answer connects the symptom to the objective instead of jumping to a broad network reset.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12541,7 +12541,7 @@ export const tiers = [
                 "correctIndex": 3,
                 "explanation": "Good Network+ answers tie the concept to proof. For Troubleshooting Tools and Protocols, the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -12579,7 +12579,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Identify the problem matters in objective 5.1 because Gather symptoms, scope, users, changes, and expected behavior. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12597,7 +12597,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "CRC error matters in objective 5.2 because Frame check error often associated with physical problems. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12615,7 +12615,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "APIPA matters in objective 5.3 because 169.254.0.0/16 address often indicating DHCP failure. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12633,7 +12633,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Congestion matters in objective 5.4 because Demand exceeds available capacity. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12651,7 +12651,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "ping matters in objective 5.5 because Tests basic reachability and round-trip time with ICMP. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12669,7 +12669,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Identify the problem matters in objective 5.1 because Gather symptoms, scope, users, changes, and expected behavior. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12687,7 +12687,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "CRC error matters in objective 5.2 because Frame check error often associated with physical problems. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12705,7 +12705,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "APIPA matters in objective 5.3 because 169.254.0.0/16 address often indicating DHCP failure. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12723,7 +12723,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Congestion matters in objective 5.4 because Demand exceeds available capacity. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12741,7 +12741,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "ping matters in objective 5.5 because Tests basic reachability and round-trip time with ICMP. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12759,7 +12759,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Identify the problem matters in objective 5.1 because Gather symptoms, scope, users, changes, and expected behavior. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12777,7 +12777,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "CRC error matters in objective 5.2 because Frame check error often associated with physical problems. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12795,7 +12795,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "APIPA matters in objective 5.3 because 169.254.0.0/16 address often indicating DHCP failure. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12813,7 +12813,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Congestion matters in objective 5.4 because Demand exceeds available capacity. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12831,7 +12831,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "ping matters in objective 5.5 because Tests basic reachability and round-trip time with ICMP. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12849,7 +12849,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Identify the problem matters in objective 5.1 because Gather symptoms, scope, users, changes, and expected behavior. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12867,7 +12867,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "CRC error matters in objective 5.2 because Frame check error often associated with physical problems. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12885,7 +12885,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "APIPA matters in objective 5.3 because 169.254.0.0/16 address often indicating DHCP failure. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12903,7 +12903,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Congestion matters in objective 5.4 because Demand exceeds available capacity. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12921,7 +12921,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "ping matters in objective 5.5 because Tests basic reachability and round-trip time with ICMP. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }
@@ -12955,7 +12955,7 @@ export const tiers = [
             "domain": 1,
             "objective": "N10-009 synthesis",
             "difficulty": "synthesis",
-            "summary": "Ninety original questions weighted to the official Network+ domain percentages.",
+            "summary": "Ninety original questions weighted to the published Network+ domain percentages.",
             "questions": [
               {
                 "id": "n10-009-exam-001",
@@ -12971,7 +12971,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Layer 1 - Physical matters in objective 1.1 because it covers signals, media, connectors, transceivers, cabling, radio, and link lights. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -12989,7 +12989,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 1.2 because Forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13007,7 +13007,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "VPC matters in objective 1.3 because Logically isolated cloud network. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13025,7 +13025,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "FTP matters in objective 1.4 because File transfer protocol using ports 20 and 21. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13043,7 +13043,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Twisted pair matters in objective 1.5 because Copper Ethernet cable used for many LAN connections. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13061,7 +13061,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Star topology matters in objective 1.6 because Endpoints connect through a central device. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13079,7 +13079,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "IPv4 matters in objective 1.7 because 32-bit Layer 3 addressing system. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13097,7 +13097,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SDN matters in objective 1.8 because Centralized software-defined network control. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13115,7 +13115,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Layer 1 - Physical matters in objective 1.1 because it covers signals, media, connectors, transceivers, cabling, radio, and link lights. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13133,7 +13133,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 1.2 because Forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13151,7 +13151,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "VPC matters in objective 1.3 because Logically isolated cloud network. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13169,7 +13169,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "FTP matters in objective 1.4 because File transfer protocol using ports 20 and 21. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13187,7 +13187,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Twisted pair matters in objective 1.5 because Copper Ethernet cable used for many LAN connections. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13205,7 +13205,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Star topology matters in objective 1.6 because Endpoints connect through a central device. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13223,7 +13223,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "IPv4 matters in objective 1.7 because 32-bit Layer 3 addressing system. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13241,7 +13241,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SDN matters in objective 1.8 because Centralized software-defined network control. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13259,7 +13259,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Layer 1 - Physical matters in objective 1.1 because it covers signals, media, connectors, transceivers, cabling, radio, and link lights. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13277,7 +13277,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 1.2 because Forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13295,7 +13295,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "VPC matters in objective 1.3 because Logically isolated cloud network. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13313,7 +13313,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "FTP matters in objective 1.4 because File transfer protocol using ports 20 and 21. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13331,7 +13331,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Twisted pair matters in objective 1.5 because Copper Ethernet cable used for many LAN connections. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13349,7 +13349,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 2.1 because A Layer 3 device that forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13367,7 +13367,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Switch matters in objective 2.2 because Forwards Ethernet frames inside a LAN using MAC addresses. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13385,7 +13385,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SSID matters in objective 2.3 because The wireless network name advertised or configured for clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13403,7 +13403,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "MDF matters in objective 2.4 because Main distribution frame, often the primary network room. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13421,7 +13421,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 2.1 because A Layer 3 device that forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13439,7 +13439,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Switch matters in objective 2.2 because Forwards Ethernet frames inside a LAN using MAC addresses. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13457,7 +13457,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SSID matters in objective 2.3 because The wireless network name advertised or configured for clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13475,7 +13475,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "MDF matters in objective 2.4 because Main distribution frame, often the primary network room. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13493,7 +13493,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 2.1 because A Layer 3 device that forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13511,7 +13511,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Switch matters in objective 2.2 because Forwards Ethernet frames inside a LAN using MAC addresses. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13529,7 +13529,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SSID matters in objective 2.3 because The wireless network name advertised or configured for clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13547,7 +13547,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "MDF matters in objective 2.4 because Main distribution frame, often the primary network room. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13565,7 +13565,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 2.1 because A Layer 3 device that forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13583,7 +13583,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Switch matters in objective 2.2 because Forwards Ethernet frames inside a LAN using MAC addresses. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13601,7 +13601,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "SSID matters in objective 2.3 because The wireless network name advertised or configured for clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13619,7 +13619,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "MDF matters in objective 2.4 because Main distribution frame, often the primary network room. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13637,7 +13637,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Router matters in objective 2.1 because A Layer 3 device that forwards packets between IP networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13655,7 +13655,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Switch matters in objective 2.2 because Forwards Ethernet frames inside a LAN using MAC addresses. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13673,7 +13673,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Physical diagram matters in objective 3.1 because Shows real-world device, cable, rack, and room relationships. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13691,7 +13691,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Baseline matters in objective 3.2 because Known-normal performance or behavior used for comparison. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13709,7 +13709,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "RPO matters in objective 3.3 because Maximum acceptable data loss measured in time. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13727,7 +13727,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DHCP matters in objective 3.4 because Automatically assigns IP configuration to clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13745,7 +13745,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Site-to-site VPN matters in objective 3.5 because Encrypted connection between networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13763,7 +13763,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Physical diagram matters in objective 3.1 because Shows real-world device, cable, rack, and room relationships. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13781,7 +13781,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Baseline matters in objective 3.2 because Known-normal performance or behavior used for comparison. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13799,7 +13799,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "RPO matters in objective 3.3 because Maximum acceptable data loss measured in time. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13817,7 +13817,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DHCP matters in objective 3.4 because Automatically assigns IP configuration to clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13835,7 +13835,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Site-to-site VPN matters in objective 3.5 because Encrypted connection between networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13853,7 +13853,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Physical diagram matters in objective 3.1 because Shows real-world device, cable, rack, and room relationships. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13871,7 +13871,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Baseline matters in objective 3.2 because Known-normal performance or behavior used for comparison. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13889,7 +13889,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "RPO matters in objective 3.3 because Maximum acceptable data loss measured in time. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13907,7 +13907,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DHCP matters in objective 3.4 because Automatically assigns IP configuration to clients. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13925,7 +13925,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Site-to-site VPN matters in objective 3.5 because Encrypted connection between networks. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13943,7 +13943,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Physical diagram matters in objective 3.1 because Shows real-world device, cable, rack, and room relationships. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13961,7 +13961,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Baseline matters in objective 3.2 because Known-normal performance or behavior used for comparison. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13979,7 +13979,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -13997,7 +13997,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DoS matters in objective 4.2 because Attack that denies service from one source or method. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14015,7 +14015,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Device hardening matters in objective 4.3 because Reducing device attack surface and insecure defaults. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14033,7 +14033,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14051,7 +14051,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DoS matters in objective 4.2 because Attack that denies service from one source or method. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14069,7 +14069,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Device hardening matters in objective 4.3 because Reducing device attack surface and insecure defaults. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14087,7 +14087,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14105,7 +14105,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DoS matters in objective 4.2 because Attack that denies service from one source or method. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14123,7 +14123,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Device hardening matters in objective 4.3 because Reducing device attack surface and insecure defaults. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14141,7 +14141,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14159,7 +14159,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "DoS matters in objective 4.2 because Attack that denies service from one source or method. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14177,7 +14177,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Device hardening matters in objective 4.3 because Reducing device attack surface and insecure defaults. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14195,7 +14195,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Authorization matters in objective 4.1 because Determining what an identity may access. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14213,7 +14213,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Identify the problem matters in objective 5.1 because Gather symptoms, scope, users, changes, and expected behavior. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14231,7 +14231,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "CRC error matters in objective 5.2 because Frame check error often associated with physical problems. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14249,7 +14249,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "APIPA matters in objective 5.3 because 169.254.0.0/16 address often indicating DHCP failure. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14267,7 +14267,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Congestion matters in objective 5.4 because Demand exceeds available capacity. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14285,7 +14285,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "ping matters in objective 5.5 because Tests basic reachability and round-trip time with ICMP. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14303,7 +14303,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Identify the problem matters in objective 5.1 because Gather symptoms, scope, users, changes, and expected behavior. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14321,7 +14321,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "CRC error matters in objective 5.2 because Frame check error often associated with physical problems. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14339,7 +14339,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "APIPA matters in objective 5.3 because 169.254.0.0/16 address often indicating DHCP failure. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14357,7 +14357,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Congestion matters in objective 5.4 because Demand exceeds available capacity. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14375,7 +14375,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "ping matters in objective 5.5 because Tests basic reachability and round-trip time with ICMP. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14393,7 +14393,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Identify the problem matters in objective 5.1 because Gather symptoms, scope, users, changes, and expected behavior. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14411,7 +14411,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "CRC error matters in objective 5.2 because Frame check error often associated with physical problems. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14429,7 +14429,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "APIPA matters in objective 5.3 because 169.254.0.0/16 address often indicating DHCP failure. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14447,7 +14447,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Congestion matters in objective 5.4 because Demand exceeds available capacity. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14465,7 +14465,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "ping matters in objective 5.5 because Tests basic reachability and round-trip time with ICMP. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14483,7 +14483,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Identify the problem matters in objective 5.1 because Gather symptoms, scope, users, changes, and expected behavior. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14501,7 +14501,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "CRC error matters in objective 5.2 because Frame check error often associated with physical problems. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14519,7 +14519,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "APIPA matters in objective 5.3 because 169.254.0.0/16 address often indicating DHCP failure. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14537,7 +14537,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Congestion matters in objective 5.4 because Demand exceeds available capacity. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14555,7 +14555,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "ping matters in objective 5.5 because Tests basic reachability and round-trip time with ICMP. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               },
@@ -14573,7 +14573,7 @@ export const tiers = [
                 "correctIndex": 0,
                 "explanation": "Identify the problem matters in objective 5.1 because Gather symptoms, scope, users, changes, and expected behavior. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
                 "source": {
-                  "title": "CompTIA Network+ N10-009 exam objectives",
+                  "title": "CompTIA-published Network+ N10-009 objective reference",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
                 }
               }

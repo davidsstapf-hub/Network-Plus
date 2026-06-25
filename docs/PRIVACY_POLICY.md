@@ -1,18 +1,20 @@
-# Network+ N10-009 Privacy Policy
+# Net+ Field Guide Privacy Policy
 
 Effective date: 2026-06-24
 
-Network+ N10-009 is an offline study app. The app does not require an account, does not use a backend service, and does not send learner progress to the developer.
+Net+ Field Guide is an offline study app. The app does not require an account, does not use a backend service, and does not transmit learner progress, validation notes, confidence ratings, practice results, or other personal data to the developer.
 
 ## Data Collection
 
-The app does not collect personal data from users.
+The app does not collect personal data by transmitting it off the user's device.
 
-Study progress, completed activities, practice results, local notes, and exam attempts are stored locally on the user's device. This local data is used only to power app functionality such as progress tracking, recommendations, and review history.
+Study progress, completed activities, practice results, local notes, validation session entries, confidence ratings, learner IDs entered for testing, device/browser details entered during validation, and exam attempts may be stored locally on the user's device. This local data is used only to power app functionality such as progress tracking, recommendations, review history, and validation review.
+
+If a user chooses to copy or export validation feedback, the app places that user-initiated export on the device clipboard. The user controls where that copied data is pasted or shared.
 
 ## Data Sharing
 
-The app does not share learner data with the developer, advertisers, analytics providers, data brokers, or third-party services.
+The app does not share learner data with the developer, advertisers, analytics providers, data brokers, or third-party services. User-initiated clipboard exports are controlled by the user.
 
 ## Tracking and Analytics
 
@@ -28,7 +30,7 @@ Any App Store purchase history, Apple ID account handling, download history, or 
 
 ## Deleting Local Data
 
-Users can delete local learner progress from inside the app by opening Data & Privacy and choosing Delete local progress. This clears local progress and saved practice-exam drafts on that device.
+Users can delete local learner progress from inside the app by opening Data & Privacy and choosing Delete local progress. This clears local progress, saved practice-exam drafts, validation notes, confidence ratings, and local learner feedback on that device.
 
 ## Contact
 

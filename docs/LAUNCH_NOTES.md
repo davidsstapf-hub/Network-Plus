@@ -19,7 +19,7 @@ Mobile packaging should wait until learner validation and manual accessibility c
 
 ## Launch Gates Still Required
 
-- Human bullet-by-bullet signoff against the official N10-009 objective PDF.
+- Human bullet-by-bullet signoff against the published N10-009 objective guide.
 - At least three learner validation sessions per tier, including true-beginner validation for Tier 1.
 - Manual keyboard-only walkthroughs across lessons, cards, quizzes, scenarios, checkpoints, final exam modes, subnetting, feedback capture, and remediation.
 - Manual mobile/tablet visual review and screen-reader spot checks.

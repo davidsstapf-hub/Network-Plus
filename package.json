@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "A CompTIA Network+ N10-009 learning app seeded from the official exam objective domains.",
+  "description": "An independent study app for learners preparing for CompTIA Network+ N10-009.",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5174",
     "build": "vite build",

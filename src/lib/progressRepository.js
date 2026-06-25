@@ -10,7 +10,7 @@ const ACTIVITY_ID_ALIASES = {
 export function createDefaultProgress() {
   return {
     version: CURRENT_PROGRESS_VERSION,
-    learnerName: 'David',
+    learnerName: 'Learner',
     completedOnboarding: false,
     completedActivityIds: [],
     results: {},

@@ -1,6 +1,6 @@
 # Beginner Readiness Audit
 
-This audit defines the launch standard for taking a true beginner from zero to Network+ readiness.
+This audit defines the launch standard for helping a true beginner build preparation toward Network+ exam topics.
 
 ## Rubric
 

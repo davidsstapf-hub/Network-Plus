@@ -1,6 +1,6 @@
 # N10-009 Curriculum Map
 
-The official CompTIA Network+ N10-009 objectives remain the source of truth.
+The CompTIA-published Network+ N10-009 objective guide is used as the study-scope reference.
 
 ## Domains
 
@@ -24,4 +24,4 @@ Every numbered objective `1.1-5.5` includes:
 6. Tier checkpoint representation
 7. Final practice exam representation
 
-The dedicated Subnetting Lab is supplemental practice. It reinforces objective 1.7 skills but is excluded from official domain weighting and final-exam weighting.
+The dedicated Subnetting Lab is supplemental practice. It reinforces objective 1.7 skills but is excluded from domain weighting and final practice-review weighting.

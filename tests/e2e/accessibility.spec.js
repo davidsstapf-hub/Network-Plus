@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
     } else {
       localStorage.setItem('networkplus-learner-progress', JSON.stringify({
         version: 7,
-        learnerName: 'David',
+        learnerName: 'Learner',
         completedOnboarding: true,
         completedActivityIds: [],
         results: {},
@@ -58,7 +58,7 @@ test('responsive core surfaces render on narrow viewports @responsive', async ({
   await expect(page.getByRole('heading', { name: /See the whole mountain/i })).toBeVisible()
   await openNavigationIfNeeded()
   await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /^Progress$/i }).click()
-  await expect(page.getByRole('heading', { name: /Your learning telemetry/i })).toBeVisible()
+  await expect(page.getByRole('heading', { name: /Your learning progress/i })).toBeVisible()
   await expect(page.locator('body')).not.toHaveCSS('overflow-x', 'scroll')
 })
 
@@ -98,8 +98,11 @@ test('shared UI surfaces do not overflow horizontally @responsive', async ({ pag
   const navigatePacketSection = async (name) => {
     await openNavigationIfNeeded()
     const nav = mainNavigation()
-    await nav.getByRole('button', { name: /^Life of a Packet$/i }).click()
-    await nav.getByRole('button', { name }).click()
+    const child = nav.getByRole('button', { name })
+    if (!(await child.isVisible())) {
+      await nav.getByRole('button', { name: /^Life of a Packet$/i }).click()
+    }
+    await child.click()
   }
   const checkNoHorizontalOverflow = async (extraSelectors = []) => {
     const overflow = await page.evaluate((selectorsFromTest) => {
@@ -294,7 +297,6 @@ test('global topbar home button returns from every main app page', async ({ page
   const home = page.locator('.topbar').getByRole('button', { name: /go to overview home/i })
   const routes = [
     { nav: /Learning Path/i, title: 'Learning Path' },
-    { nav: /Life of a Packet/i, title: 'Life of a Packet' },
     { nav: /Exam Domains/i, title: 'Exam Domains' },
     { nav: /^Flash Cards$/i, title: 'Flash Cards' },
     { nav: /Common Ports/i, title: 'Common Ports' },
@@ -370,7 +372,7 @@ test('activity objectives do not show learner review prompts', async ({ page }) 
 test('Security+ parity navigation exposes Progress but keeps Validation Lab hidden', async ({ page }) => {
   await expect(page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /Validation Lab/i })).toHaveCount(0)
   await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /^Progress$/i }).click()
-  await expect(page.getByRole('heading', { name: /Your learning telemetry/i })).toBeVisible()
+  await expect(page.getByRole('heading', { name: /Your learning progress/i })).toBeVisible()
 })
 
 test('why Network+ page uses network-specific career framing', async ({ page }) => {

@@ -18,7 +18,7 @@
 - [x] Add automated editorial depth gates for lessons and scenarios.
 - [x] Replace scaffold-style scenario wording with objective-specific workplace cases.
 - [x] Add automated Security+ sidebar/navigation parity guard while preserving Network+-specific curriculum content.
-- [ ] Complete final human bullet-by-bullet signoff against the official PDF.
+- [ ] Complete final human bullet-by-bullet signoff against the published objective guide.
 - [ ] Complete final human editorial review for repetitive wording and explanation clarity.
 - [ ] Confirm all examples are original and free of exam-dump material.
 

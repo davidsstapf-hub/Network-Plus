@@ -17,7 +17,7 @@ the app usable without an internet connection after installation.
 
 - Capacitor config uses `webDir: "dist"` and must not define a remote `server.url`.
 - No remote fonts, remote images, analytics SDKs, remote logging, or API calls.
-- Learner progress remains in local storage unless manually exported.
+- Learner progress, validation notes, confidence ratings, and practice results remain in local storage unless the user manually copies or exports feedback.
 - App Store privacy answers should reflect no off-device data collection by this app.
 - The in-app Data & Privacy page and `docs/PRIVACY_POLICY.md` should stay aligned.
 - The iOS target includes `PrivacyInfo.xcprivacy` and `ITSAppUsesNonExemptEncryption=false`.
@@ -34,6 +34,7 @@ the app usable without an internet connection after installation.
 - In-app local data reset clears learner progress and saved exam drafts.
 - Learner validation summary has no unresolved critical/high findings.
 - Security/privacy review is updated for the offline packaged app.
+- Third-party notices and first-party asset provenance are current.
 
 ## Deferred Work
 

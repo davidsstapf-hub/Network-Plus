@@ -741,7 +741,7 @@ export function ExamActivity({ activity, onComplete, nextTitle, onOpenActivity }
           </article>
           <article>
             <strong>{Math.round(passThreshold * 100)}%</strong>
-            <span>target score</span>
+            <span>practice target</span>
           </article>
           <article>
             <strong>Shuffle</strong>
@@ -768,7 +768,7 @@ export function ExamActivity({ activity, onComplete, nextTitle, onOpenActivity }
               domain/objective misses at the end.
             </span>
             <b>
-              Simulate the exam <ArrowRight size={15} />
+              Start timed review <ArrowRight size={15} />
             </b>
           </button>
         </div>
@@ -787,7 +787,7 @@ export function ExamActivity({ activity, onComplete, nextTitle, onOpenActivity }
         </p>
         <h2>
           {result.score >= passThreshold
-            ? "Readiness confirmed."
+            ? "Practice target met."
             : "Your review map is ready."}
         </h2>
         <p>
