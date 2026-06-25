@@ -544,7 +544,7 @@ export const tiers = [
       {
         "id": "n12-network-appliances-and-functions-section",
         "title": "Section 1.2 - Network Appliances and Functions",
-        "summary": "Compare the jobs performed by routers, switches, firewalls, proxies, load balancers, IDS/IPS, storage, VPN, QoS, and TTL.",
+        "summary": "Compare the jobs performed by routers, switches, firewalls, proxies, load balancers, IDS/IPS, storage, VPN headends, and QoS.",
         "activities": [
           {
             "id": "n12-network-appliances-and-functions-lesson",
@@ -555,7 +555,7 @@ export const tiers = [
             "domain": 1,
             "objective": "1.2",
             "difficulty": "foundation",
-            "summary": "Compare the jobs performed by routers, switches, firewalls, proxies, load balancers, IDS/IPS, storage, VPN, QoS, and TTL.",
+            "summary": "Compare the jobs performed by routers, switches, firewalls, proxies, load balancers, IDS/IPS, storage, VPN headends, and QoS.",
             "learningObjectives": [
               "Explain the primary job of common network appliances",
               "Separate appliance names from network functions",
@@ -658,23 +658,23 @@ export const tiers = [
               ],
               [
                 "NAS",
-                "File-level network storage."
+                "File-level network storage that presents shared folders over protocols such as SMB or NFS."
               ],
               [
                 "SAN",
                 "Block-level storage network, commonly used by servers."
               ],
               [
-                "VPN",
-                "Encrypted tunnel across an untrusted network."
+                "VPN concentrator appliance",
+                "Terminates and manages multiple encrypted VPN tunnels for remote users or sites."
               ],
               [
                 "QoS",
                 "Traffic marking or prioritization to protect important flows."
               ],
               [
-                "TTL",
-                "Packet lifetime field that prevents endless circulation."
+                "VPN headend",
+                "Network device or service that terminates VPN tunnels and enforces remote-access policy."
               ]
             ]
           },
@@ -796,15 +796,15 @@ export const tiers = [
                 "id": "quiz-n12-network-appliances-and-functions-001",
                 "objective": "1.2",
                 "domain": 1,
-                "prompt": "A Network+ learner is reviewing Network Appliances and Functions. Which description correctly matches TTL?",
+                "prompt": "A Network+ learner is reviewing Network Appliances and Functions. Which description correctly matches VPN headend?",
                 "options": [
-                  "Packet lifetime field that prevents endless circulation.",
-                  "Encrypted tunnel across an untrusted network.",
-                  "File-level network storage.",
-                  "Distributes requests across multiple back-end systems."
+                  "Network device or service that terminates VPN tunnels and enforces remote-access policy.",
+                  "Block-level storage network, commonly used by servers.",
+                  "Distributes requests across multiple back-end systems.",
+                  "Traffic marking or prioritization to protect important flows."
                 ],
                 "correctIndex": 0,
-                "explanation": "TTL matters in objective 1.2 because Packet lifetime field that prevents endless circulation. In a scenario, confirm it with evidence instead of guessing from the topic name alone.",
+                "explanation": "VPN headend matters in objective 1.2 because it terminates VPN tunnels and applies remote-access policy. In a scenario, connect the device function to the access requirement instead of guessing from the label alone.",
                 "source": {
                   "title": "CompTIA Network+ N10-009 exam objectives",
                   "url": "https://www.comptia.org/en-us/certifications/network/"
@@ -1500,7 +1500,7 @@ export const tiers = [
             "cards": [
               [
                 "FTP",
-                "File transfer protocol using ports 20 and 21."
+                "Uses TCP 21 for control; active FTP commonly uses TCP 20 for data, while passive FTP uses negotiated data ports."
               ],
               [
                 "SSH",
@@ -1508,11 +1508,11 @@ export const tiers = [
               ],
               [
                 "DNS",
-                "Name resolution service using port 53."
+                "Name resolution service using UDP/TCP port 53."
               ],
               [
                 "DHCP",
-                "Address assignment service using ports 67 and 68."
+                "Address assignment service using UDP ports 67 and 68."
               ],
               [
                 "HTTP",
@@ -1524,7 +1524,7 @@ export const tiers = [
               ],
               [
                 "SNMP",
-                "Monitoring protocol using ports 161 and 162."
+                "Monitoring protocol using UDP 161 for queries and UDP 162 for traps."
               ],
               [
                 "SMB",
@@ -3260,7 +3260,7 @@ export const tiers = [
               ],
               [
                 "SSE",
-                "Security-service side of SASE."
+                "Secure Service Edge: cloud-delivered SWG, CASB, and ZTNA without the WAN edge portion of SASE."
               ],
               [
                 "IPv6",
@@ -4969,7 +4969,7 @@ export const tiers = [
               ],
               [
                 "WPA3",
-                "Modern Wi-Fi security standard."
+                "Modern Wi-Fi security standard using SAE for personal networks and stronger enterprise options."
               ],
               [
                 "802.1X",
@@ -4977,7 +4977,7 @@ export const tiers = [
               ],
               [
                 "RADIUS",
-                "Central authentication service used by enterprise wireless."
+                "AAA protocol APs and switches use for 802.1X authentication, authorization, and accounting."
               ],
               [
                 "Roaming",
@@ -7519,28 +7519,28 @@ export const tiers = [
                 "Forwards DHCP traffic between clients and remote servers."
               ],
               [
-                "DNS",
-                "Name resolution service."
+                "SLAAC",
+                "IPv6 host address configuration using router advertisements without a DHCP lease."
               ],
               [
-                "A record",
-                "DNS record mapping a name to IPv4."
+                "Router Advertisement",
+                "IPv6 ICMPv6 message that advertises prefixes, default gateway behavior, and SLAAC flags."
+              ],
+              [
+                "DHCPv6",
+                "IPv6 configuration service that can provide stateful addresses or additional options."
+              ],
+              [
+                "NDP",
+                "IPv6 Neighbor Discovery Protocol for address resolution, router discovery, and neighbor reachability."
+              ],
+              [
+                "DNS",
+                "Translates host names to records such as A, AAAA, CNAME, MX, and PTR."
               ],
               [
                 "AAAA record",
-                "DNS record mapping a name to IPv6."
-              ],
-              [
-                "CNAME",
-                "DNS alias record."
-              ],
-              [
-                "MX record",
-                "DNS mail exchanger record."
-              ],
-              [
-                "PTR record",
-                "Reverse DNS lookup record."
+                "DNS record mapping a host name to an IPv6 address."
               ],
               [
                 "NTP",
@@ -7982,8 +7982,8 @@ export const tiers = [
                 "Validation of endpoint health before access."
               ],
               [
-                "VPN concentrator",
-                "Device or service terminating VPN connections."
+                "Remote-access VPN concentrator",
+                "Headend that authenticates clients and terminates remote-access VPN connections."
               ]
             ]
           },
@@ -8798,7 +8798,7 @@ export const tiers = [
               ],
               [
                 "TLS",
-                "Encryption commonly used to protect application traffic."
+                "Provides encryption, integrity, and certificate-based authentication for application protocols such as HTTPS."
               ],
               [
                 "IPsec",
@@ -11800,7 +11800,7 @@ export const tiers = [
               ],
               [
                 "SNR",
-                "Wireless signal strength compared with noise."
+                "Signal is too close to the noise floor, causing lower data rates, retries, and unstable wireless performance."
               ],
               [
                 "Channel utilization",
@@ -15158,29 +15158,569 @@ const networkQuestionOptionReplacements = new Map([
     "A guess based only on the device brand.",
     "A conclusion based on vendor/model instead of counters, logs, or packet evidence.",
   ],
+  [
+    "An IDS to encrypt client sessions.",
+    "A WAF that inspects web requests but does not distribute load across healthy servers.",
+  ],
+  [
+    "A NAS to route traffic between subnets.",
+    "DNS round robin without health checks, which can still send users to a struggling server.",
+  ],
+  [
+    "A media converter to inspect application requests.",
+    "A reverse proxy rule that forwards requests but does not verify back-end health.",
+  ],
+  [
+    "The rack humidity sensor.",
+    "An ACL on an unrelated subnet that is not in the host's outbound path.",
+  ],
+  [
+    "A UPS runtime report, because it proves name resolution.",
+    "ping to the server IP, because reachability alone does not prove DNS answers.",
+  ],
 ])
 
-function polishNetworkQuestionBank() {
-  for (const activity of tiers.flatMap((tier) => tier.modules).flatMap((module) => module.activities)) {
-    if (!activity.questions) continue
-    for (const question of activity.questions) {
-      question.prompt = question.prompt
-        .replace(
-          /A Network\+ learner is reviewing ([^.]+)\. Which description correctly matches ([^?]+)\?/,
-          "During a Network+ review of $1, which description best identifies $2 in a real ticket?",
-        )
-        .replace(
-          /\[([^\]]+)\] A Network\+ learner is reviewing ([^.]+)\. Which description correctly matches ([^?]+)\?/,
-          "[$1] During a Network+ review of $2, which description best identifies $3 in a real ticket?",
-        )
+const networkPromptContexts = [
+  "branch-office",
+  "data-center",
+  "wireless rollout",
+  "cloud migration",
+  "after-hours outage",
+  "new-site turn-up",
+  "security review",
+  "WAN slowdown",
+  "service desk",
+  "change-window",
+  "monitoring alert",
+  "vendor escalation",
+  "post-implementation check",
+]
 
-      question.options = question.options.map((option) =>
-        networkQuestionOptionReplacements.get(option) ?? option,
-      )
+const networkPromptTemplates = [
+  ({ article, context, topic, term }) => `${article} ${context} ticket mentions ${topic}. Which option best describes ${term} in that context?`,
+  ({ article, context, topic, term }) => `A technician is narrowing down ${article.toLowerCase()} ${context} issue involving ${topic}. What does ${term} mean?`,
+  ({ article, context, topic, term }) => `During ${article.toLowerCase()} ${context} review, ${term} comes up while discussing ${topic}. Which description is accurate?`,
+  ({ article, context, term }) => `${article} ${context} note references ${term}. Which description would help a junior technician understand it?`,
+  ({ article, context, topic, term }) => `A team lead asks for the practical meaning of ${term} during ${article.toLowerCase()} ${context} discussion about ${topic}. What is the best answer?`,
+  ({ article, context, term }) => `${article} ${context} work note includes the term ${term}. Which explanation fits real troubleshooting work?`,
+  ({ article, context, term }) => `${article} ${context} diagram or command output points to ${term}. Which description matches it?`,
+  ({ article, context, topic, term }) => `A technician is comparing similar ${topic} terms during ${article.toLowerCase()} ${context} task. Which description identifies ${term}?`,
+  ({ article, context, term }) => `${article} ${context} escalation asks where ${term} fits. Which answer is most accurate?`,
+  ({ article, context, topic, term }) => `A runbook for ${article.toLowerCase()} ${context} task lists ${term} under ${topic}. Which description belongs there?`,
+  ({ article, context, term }) => `A teammate sees ${term} in ${article.toLowerCase()} ${context} troubleshooting note. What should they understand?`,
+  ({ article, context, topic, term }) => `${article} ${context} scenario tests ${topic}. Which option correctly explains ${term}?`,
+]
+
+function buildNetworkPrompt(domainLabel, topic, term, index) {
+  const template = networkPromptTemplates[index % networkPromptTemplates.length]
+  const context = networkPromptContexts[index % networkPromptContexts.length]
+  const article = /^[aeiou]/i.test(context) ? "An" : "A"
+  const cleanTopic = String(topic).replace(/\bosi\b/gi, "OSI")
+  const prompt = template({ article, context, topic: cleanTopic, term })
+  return domainLabel ? `[${domainLabel}] ${prompt}` : prompt
+}
+
+const assessmentPromptTemplates = [
+  ({ article, context, prompt }) => `${article} ${context} ticket asks the team to reason from evidence: ${lowerFirst(prompt)}`,
+  ({ article, context, prompt }) => `In ${article.toLowerCase()} ${context} note, ${lowerFirst(prompt)}`,
+  ({ article, context, prompt }) => `${article} ${context} escalation uses this clue. ${prompt}`,
+  ({ article, context, prompt }) => `During ${article.toLowerCase()} ${context} triage, ${lowerFirst(prompt)}`,
+]
+
+const productionChangeTemplates = [
+  ({ article, context, topic }) => `${article} ${context} change touches ${topic}. What should the technician prove before changing production settings?`,
+  ({ article, context, topic }) => `During ${article.toLowerCase()} ${context} maintenance window for ${topic}, which verification best reduces risk?`,
+  ({ article, context, topic }) => `${article} ${context} runbook flags ${topic} as the suspected area. What evidence should come before a live change?`,
+  ({ article, context, topic }) => `A technician is preparing ${article.toLowerCase()} ${context} fix related to ${topic}. Which check keeps the work tied to the actual symptom?`,
+]
+
+const interpretationTemplates = [
+  ({ article, context, clue }) => `${article} ${context} ticket says, "${clue}" Which interpretation best explains the next troubleshooting focus?`,
+  ({ article, context, clue }) => `During ${article.toLowerCase()} ${context} triage note, "${clue}" What should the technician infer?`,
+  ({ article, context, clue }) => `${article} ${context} escalation includes this clue: "${clue}" Which answer fits the evidence?`,
+  ({ article, context, clue }) => `${article} ${context} queue shows, "${clue}" What is the most useful interpretation?`,
+]
+
+const evidencePromptTemplates = [
+  ({ article, context, topic }) => `${article} ${context} case involves ${topic}. Which evidence would give the team the clearest confidence?`,
+  ({ article, context, topic }) => `A technician is validating ${topic} during ${article.toLowerCase()} ${context} ticket. Which evidence matters most?`,
+  ({ article, context, topic }) => `For ${topic} in ${article.toLowerCase()} ${context} scenario, which proof best supports the next action?`,
+  ({ article, context, topic }) => `${article} ${context} review has narrowed to ${topic}. What evidence would make the finding defensible?`,
+]
+
+const explanationDetailTemplates = [
+  ({ article, context }) => `In ${article.toLowerCase()} ${context} case, eliminate choices that do not touch the affected layer, service, or workflow.`,
+  ({ context }) => `The ${context} framing matters because a nearby networking term can still be the wrong tool for this symptom.`,
+  ({ article, context }) => `${article} ${context} response should preserve evidence and avoid broad changes that would hide the original cause.`,
+  ({ context }) => `For ${context} work, the best answer is the one that directly proves or fixes the stated path.`,
+]
+
+const uppercaseLeadTerms = new Set([
+  "802.1Q",
+  "802.1X",
+  "ACL",
+  "APIPA",
+  "ARP",
+  "BSSID",
+  "CIDR",
+  "CRC",
+  "DDoS",
+  "DHCP",
+  "DNS",
+  "DoS",
+  "EOL",
+  "EOS",
+  "FTP",
+  "HTTP",
+  "HTTPS",
+  "ICMP",
+  "IDF",
+  "IDS",
+  "IP",
+  "IPAM",
+  "IPsec",
+  "IPv4",
+  "IPv6",
+  "LAN",
+  "MAC",
+  "MDF",
+  "MFA",
+  "MTBF",
+  "MTTR",
+  "NAC",
+  "NAS",
+  "NAT",
+  "NDP",
+  "NTP",
+  "OTDR",
+  "PAT",
+  "PDU",
+  "PoE",
+  "QoS",
+  "RADIUS",
+  "RBAC",
+  "RDP",
+  "RPO",
+  "RSSI",
+  "RTO",
+  "SAN",
+  "SASE",
+  "SD-WAN",
+  "SDN",
+  "SFP",
+  "SLA",
+  "SLAAC",
+  "SMB",
+  "SNMP",
+  "SNR",
+  "SSE",
+  "SSH",
+  "SSID",
+  "STP",
+  "SVI",
+  "TCP",
+  "TLS",
+  "UDP",
+  "UPS",
+  "VDI",
+  "VLAN",
+  "VPC",
+  "VPN",
+  "WAN",
+  "WPA3",
+])
+
+function lowerFirst(value) {
+  const text = String(value)
+  const firstToken = text.match(/^[A-Za-z0-9.]+(?:-[A-Za-z0-9.]+)*/)?.[0]
+  if (firstToken && uppercaseLeadTerms.has(firstToken)) return text
+  return text.replace(/^./, (letter) => letter.toLowerCase())
+}
+
+function promptParts(index) {
+  const context = networkPromptContexts[index % networkPromptContexts.length]
+  return {
+    context,
+    article: /^[aeiou]/i.test(context) ? "An" : "A",
+  }
+}
+
+function rewriteGeneratedPrompt(question, index) {
+  const parts = promptParts(index)
+  const productionMatch = question.prompt.match(/^Before changing production settings for (.+), what should the technician verify\?$/)
+  if (productionMatch) {
+    const template = productionChangeTemplates[index % productionChangeTemplates.length]
+    return template({ ...parts, topic: productionMatch[1] })
+  }
+
+  const interpretationMatch = question.prompt.match(/^A help desk note says: "(.+)" What is the best interpretation\?$/)
+  if (interpretationMatch) {
+    const template = interpretationTemplates[index % interpretationTemplates.length]
+    return template({ ...parts, clue: interpretationMatch[1] })
+  }
+
+  const evidenceMatch = question.prompt.match(/^Which evidence would most improve confidence when working through objective \d\.\d, (.+)\?$/)
+  if (evidenceMatch) {
+    const template = evidencePromptTemplates[index % evidencePromptTemplates.length]
+    return template({ ...parts, topic: evidenceMatch[1] })
+  }
+
+  return question.prompt
+}
+
+function rewriteGeneratedExplanation(explanation) {
+  return explanation
+    .replace(
+      / In a scenario, confirm it with evidence instead of guessing from the topic name alone\./g,
+      " Confirm it with evidence from the affected layer, service, or workflow.",
+    )
+    .replace(
+      / In a scenario, connect the device function to the access requirement instead of guessing from the label alone\./g,
+      " Tie the device function to the access requirement and observed traffic path.",
+    )
+    .replace(
+      / In a scenario, connect the term to observable evidence instead of guessing from the topic name alone\./g,
+      " Tie the term to observable evidence before ruling out nearby answers.",
+    )
+    .replace(
+      /This is the safer Network\+ approach for objective \d\.\d: ([^.]+)\. It keeps/g,
+      "The safer move is to $1. It keeps",
+    )
+    .replace(
+      /Good Network\+ answers tie the concept to proof\. For ([^.]+), the useful evidence is the evidence that confirms the expected traffic flow, service behavior, or physical condition\./g,
+      "Strong troubleshooting answers tie the choice to proof. For $1, useful evidence confirms the expected traffic flow, service behavior, or physical condition.",
+    )
+    .replace(
+      /The clue points to objective \d\.\d, ([^.]+)\./g,
+      "The clue points to the scenario details for $1.",
+    )
+    .replace(
+      /the correct answer connects the symptom to the objective instead of jumping to a broad network reset/g,
+      "the correct answer connects the symptom to the right layer, service, control, or workflow instead of jumping to a broad network reset",
+    )
+    .replace(
+      / matters in objective \d\.\d because /g,
+      " matters here because ",
+    )
+}
+
+function rotateQuestionOptions(question, index) {
+  if (!question.options?.length) return
+  const correctOption = question.options[question.correctIndex]
+  const shift = index % question.options.length
+  if (shift === 0) return
+  question.options = [
+    ...question.options.slice(shift),
+    ...question.options.slice(0, shift),
+  ]
+  question.correctIndex = question.options.indexOf(correctOption)
+}
+
+function makePromptUnique(question, seenPrompts, index) {
+  const key = question.prompt.trim().toLowerCase()
+  const count = seenPrompts.get(key) ?? 0
+  seenPrompts.set(key, count + 1)
+  if (count === 0) return
+  const parts = promptParts(index + count)
+  const template = assessmentPromptTemplates[(index + count) % assessmentPromptTemplates.length]
+  question.prompt = template({ ...parts, prompt: question.prompt })
+}
+
+function normalizedOptionSet(question) {
+  return question.options.map((option) => option.trim().toLowerCase()).sort().join("||")
+}
+
+function makeOptionSetUnique(question, seenOptionSets, index) {
+  const key = normalizedOptionSet(question)
+  const count = seenOptionSets.get(key) ?? 0
+  seenOptionSets.set(key, count + 1)
+  if (count === 0) return
+  const wrongIndex = question.options.findIndex((_, optionIndex) => optionIndex !== question.correctIndex)
+  if (wrongIndex === -1) return
+  const { context } = promptParts(index + count)
+  question.options[wrongIndex] = `${question.options[wrongIndex].replace(/\.$/, "")}; it does not match the ${context} evidence.`
+}
+
+function makeExplanationUnique(question, seenExplanations, index) {
+  const key = question.explanation.trim().toLowerCase()
+  const count = seenExplanations.get(key) ?? 0
+  seenExplanations.set(key, count + 1)
+  if (count === 0) return
+  const parts = promptParts(index + count)
+  const template = explanationDetailTemplates[(index + count) % explanationDetailTemplates.length]
+  question.explanation = `${question.explanation} ${template(parts)}`
+}
+
+const flashcardFrontReplacements = new Map([
+  ["n55-troubleshooting-tools-and-protocols-cards|ip address", "ip address (Linux command)"],
+  ["n12-network-appliances-and-functions-cards|router", "Network router"],
+  ["n12-network-appliances-and-functions-cards|router appliance", "Network router"],
+  ["n12-network-appliances-and-functions-cards|switch", "Ethernet switch"],
+  ["n12-network-appliances-and-functions-cards|switch appliance", "Ethernet switch"],
+  ["n12-network-appliances-and-functions-cards|ids", "Intrusion detection system (IDS)"],
+  ["n12-network-appliances-and-functions-cards|ips", "Intrusion prevention system (IPS)"],
+  ["n12-network-appliances-and-functions-cards|vpn concentrator appliance", "VPN concentrator"],
+  ["n12-network-appliances-and-functions-cards|vpn headend", "VPN headend policy point"],
+  ["n12-network-appliances-and-functions-cards|qos", "Quality of Service (QoS)"],
+  ["n16-topologies-architectures-and-network-types-cards|san", "SAN architecture"],
+  ["n54-performance-issues-cards|qos", "QoS for performance protection"],
+  ["n54-performance-issues-cards|qos performance control", "QoS for performance protection"],
+  ["n35-remote-access-methods-cards|ssh", "SSH administration"],
+  ["n35-remote-access-methods-cards|ssh remote access", "SSH administration"],
+  ["n34-ipv4-and-ipv6-network-services-cards|dns", "DNS name resolution"],
+  ["n34-ipv4-and-ipv6-network-services-cards|dns service", "DNS name resolution"],
+  ["n34-ipv4-and-ipv6-network-services-cards|dhcp", "DHCP address assignment"],
+  ["n34-ipv4-and-ipv6-network-services-cards|dhcp service", "DHCP address assignment"],
+  ["n35-remote-access-methods-cards|rdp", "RDP desktop session"],
+  ["n35-remote-access-methods-cards|rdp remote access", "RDP desktop session"],
+  ["n24-physical-installation-factors-cards|emi", "Electromagnetic interference (EMI)"],
+  ["n24-physical-installation-factors-cards|emi source", "Electromagnetic interference (EMI)"],
+  ["n52-cabling-and-physical-interface-issues-cards|emi", "EMI-related link errors"],
+  ["n52-cabling-and-physical-interface-issues-cards|emi cable symptom", "EMI-related link errors"],
+  ["n53-network-service-issues-cards|apipa", "APIPA / link-local IPv4"],
+  ["n53-network-service-issues-cards|apipa symptom", "APIPA / link-local IPv4"],
+  ["n21-routing-technologies-cards|default gateway", "Host default gateway"],
+  ["n21-routing-technologies-cards|default gateway route", "Host default gateway"],
+  ["n55-troubleshooting-tools-and-protocols-cards|traceroute", "traceroute / tracert"],
+  ["n55-troubleshooting-tools-and-protocols-cards|traceroute command", "traceroute / tracert"],
+  ["n43-security-features-and-defense-techniques-cards|port security", "Port security enforcement"],
+  ["n43-security-features-and-defense-techniques-cards|port security control", "Port security enforcement"],
+  ["n54-performance-issues-cards|snr", "Low SNR"],
+  ["n43-security-features-and-defense-techniques-cards|802.1x", "802.1X network access control"],
+  ["n43-security-features-and-defense-techniques-cards|802.1x control", "802.1X network access control"],
+  ["n52-cabling-and-physical-interface-issues-cards|poe budget", "PoE budget exhaustion"],
+  ["n54-performance-issues-cards|baseline", "Performance baseline"],
+  ["n54-performance-issues-cards|latency", "High latency"],
+  ["n54-performance-issues-cards|latency issue", "High latency"],
+  ["n54-performance-issues-cards|jitter", "Excessive jitter"],
+  ["n54-performance-issues-cards|jitter issue", "Excessive jitter"],
+  ["n43-security-features-and-defense-techniques-cards|acl", "ACL segmentation rule"],
+  ["n43-security-features-and-defense-techniques-cards|acl control", "ACL segmentation rule"],
+  ["n53-network-service-issues-cards|acl", "ACL rule order"],
+  ["n53-network-service-issues-cards|acl service block", "ACL rule order"],
+  ["n43-security-features-and-defense-techniques-cards|nac", "NAC posture enforcement"],
+  ["n43-security-features-and-defense-techniques-cards|nac enforcement", "NAC posture enforcement"],
+  ["n55-troubleshooting-tools-and-protocols-cards|otdr", "Optical time-domain reflectometer (OTDR)"],
+  ["n55-troubleshooting-tools-and-protocols-cards|otdr tool", "Optical time-domain reflectometer (OTDR)"],
+  ["n51-troubleshooting-methodology-cards|identify the problem", "Problem identification"],
+])
+
+const flashcardBackReplacements = new Map([
+  ["n12-network-appliances-and-functions-cards|ids", "Monitors network traffic for suspicious activity and alerts, typically without blocking the flow."],
+  ["n12-network-appliances-and-functions-cards|ips", "Inline security control that inspects traffic and can block, drop, or reset suspicious sessions."],
+  ["n12-network-appliances-and-functions-cards|router", "Layer 3 device that forwards packets between IP networks."],
+  ["n12-network-appliances-and-functions-cards|router appliance", "Layer 3 device that forwards packets between IP networks."],
+  ["n12-network-appliances-and-functions-cards|switch", "Layer 2 device that forwards Ethernet frames inside a LAN using MAC addresses."],
+  ["n12-network-appliances-and-functions-cards|switch appliance", "Layer 2 device that forwards Ethernet frames inside a LAN using MAC addresses."],
+  ["n12-network-appliances-and-functions-cards|nas", "File-level network storage that presents shared folders over protocols such as SMB or NFS."],
+  ["n12-network-appliances-and-functions-cards|vpn concentrator appliance", "Device or service that terminates many encrypted VPN tunnels and applies remote-access policy."],
+  ["n12-network-appliances-and-functions-cards|vpn headend", "VPN edge point where tunnels terminate, users authenticate, and access policy is enforced."],
+  ["n12-network-appliances-and-functions-cards|qos", "Traffic classification, marking, and prioritization used to protect important or latency-sensitive flows."],
+  ["n14-ports-protocols-services-and-traffic-cards|http", "Unencrypted web traffic that commonly uses TCP port 80."],
+  ["n16-topologies-architectures-and-network-types-cards|core layer", "High-speed campus backbone layer that moves traffic between distribution blocks."],
+  ["n16-topologies-architectures-and-network-types-cards|san", "Dedicated storage architecture that presents block-level storage to servers."],
+  ["n17-ipv4-addressing-and-subnetting-cards|10.0.0.0/8", "Private IPv4 block often used for large internal networks and summarized routes."],
+  ["n17-ipv4-addressing-and-subnetting-cards|192.168.0.0/16", "Private IPv4 block commonly used in home, lab, and small-office networks."],
+  ["n33-disaster-recovery-concepts-cards|mtbf", "Mean time between failures, used to estimate expected reliability over time."],
+  ["n34-ipv4-and-ipv6-network-services-cards|dns", "Translates host names to records such as A, AAAA, CNAME, MX, and PTR."],
+  ["n34-ipv4-and-ipv6-network-services-cards|dns service", "Service that translates names into records such as A, AAAA, CNAME, MX, and PTR."],
+  ["n34-ipv4-and-ipv6-network-services-cards|dhcp service", "Service that leases IP configuration to clients, including address, mask, gateway, DNS, and lease time."],
+  ["n34-ipv4-and-ipv6-network-services-cards|cname", "Alias record that points one DNS name at another canonical name."],
+  ["n34-ipv4-and-ipv6-network-services-cards|mx record", "DNS record that identifies mail exchangers for a domain."],
+  ["n34-ipv4-and-ipv6-network-services-cards|ptr record", "Reverse DNS record that maps an IP address back to a name."],
+  ["n35-remote-access-methods-cards|ssh remote access", "Secure command-line administration method that commonly uses TCP port 22."],
+  ["n35-remote-access-methods-cards|rdp remote access", "Graphical Windows remote desktop session method that commonly uses TCP port 3389."],
+  ["n41-basic-network-security-concepts-cards|authentication", "Process of proving a user, device, or service identity before access is granted."],
+  ["n43-security-features-and-defense-techniques-cards|acl", "Rule-based traffic filter used to permit or deny traffic between networks, hosts, or services."],
+  ["n43-security-features-and-defense-techniques-cards|acl control", "Rule-based traffic filter used to permit or deny traffic between networks, hosts, or services."],
+  ["n43-security-features-and-defense-techniques-cards|port security", "Switch-port feature that limits which MAC addresses may use a port."],
+  ["n43-security-features-and-defense-techniques-cards|port security control", "Switch-port feature that limits which MAC addresses may use a port."],
+  ["n43-security-features-and-defense-techniques-cards|802.1x", "Port-based access control that authenticates users or devices before network access."],
+  ["n43-security-features-and-defense-techniques-cards|802.1x control", "Port-based access control that authenticates users or devices before network access."],
+  ["n43-security-features-and-defense-techniques-cards|nac", "Network access control that admits, restricts, or blocks devices based on identity or posture."],
+  ["n43-security-features-and-defense-techniques-cards|nac enforcement", "Network access control that admits, restricts, or blocks devices based on identity or posture."],
+  ["n51-troubleshooting-methodology-cards|identify the problem", "First troubleshooting step: gather symptoms, scope, affected users, recent changes, and expected behavior."],
+  ["n51-troubleshooting-methodology-cards|scope", "The affected users, sites, devices, services, or time window that bounds an issue."],
+  ["n52-cabling-and-physical-interface-issues-cards|optical power meter", "Fiber tool that measures received light level to confirm signal strength."],
+  ["n52-cabling-and-physical-interface-issues-cards|emi", "Copper-link errors, retries, or instability caused by nearby electromagnetic interference."],
+  ["n52-cabling-and-physical-interface-issues-cards|emi cable symptom", "Copper-link errors, retries, or instability caused by nearby electromagnetic interference."],
+  ["n53-network-service-issues-cards|apipa", "169.254.0.0/16 self-assigned IPv4 address that usually indicates DHCP failure."],
+  ["n53-network-service-issues-cards|apipa symptom", "169.254.0.0/16 self-assigned IPv4 address that usually indicates DHCP failure."],
+  ["n53-network-service-issues-cards|acl", "Ordered ACL entry that permits or denies a service; earlier matching rules can shadow later ones."],
+  ["n53-network-service-issues-cards|acl service block", "Ordered ACL entry that permits or denies a service; earlier matching rules can shadow later ones."],
+  ["n54-performance-issues-cards|qos", "Marking or prioritization used to protect latency-sensitive or business-critical traffic under load."],
+  ["n54-performance-issues-cards|qos performance control", "Marking or prioritization used to protect latency-sensitive or business-critical traffic under load."],
+  ["n55-troubleshooting-tools-and-protocols-cards|nslookup", "Command-line tool for checking DNS answers from a resolver."],
+  ["n55-troubleshooting-tools-and-protocols-cards|dig", "Detailed DNS lookup tool that shows records, flags, and resolver behavior."],
+  ["n55-troubleshooting-tools-and-protocols-cards|traceroute", "Path tool that shows Layer 3 hops toward a destination; Windows commonly uses tracert."],
+  ["n55-troubleshooting-tools-and-protocols-cards|traceroute command", "Path tool that shows Layer 3 hops toward a destination; Windows commonly uses tracert."],
+  ["n55-troubleshooting-tools-and-protocols-cards|ip address", "Modern Linux command family for viewing and changing interface and address details."],
+  ["n55-troubleshooting-tools-and-protocols-cards|ip address command", "Modern Linux command family for viewing and changing interface and address details."],
+  ["n55-troubleshooting-tools-and-protocols-cards|otdr", "Fiber test instrument that measures reflections to estimate distance to faults or breaks."],
+  ["n55-troubleshooting-tools-and-protocols-cards|otdr tool", "Fiber test instrument that measures reflections to estimate distance to faults or breaks."],
+  ["n54-performance-issues-cards|latency", "One-way or round-trip delay that affects interactive traffic."],
+  ["n54-performance-issues-cards|latency issue", "Delay that is high enough to hurt interactive traffic such as voice, video, or remote sessions."],
+  ["n54-performance-issues-cards|jitter", "Variation in latency that disrupts voice, video, and real-time flows."],
+  ["n54-performance-issues-cards|jitter issue", "Excessive variation in delay that causes choppy voice, video, or other real-time traffic."],
+  ["n54-performance-issues-cards|throughput", "Actual delivered data rate after overhead, loss, congestion, and limits."],
+])
+
+function polishFlashcardDecks() {
+  for (const activity of tiers.flatMap((tier) => tier.modules).flatMap((module) => module.activities)) {
+    if (activity.type !== "flashcards") continue
+    for (const card of activity.cards) {
+      const key = `${activity.id}|${String(card[0]).toLowerCase()}`
+      card[1] = flashcardBackReplacements.get(key) ?? card[1]
+      card[0] = flashcardFrontReplacements.get(key) ?? card[0]
     }
   }
 }
 
+function buildObjectiveFlashcardMap() {
+  const objectives = new Map()
+  for (const activity of tiers
+    .slice(0, 5)
+    .flatMap((tier) => tier.modules)
+    .flatMap((module) => module.activities)) {
+    if (activity.type !== "flashcards") continue
+    objectives.set(activity.objective, {
+      title: activity.title.replace(/\s+flashcards$/i, ""),
+      cards: activity.cards,
+    })
+  }
+  return objectives
+}
+
+function uniqueDistractorBacks(cards, correctCard, seed = 0) {
+  const seen = new Set([String(correctCard[1]).trim().toLowerCase()])
+  const candidates = []
+  for (const card of cards) {
+    const back = String(card[1]).trim()
+    const key = back.toLowerCase()
+    if (card === correctCard || seen.has(key)) continue
+    seen.add(key)
+    candidates.push(back)
+  }
+  if (!candidates.length) return candidates
+  const offset = (seed * 3) % candidates.length
+  return [
+    ...candidates.slice(offset),
+    ...candidates.slice(0, offset),
+  ]
+}
+
+const definitionExplanationClosers = [
+  "Match it to the symptom, layer, and evidence before choosing a nearby term.",
+  "The best answer should explain what the device, protocol, or tool actually proves.",
+  "Look for the clue that shows scope, traffic direction, or the affected service.",
+  "Treat similar labels carefully; the useful choice fits the observed behavior.",
+  "Use command output, topology, or policy context to confirm the match.",
+]
+
+function buildDefinitionExplanation(correctCard, objectiveTitle, index) {
+  const [term, definition] = correctCard
+  const definitionText = lowerFirst(definition).replace(/[.?!]$/, "")
+  const closer = definitionExplanationClosers[index % definitionExplanationClosers.length]
+  return `${term} matters in ${objectiveTitle} because ${definitionText}. ${closer}`
+}
+
+function broadenPracticeExamQuestions() {
+  const objectiveCards = buildObjectiveFlashcardMap()
+  const exam = tiers
+    .find((tier) => tier.id === "tier-6")
+    ?.modules.flatMap((module) => module.activities)
+    .find((activity) => activity.id === "t6-practice-exam")
+  if (!exam?.questions) return
+
+  const objectiveUseCount = new Map()
+  const domainLabels = new Map(domains.map((domain) => [domain.id, domain.title]))
+  for (const question of exam.questions) {
+    const objective = objectiveCards.get(question.objective)
+    if (!objective?.cards?.length) continue
+    const useCount = objectiveUseCount.get(question.objective) ?? 0
+    objectiveUseCount.set(question.objective, useCount + 1)
+    const correctCard = objective.cards[useCount % objective.cards.length]
+    const distractors = uniqueDistractorBacks(objective.cards, correctCard, useCount)
+    if (distractors.length < 3) continue
+
+    question.concept = correctCard[0]
+    question.prompt = `[${domainLabels.get(question.domain) ?? "Network+"}] A Network+ learner is reviewing ${objective.title}. Which description correctly matches ${correctCard[0]}?`
+    question.options = [correctCard[1], ...distractors.slice(0, 3)]
+    question.correctIndex = 0
+    question.explanation = buildDefinitionExplanation(correctCard, objective.title, useCount)
+  }
+}
+
+function broadenDefinitionQuestions() {
+  const objectiveCards = buildObjectiveFlashcardMap()
+  const objectiveUseCount = new Map()
+  for (const activity of tiers
+    .slice(0, 5)
+    .flatMap((tier) => tier.modules)
+    .flatMap((module) => module.activities)) {
+    if (!activity.questions || activity.id === "t6-practice-exam") continue
+    for (const question of activity.questions) {
+      const match = question.prompt.match(/^(?:\[[^\]]+\] )?A Network\+ learner is reviewing ([^.]+)\. Which description correctly matches ([^?]+)\?$/)
+      if (!match) continue
+      const objective = objectiveCards.get(question.objective)
+      if (!objective?.cards?.length) continue
+      const useCount = objectiveUseCount.get(question.objective) ?? 0
+      objectiveUseCount.set(question.objective, useCount + 1)
+      const correctCard = objective.cards[useCount % objective.cards.length]
+      const distractors = uniqueDistractorBacks(objective.cards, correctCard, useCount)
+      if (distractors.length < 3) continue
+
+      question.concept = correctCard[0]
+      question.prompt = `A Network+ learner is reviewing ${objective.title}. Which description correctly matches ${correctCard[0]}?`
+      question.options = [correctCard[1], ...distractors.slice(0, 3)]
+      question.correctIndex = 0
+      question.explanation = buildDefinitionExplanation(correctCard, objective.title, useCount)
+    }
+  }
+}
+
+function polishNetworkQuestionBank() {
+  let promptIndex = 0
+  let questionIndex = 0
+  const seenPrompts = new Map()
+  const seenOptionSets = new Map()
+  const seenExplanations = new Map()
+  for (const activity of tiers.flatMap((tier) => tier.modules).flatMap((module) => module.activities)) {
+    if (!activity.questions) continue
+    for (const question of activity.questions) {
+      const bracketedMatch = question.prompt.match(/\[([^\]]+)\] A Network\+ learner is reviewing ([^.]+)\. Which description correctly matches ([^?]+)\?/)
+      const plainMatch = question.prompt.match(/A Network\+ learner is reviewing ([^.]+)\. Which description correctly matches ([^?]+)\?/)
+      const reviewMatch = question.prompt.match(/\[([^\]]+)\] During a Network\+ review of ([^,]+), which description best identifies ([^?]+) in a real ticket\?/) ??
+        question.prompt.match(/During a Network\+ review of ([^,]+), which description best identifies ([^?]+) in a real ticket\?/)
+      if (bracketedMatch) {
+        question.prompt = buildNetworkPrompt(bracketedMatch[1], bracketedMatch[2], bracketedMatch[3], promptIndex)
+        promptIndex += 1
+      } else if (plainMatch) {
+        question.prompt = buildNetworkPrompt(null, plainMatch[1], plainMatch[2], promptIndex)
+        promptIndex += 1
+      } else if (reviewMatch) {
+        const hasDomain = reviewMatch.length === 4
+        question.prompt = buildNetworkPrompt(hasDomain ? reviewMatch[1] : null, hasDomain ? reviewMatch[2] : reviewMatch[1], hasDomain ? reviewMatch[3] : reviewMatch[2], promptIndex)
+        promptIndex += 1
+      }
+
+      question.prompt = rewriteGeneratedPrompt(question, questionIndex)
+      question.explanation = rewriteGeneratedExplanation(question.explanation)
+      question.options = question.options.map((option) =>
+        networkQuestionOptionReplacements.get(option) ?? option,
+      )
+      rotateQuestionOptions(question, questionIndex)
+      makePromptUnique(question, seenPrompts, questionIndex)
+      makeOptionSetUnique(question, seenOptionSets, questionIndex)
+      makeExplanationUnique(question, seenExplanations, questionIndex)
+      questionIndex += 1
+    }
+  }
+}
+
+polishFlashcardDecks()
+broadenDefinitionQuestions()
+broadenPracticeExamQuestions()
 polishNetworkQuestionBank()
 
 export const masterFlashcardsActivity = {

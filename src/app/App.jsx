@@ -62,6 +62,7 @@ import {
   validationGateStatus,
 } from "../lib/validationLogic.js";
 import { progressRepository } from "../lib/progressRepository.js";
+import { getFlashcardRevealTerm } from "../lib/flashcardTerms.js";
 import {
   currentTierForProgress,
   filterCurriculum,
@@ -74,6 +75,7 @@ import { SubnettingExplanations } from "../features/subnetting/SubnettingExplana
 const primaryNavItems = [
   { id: "dashboard", label: "Overview", icon: LayoutDashboard },
   { id: "path", label: "Learning Path", icon: Layers3 },
+  { id: "life-of-a-packet", label: "Life of a Packet", icon: Activity },
   { id: "domains", label: "Exam Domains", icon: BookOpen },
   { id: "flashcards", label: "Flash Cards", icon: Contact },
   { id: "common-ports", label: "Common Ports", icon: Server },
@@ -84,6 +86,7 @@ const primaryNavItems = [
 
 const aboutNavItems = [
   { id: "read-me", label: "Read Me", icon: CircleHelp },
+  { id: "privacy", label: "Data & Privacy", icon: LockKeyhole },
   { id: "why-network", label: "Why Network+?", icon: TrendingUp },
 ];
 
@@ -123,22 +126,98 @@ const typeLabels = {
   subnetting: "Subnetting lab",
 };
 
+function scrollAppToTop(behavior = "auto") {
+  const options = { top: 0, left: 0, behavior };
+  window.scrollTo(options);
+  document.documentElement.scrollTop = 0;
+  document.documentElement.scrollLeft = 0;
+  document.body.scrollTop = 0;
+  document.body.scrollLeft = 0;
+  document.querySelectorAll(".app-shell, .main, .page").forEach((node) => {
+    node.scrollTop = 0;
+    node.scrollLeft = 0;
+    node.scrollTo?.(options);
+  });
+}
+
+function scheduleScrollAppToTop(behavior = "auto") {
+  scrollAppToTop(behavior);
+  window.requestAnimationFrame(() => {
+    scrollAppToTop(behavior);
+    window.setTimeout(() => scrollAppToTop("auto"), 90);
+  });
+}
+
 function Sidebar({ active, onNavigate, open, onClose, progress }) {
   const overall = getOverallProgress(progress);
-  const renderNavItem = ({ id, label, icon: Icon }) => (
-    <button
-      key={id}
-      className={`nav__item ${active === id ? "nav__item--active" : ""}`}
-      onClick={() => {
-        onNavigate(id);
-        onClose();
-      }}
-    >
-      <Icon size={18} />
-      <span>{label}</span>
-      {id === "path" && <span className="nav__badge">{tiers.length}</span>}
-    </button>
-  );
+  const packetSectionActive = active === "life-of-a-packet" || active === "life-of-arp";
+  const [packetNavOpen, setPacketNavOpen] = useState(packetSectionActive);
+  useEffect(() => {
+    if (packetSectionActive) setPacketNavOpen(true);
+  }, [packetSectionActive]);
+  const renderNavItem = ({ id, label, icon: Icon }) => {
+    if (id === "life-of-a-packet") {
+      return (
+        <div className="nav-collapsible" key={id}>
+          <button
+            className={`nav__item nav__item--parent ${packetSectionActive ? "nav__item--active" : ""}`}
+            onClick={() => {
+              setPacketNavOpen(true);
+              onNavigate(id);
+              onClose();
+            }}
+            aria-expanded={packetNavOpen}
+          >
+            <Icon size={18} />
+            <span>{label}</span>
+            <ChevronRight
+              className={`nav__chevron ${packetNavOpen ? "nav__chevron--open" : ""}`}
+              size={15}
+            />
+          </button>
+          {packetNavOpen && (
+            <div className="nav-submenu" aria-label="Life of a Packet sections">
+              <button
+                type="button"
+                className={`nav-subitem ${active === "life-of-a-packet" ? "nav-subitem--active" : ""}`}
+                onClick={() => {
+                  onNavigate("life-of-a-packet");
+                  onClose();
+                }}
+              >
+                Packet Path
+              </button>
+              <button
+                type="button"
+                className={`nav-subitem ${active === "life-of-arp" ? "nav-subitem--active" : ""}`}
+                onClick={() => {
+                  onNavigate("life-of-arp");
+                  onClose();
+                }}
+              >
+                Life of ARP
+              </button>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    return (
+      <button
+        key={id}
+        className={`nav__item ${active === id ? "nav__item--active" : ""}`}
+        onClick={() => {
+          onNavigate(id);
+          onClose();
+        }}
+      >
+        <Icon size={18} />
+        <span>{label}</span>
+        {id === "path" && <span className="nav__badge">{tiers.length}</span>}
+      </button>
+    );
+  };
 
   return (
     <aside className={`sidebar ${open ? "sidebar--open" : ""}`}>
@@ -205,6 +284,7 @@ function Sidebar({ active, onNavigate, open, onClose, progress }) {
 function Topbar({
   title,
   onMenu,
+  onHome,
   query,
   onQueryChange,
   onSearchActivate,
@@ -246,9 +326,21 @@ function Topbar({
       >
         <Menu size={20} />
       </button>
-      <div>
-        <p className="eyebrow">Learning workspace</p>
-        <h1>{title}</h1>
+      <div className="topbar__context">
+        <div className="topbar__title">
+          <p className="eyebrow">Learning workspace</p>
+          <h1>{title}</h1>
+        </div>
+        <button
+          type="button"
+          className={`topbar-home ${title === "Overview" ? "topbar-home--active" : ""}`}
+          onClick={onHome}
+          aria-label="Go to Overview home"
+          title="Go to Overview"
+        >
+          <ShieldCheck size={17} />
+          <span>Home</span>
+        </button>
       </div>
       <div className={`topbar__actions ${searchOpen ? "search-open" : ""}`}>
         {recommendation?.activity && (
@@ -350,12 +442,18 @@ function Onboarding({ onStart, onExplore }) {
           Nothing is locked, and you’ll always know the next useful step.
         </p>
         <div className="welcome-tiers">
-          {tiers.map((tier) => (
-            <span key={tier.id} style={{ "--tier": tier.color }}>
-              <b>0{tier.number}</b>
-              {tier.title}
-            </span>
-          ))}
+          {tiers.map((tier) => {
+            const tierNumber = Number(tier.number);
+            const tierLabel = Number.isFinite(tierNumber)
+              ? String(tierNumber).padStart(2, "0")
+              : tier.number;
+            return (
+              <span key={tier.id} style={{ "--tier": tier.color }}>
+                <b>{tierLabel}</b>
+                {tier.title}
+              </span>
+            );
+          })}
         </div>
         <div className="welcome-actions">
           <button className="button button--primary" onClick={onStart}>
@@ -463,6 +561,32 @@ function Dashboard({ progress, onOpenTier, onOpenActivity, onNavigate }) {
           </div>
         </article>
       </section>
+      <section className="dashboard-tools" aria-label="Quick tools">
+        <button type="button" onClick={() => onNavigate("life-of-a-packet")}>
+          <span className="stat-icon stat-icon--blue">
+            <Activity size={19} />
+          </span>
+          <strong>Life of a Packet</strong>
+          <small>Watch a request cross the LAN and return.</small>
+          <ArrowRight size={16} />
+        </button>
+        <button type="button" onClick={() => onNavigate("common-ports")}>
+          <span className="stat-icon stat-icon--green">
+            <Server size={19} />
+          </span>
+          <strong>Common Ports</strong>
+          <small>Practice the ports that show up in tickets.</small>
+          <ArrowRight size={16} />
+        </button>
+        <button type="button" onClick={() => onNavigate("flashcards")}>
+          <span className="stat-icon stat-icon--orange">
+            <Contact size={19} />
+          </span>
+          <strong>Flash Cards</strong>
+          <small>Drill weak terms without opening a full lesson.</small>
+          <ArrowRight size={16} />
+        </button>
+      </section>
       <div className="guided-layout guided-layout--wide">
         <section className="panel journey-panel">
           <div className="section-heading">
@@ -490,6 +614,7 @@ function TierRail({ progress, onOpenTier, compact = false }) {
       {tiers.map((tier, index) => {
         const value = getTierProgress(tier, progress);
         const recommended = tier.id === recommendedTier.id;
+        const badge = compact && tier.id === "tier-subnetting" ? "IP" : tier.number;
         return (
           <button
             key={tier.id}
@@ -498,7 +623,7 @@ function TierRail({ progress, onOpenTier, compact = false }) {
             onClick={() => onOpenTier(tier.id)}
           >
             <span className="tier-node__number">
-              {value === 100 ? <Check size={19} /> : tier.number}
+              {value === 100 ? <Check size={19} /> : badge}
             </span>
             <span className="tier-node__copy">
               <small>
@@ -829,13 +954,1199 @@ function DomainsView({ progress }) {
   );
 }
 
+const packetScenarios = {
+  web: {
+    label: "Open a website",
+    packet: "HTTPS",
+    color: "#00d9ff",
+    summary:
+      "A client resolves a name, builds frames for the local LAN, crosses the gateway, and receives the server response.",
+    steps: [
+      {
+        title: "Application creates data",
+        device: "Workstation",
+        layer: "Layer 7",
+        detail:
+          "The browser creates an HTTPS request. The payload is still just application data before TCP/IP headers are added.",
+      },
+      {
+        title: "Transport adds ports",
+        device: "Workstation",
+        layer: "Layer 4",
+        detail:
+          "TCP adds a source port and destination port 443 so both hosts know which application conversation this belongs to.",
+      },
+      {
+        title: "Network adds IPs",
+        device: "Workstation",
+        layer: "Layer 3",
+        detail:
+          "IP adds the client source address and the remote server destination address. The client sees the server is off-subnet.",
+      },
+      {
+        title: "ARP finds the gateway MAC",
+        device: "Switch",
+        layer: "Layer 2",
+        detail:
+          "Because the destination is remote, the client frames the packet to the default gateway MAC, not the web server MAC.",
+      },
+      {
+        title: "Switch forwards the frame",
+        device: "Switch",
+        layer: "Layer 2",
+        detail:
+          "The switch checks its MAC table and forwards the frame only toward the router port.",
+      },
+      {
+        title: "Router chooses a route",
+        device: "Router",
+        layer: "Layer 3",
+        detail:
+          "The router removes the LAN frame, keeps the IP packet, decrements TTL, and forwards it using the routing table.",
+      },
+      {
+        title: "Server replies",
+        device: "Server",
+        layer: "Layers 4-7",
+        detail:
+          "The server sends return traffic back through the same logical stack: ports, IP addresses, frames, and switching.",
+      },
+    ],
+  },
+  dhcp: {
+    label: "Get an IP address",
+    packet: "DHCP",
+    color: "#ffb86b",
+    summary:
+      "A new client broadcasts because it does not yet know its address, gateway, or DHCP server.",
+    steps: [
+      {
+        title: "Client broadcasts discover",
+        device: "Laptop",
+        layer: "Layer 2",
+        detail:
+          "The client starts with no valid IP, so it sends a DHCP Discover to the broadcast MAC address.",
+      },
+      {
+        title: "Switch floods the frame",
+        device: "Switch",
+        layer: "Layer 2",
+        detail:
+          "Broadcast traffic is copied out switch ports in the VLAN so a DHCP server or relay can hear it.",
+      },
+      {
+        title: "DHCP offers a lease",
+        device: "Server",
+        layer: "Layer 7",
+        detail:
+          "The DHCP server offers an IP address, subnet mask, default gateway, DNS server, and lease time.",
+      },
+      {
+        title: "Client requests the offer",
+        device: "Laptop",
+        layer: "Layer 7",
+        detail:
+          "The client accepts one offer with a DHCP Request so every DHCP server knows which lease was chosen.",
+      },
+      {
+        title: "Server acknowledges",
+        device: "Server",
+        layer: "Layer 7",
+        detail:
+          "The ACK finalizes the lease. The client can now talk to local and routed networks.",
+      },
+    ],
+  },
+  ping: {
+    label: "Ping a neighbor",
+    packet: "ICMP",
+    color: "#75f0c2",
+    summary:
+      "A same-LAN ping shows the difference between IP packets and Ethernet frames.",
+    steps: [
+      {
+        title: "ICMP echo is built",
+        device: "Workstation",
+        layer: "Layer 3",
+        detail:
+          "Ping creates an ICMP Echo Request addressed to another host on the same subnet.",
+      },
+      {
+        title: "ARP resolves the peer",
+        device: "Workstation",
+        layer: "Layer 2",
+        detail:
+          "The client needs the destination host MAC address because same-subnet traffic does not use the default gateway.",
+      },
+      {
+        title: "Switch learns and forwards",
+        device: "Switch",
+        layer: "Layer 2",
+        detail:
+          "The switch records the source MAC, then forwards the frame toward the destination MAC.",
+      },
+      {
+        title: "Peer sends echo reply",
+        device: "Laptop",
+        layer: "Layer 3",
+        detail:
+          "The receiving host swaps source and destination information and returns an ICMP Echo Reply.",
+      },
+    ],
+  },
+};
+
+const packetDevices = [
+  { id: "workstation", label: "Workstation", meta: "192.168.10.25", x: 15, y: 22 },
+  { id: "laptop", label: "Laptop", meta: "192.168.10.44", x: 15, y: 70 },
+  { id: "switch", label: "Access switch", meta: "MAC table", x: 38, y: 47 },
+  { id: "router", label: "Default gateway", meta: "192.168.10.1", x: 66, y: 47 },
+  { id: "server", label: "Server", meta: "10.20.30.8", x: 85, y: 26 },
+  { id: "internet", label: "Internet", meta: "Routed WAN", x: 85, y: 70 },
+];
+
+const deviceConfigs = {
+  router: {
+    title: "RTR-EDGE-01",
+    command: "show running-config",
+    summary:
+      "Default gateway for VLAN 10. It routes LAN traffic toward the WAN, relays DHCP, and overloads inside hosts behind the outside interface.",
+    output: `RTR-EDGE-01# show running-config
+!
+hostname RTR-EDGE-01
+no ip domain-lookup
+ip domain-name fieldguide.local
+!
+interface GigabitEthernet0/0
+ description LAN uplink to SW-ACCESS-01
+ ip address 192.168.10.1 255.255.255.0
+ ip helper-address 10.20.30.8
+ ip nat inside
+ no shutdown
+!
+interface GigabitEthernet0/1
+ description WAN handoff to ISP
+ ip address 203.0.113.10 255.255.255.252
+ ip nat outside
+ no shutdown
+!
+ip dhcp excluded-address 192.168.10.1 192.168.10.20
+ip dhcp pool VLAN10-USERS
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 10.20.30.8 1.1.1.1
+ lease 7
+!
+access-list 10 permit 192.168.10.0 0.0.0.255
+ip nat inside source list 10 interface GigabitEthernet0/1 overload
+ip route 0.0.0.0 0.0.0.0 203.0.113.9
+!
+line vty 0 4
+ transport input ssh
+ login local
+end`,
+    callouts: [
+      "GigabitEthernet0/0 is the hosts' default gateway.",
+      "ip helper-address forwards DHCP broadcasts to the server.",
+      "The default route sends unknown remote destinations to the ISP.",
+    ],
+  },
+  switch: {
+    title: "SW-ACCESS-01",
+    command: "show running-config",
+    summary:
+      "Access switch for user devices. It places endpoints in VLAN 10 and uplinks to the router.",
+    output: `SW-ACCESS-01# show running-config
+!
+hostname SW-ACCESS-01
+spanning-tree mode rapid-pvst
+!
+vlan 10
+ name USERS
+!
+interface GigabitEthernet0/1
+ description Workstation-A
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+!
+interface GigabitEthernet0/2
+ description Laptop-B
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+!
+interface GigabitEthernet0/24
+ description Uplink to RTR-EDGE-01
+ switchport mode access
+ switchport access vlan 10
+!
+interface Vlan10
+ description Management SVI
+ ip address 192.168.10.2 255.255.255.0
+ no shutdown
+!
+ip default-gateway 192.168.10.1
+!
+mac address-table dynamic
+ AA:10:25    DYNAMIC     Gi0/1
+ BB:10:44    DYNAMIC     Gi0/2
+ CC:10:01    DYNAMIC     Gi0/24
+end`,
+    callouts: [
+      "Access ports put user devices into VLAN 10.",
+      "The switch forwards frames using the MAC address table.",
+      "ip default-gateway is for switch management, not host routing.",
+    ],
+  },
+  server: {
+    title: "SRV-DNS-DHCP-01",
+    command: "ipconfig /all + service notes",
+    summary:
+      "Infrastructure server that answers DNS and DHCP for the lab subnet.",
+    output: `SRV-DNS-DHCP-01> ipconfig /all
+
+Ethernet adapter LAN:
+   IPv4 Address . . . . . . . . . . : 10.20.30.8
+   Subnet Mask  . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . : 10.20.30.1
+   DNS Servers . . . . . . . . . . : 10.20.30.8
+
+DHCP scope VLAN10-USERS
+   Scope network  . . . . . . . . . : 192.168.10.0/24
+   Lease range    . . . . . . . . . : 192.168.10.21-192.168.10.220
+   Option 003 Router . . . . . . . : 192.168.10.1
+   Option 006 DNS Servers . . . . . : 10.20.30.8, 1.1.1.1
+
+DNS zone fieldguide.local
+   www.fieldguide.local  A  10.20.30.8`,
+    callouts: [
+      "DHCP options give clients their gateway and DNS servers.",
+      "The router's helper address lets DHCP cross a subnet boundary.",
+      "DNS turns names into IP addresses before the packet can be sent.",
+    ],
+  },
+  workstation: {
+    title: "Workstation-A",
+    command: "ipconfig /all",
+    summary:
+      "Client endpoint with a DHCP lease and a default gateway pointing at the router.",
+    output: `Workstation-A> ipconfig /all
+
+Ethernet adapter LAN:
+   Connection-specific DNS Suffix  . : fieldguide.local
+   Physical Address . . . . . . . . : AA:10:25
+   DHCP Enabled . . . . . . . . . . : Yes
+   IPv4 Address . . . . . . . . . . : 192.168.10.25
+   Subnet Mask  . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . : 192.168.10.1
+   DHCP Server . . . . . . . . . . : 10.20.30.8
+   DNS Servers . . . . . . . . . . : 10.20.30.8
+
+Workstation-A> arp -a
+192.168.10.1    CC:10:01    dynamic
+192.168.10.44   BB:10:44    dynamic`,
+    callouts: [
+      "Same-subnet traffic uses the peer MAC address.",
+      "Remote traffic uses the default gateway MAC address.",
+      "ARP maps local IPv4 addresses to Ethernet addresses.",
+    ],
+  },
+  laptop: {
+    title: "Laptop-B",
+    command: "ipconfig /all",
+    summary:
+      "Second LAN endpoint used to demonstrate same-subnet switching and ARP.",
+    output: `Laptop-B> ipconfig /all
+
+Wireless/Ethernet adapter LAN:
+   Physical Address . . . . . . . . : BB:10:44
+   DHCP Enabled . . . . . . . . . . : Yes
+   IPv4 Address . . . . . . . . . . : 192.168.10.44
+   Subnet Mask  . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . : 192.168.10.1
+   DNS Servers . . . . . . . . . . : 10.20.30.8
+
+Laptop-B> ping 192.168.10.25
+Reply from 192.168.10.25: bytes=32 time<1ms TTL=128`,
+    callouts: [
+      "The laptop can reach the workstation without using the router.",
+      "The switch still learns both source MAC addresses.",
+      "The gateway is only needed for off-subnet destinations.",
+    ],
+  },
+  internet: {
+    title: "ISP / Internet",
+    command: "path view",
+    summary:
+      "Represents routed networks beyond the local default gateway.",
+    output: `Internet path summary
+
+Client LAN       192.168.10.0/24
+Default gateway  192.168.10.1
+Edge outside     203.0.113.10/30
+Next hop ISP     203.0.113.9
+
+Traffic behavior:
+1. Client sends remote traffic to gateway MAC CC:10:01.
+2. Router forwards using 0.0.0.0/0 default route.
+3. NAT overload translates inside clients to 203.0.113.10.
+4. Return traffic maps back to the original client session.`,
+    callouts: [
+      "The client does not ARP for internet hosts.",
+      "The router makes the Layer 3 forwarding decision.",
+      "NAT changes address visibility at the network edge.",
+    ],
+  },
+};
+
+const packetWires = [
+  { id: "desktop-switch", from: "workstation", to: "switch", left: 18, top: 35, width: 23, rotate: 22 },
+  { id: "laptop-switch", from: "laptop", to: "switch", left: 19, top: 63, width: 22, rotate: -19 },
+  { id: "switch-router", from: "switch", to: "router", left: 46, top: 50, width: 21, rotate: 0 },
+  { id: "router-server", from: "router", to: "server", left: 72, top: 39, width: 18, rotate: -25 },
+  { id: "router-internet", from: "router", to: "internet", left: 72, top: 60, width: 18, rotate: 25 },
+];
+
+const packetFlowsByScenario = {
+  web: [
+    { path: "desktop-switch", delay: "0s", label: "HTTPS" },
+    { path: "switch-router", delay: ".9s", label: "HTTPS" },
+    { path: "router-server", delay: "1.8s", label: "Request" },
+    { path: "router-server", delay: "2.7s", reverse: true, label: "Reply" },
+    { path: "switch-router", delay: "3.6s", reverse: true, label: "Reply" },
+    { path: "desktop-switch", delay: "4.5s", reverse: true, label: "Reply" },
+  ],
+  dhcp: [
+    { path: "laptop-switch", delay: "0s", label: "Discover" },
+    { path: "switch-router", delay: ".9s", label: "Relay" },
+    { path: "router-server", delay: "1.8s", label: "Discover" },
+    { path: "router-server", delay: "2.7s", reverse: true, label: "Offer" },
+    { path: "switch-router", delay: "3.6s", reverse: true, label: "Offer" },
+    { path: "laptop-switch", delay: "4.5s", reverse: true, label: "ACK" },
+  ],
+  ping: [
+    { path: "desktop-switch", delay: "0s", label: "ARP" },
+    { path: "laptop-switch", delay: "1.2s", label: "Echo" },
+    { path: "laptop-switch", delay: "2.4s", reverse: true, label: "Reply" },
+    { path: "desktop-switch", delay: "3.6s", reverse: true, label: "Reply" },
+  ],
+};
+
+const packetTrafficEvents = {
+  web: ["DNS/HTTPS request", "Gateway forwards", "Server replies"],
+  dhcp: ["Discover broadcast", "Offer returns", "Request lease", "ACK confirms"],
+  ping: ["ARP for neighbor", "ICMP echo", "ICMP reply"],
+};
+
+const macLabFrames = [
+  {
+    id: "unknown",
+    label: "Desktop to laptop",
+    source: "AA:10:25",
+    destination: "BB:10:44",
+    port: "Gi0/1",
+    outcome: "Unknown destination: flood",
+    note: "The switch learns the source MAC on Gi0/1, then floods because it has not learned the laptop MAC yet.",
+  },
+  {
+    id: "reply",
+    label: "Laptop replies",
+    source: "BB:10:44",
+    destination: "AA:10:25",
+    port: "Gi0/2",
+    outcome: "Known destination: forward",
+    note: "The switch learns the laptop MAC on Gi0/2 and forwards directly to the desktop on Gi0/1.",
+  },
+  {
+    id: "server",
+    label: "Desktop to gateway",
+    source: "AA:10:25",
+    destination: "CC:10:01",
+    port: "Gi0/1",
+    outcome: "Known gateway: forward",
+    note: "Traffic leaving the subnet uses the default gateway MAC, so the switch forwards to the router port.",
+  },
+];
+
+const arpTargets = {
+  gateway: {
+    label: "Remote website",
+    intent: "Workstation needs to reach 10.20.30.8 through its default gateway.",
+    resolveIp: "192.168.10.1",
+    owner: "Default gateway",
+    ownerMac: "CC:10:01",
+    result: "The IP destination stays 10.20.30.8, but the Ethernet destination becomes the gateway MAC.",
+    cacheBefore: [
+      { ip: "192.168.10.44", mac: "BB:10:44", state: "cached" },
+    ],
+    cacheAfter: [
+      { ip: "192.168.10.44", mac: "BB:10:44", state: "cached" },
+      { ip: "192.168.10.1", mac: "CC:10:01", state: "learned" },
+    ],
+    clues: [
+      "Can ping the gateway but not the server? ARP probably worked; move up to routing, DNS, firewall, or service checks.",
+      "Cannot resolve the gateway MAC? Check VLAN, switchport, duplicate IP, or gateway interface state.",
+    ],
+  },
+  neighbor: {
+    label: "Same-LAN neighbor",
+    intent: "Workstation pings Laptop-B on the same 192.168.10.0/24 subnet.",
+    resolveIp: "192.168.10.44",
+    owner: "Laptop-B",
+    ownerMac: "BB:10:44",
+    result: "Same-subnet traffic uses the neighbor MAC directly; the router is not part of the frame.",
+    cacheBefore: [
+      { ip: "192.168.10.1", mac: "CC:10:01", state: "cached" },
+    ],
+    cacheAfter: [
+      { ip: "192.168.10.1", mac: "CC:10:01", state: "cached" },
+      { ip: "192.168.10.44", mac: "BB:10:44", state: "learned" },
+    ],
+    clues: [
+      "Same-subnet ping fails but gateway ping works? Look for endpoint firewall, wrong mask, bad switchport, or stale ARP.",
+      "The switch floods the ARP request inside the VLAN, then forwards normal unicast after the MAC is known.",
+    ],
+  },
+  stale: {
+    label: "Stale cache",
+    intent: "The gateway NIC changed, but the workstation still has the old MAC cached.",
+    resolveIp: "192.168.10.1",
+    owner: "Default gateway",
+    ownerMac: "CC:10:01",
+    result: "Clearing or refreshing ARP lets the workstation learn the current MAC and rebuild the frame correctly.",
+    cacheBefore: [
+      { ip: "192.168.10.1", mac: "CC:10:99", state: "stale" },
+    ],
+    cacheAfter: [
+      { ip: "192.168.10.1", mac: "CC:10:01", state: "refreshed" },
+    ],
+    clues: [
+      "A stale entry can make one host fail while others on the same VLAN work normally.",
+      "Useful checks: `arp -a`, `arp -d`, duplicate IP detection, and switch MAC table lookups.",
+    ],
+  },
+};
+
+const arpSteps = [
+  {
+    title: "Decide what IP needs a MAC",
+    layer: "L3 to L2 handoff",
+    detail:
+      "The host checks its subnet mask. Local destination? Resolve that host. Remote destination? Resolve the default gateway instead.",
+  },
+  {
+    title: "Check the ARP cache",
+    layer: "Host cache",
+    detail:
+      "If the mapping is already fresh, the host skips the broadcast and immediately builds the Ethernet frame.",
+  },
+  {
+    title: "Broadcast who-has",
+    layer: "Ethernet broadcast",
+    detail:
+      "The request goes to ff:ff:ff:ff:ff:ff, so every device in the VLAN sees it. Routers do not forward that broadcast.",
+  },
+  {
+    title: "Owner replies unicast",
+    layer: "ARP reply",
+    detail:
+      "Only the device that owns the requested IP replies, and it sends the answer directly back to the requester MAC.",
+  },
+  {
+    title: "Cache then send the frame",
+    layer: "Normal unicast",
+    detail:
+      "The host stores the IP-to-MAC mapping and wraps the packet in an Ethernet frame addressed to the learned MAC.",
+  },
+  {
+    title: "Switch forwards by MAC",
+    layer: "Switching",
+    detail:
+      "After ARP, the switch uses its MAC address table to forward the unicast frame. The IP packet inside still keeps the final IP destination.",
+  },
+];
+
+const arpGlossary = [
+  ["ARP request", "Broadcast question: who has this IPv4 address?"],
+  ["ARP reply", "Unicast answer: that IPv4 address is at this MAC."],
+  ["ARP cache", "Temporary host table of IPv4-to-MAC mappings."],
+  ["Broadcast domain", "The VLAN or segment that receives the ARP request."],
+  ["ARP poisoning", "A spoofed mapping that points an IP address at the wrong MAC."],
+  ["Dynamic ARP inspection", "A switch security feature that helps reject forged ARP messages."],
+];
+
+function upsertMacEntry(entries, frame) {
+  const next = entries.filter((entry) => entry.mac !== frame.source);
+  return [
+    ...next,
+    {
+      mac: frame.source,
+      port: frame.port,
+      age: "fresh",
+    },
+  ];
+}
+
+function CiscoStyleRouterIcon() {
+  return (
+    <svg
+      className="network-symbol network-symbol--router"
+      viewBox="0 0 48 48"
+      aria-hidden="true"
+    >
+      <circle cx="24" cy="24" r="18" />
+      <path d="M15 18h18" />
+      <path d="M29 14l5 4-5 4" />
+      <path d="M33 30H15" />
+      <path d="M19 26l-5 4 5 4" />
+      <path d="M18 33l12-18" />
+      <path d="M25 15h6v6" />
+      <path d="M30 33L18 15" />
+      <path d="M18 15h6" />
+    </svg>
+  );
+}
+
+function CiscoStyleSwitchIcon() {
+  return (
+    <svg
+      className="network-symbol network-symbol--switch"
+      viewBox="0 0 48 48"
+      aria-hidden="true"
+    >
+      <rect x="9" y="13" width="30" height="22" rx="4" />
+      <path d="M15 20h10" />
+      <path d="M22 17l4 3-4 3" />
+      <path d="M33 20H23" />
+      <path d="M26 17l-4 3 4 3" />
+      <path d="M15 28h10" />
+      <path d="M22 25l4 3-4 3" />
+      <path d="M33 28H23" />
+      <path d="M26 25l-4 3 4 3" />
+    </svg>
+  );
+}
+
+function getDeviceCommands(deviceId, primaryConfig) {
+  const commands = {
+    router: [
+      { id: "run", label: "show run", output: primaryConfig.output },
+      {
+        id: "ip-route",
+        label: "show ip route",
+        output: `RTR-EDGE-01# show ip route
+
+Gateway of last resort is 203.0.113.9 to network 0.0.0.0
+
+C    192.168.10.0/24 is directly connected, GigabitEthernet0/0
+L    192.168.10.1/32 is directly connected, GigabitEthernet0/0
+C    203.0.113.8/30 is directly connected, GigabitEthernet0/1
+L    203.0.113.10/32 is directly connected, GigabitEthernet0/1
+S*   0.0.0.0/0 [1/0] via 203.0.113.9`,
+      },
+      {
+        id: "nat",
+        label: "show ip nat translations",
+        output: `RTR-EDGE-01# show ip nat translations
+
+Pro  Inside global      Inside local       Outside local      Outside global
+tcp  203.0.113.10:49152 192.168.10.25:49152 10.20.30.8:443   10.20.30.8:443
+udp  203.0.113.10:53012 192.168.10.25:53012 1.1.1.1:53       1.1.1.1:53`,
+      },
+    ],
+    switch: [
+      { id: "run", label: "show run", output: primaryConfig.output },
+      {
+        id: "mac",
+        label: "show mac address-table",
+        output: `SW-ACCESS-01# show mac address-table
+
+          Mac Address Table
+-------------------------------------------
+Vlan    Mac Address       Type        Ports
+----    -----------       --------    -----
+  10    aa10.0025.0001    DYNAMIC     Gi0/1
+  10    bb10.0044.0001    DYNAMIC     Gi0/2
+  10    cc10.0001.0001    DYNAMIC     Gi0/24`,
+      },
+      {
+        id: "interfaces",
+        label: "show interfaces status",
+        output: `SW-ACCESS-01# show interfaces status
+
+Port      Name               Status       Vlan       Duplex  Speed
+Gi0/1     Workstation-A      connected    10         a-full  a-1000
+Gi0/2     Laptop-B           connected    10         a-full  a-1000
+Gi0/24    Uplink-RTR         connected    10         a-full  a-1000`,
+      },
+    ],
+    server: [
+      { id: "ip", label: "ipconfig /all", output: primaryConfig.output },
+      {
+        id: "dns",
+        label: "nslookup",
+        output: `SRV-DNS-DHCP-01> nslookup www.fieldguide.local
+Server:  SRV-DNS-DHCP-01
+Address: 10.20.30.8
+
+Name:    www.fieldguide.local
+Address: 10.20.30.8`,
+      },
+    ],
+    workstation: [
+      { id: "ip", label: "ipconfig /all", output: primaryConfig.output },
+      {
+        id: "trace",
+        label: "tracert",
+        output: `Workstation-A> tracert 10.20.30.8
+
+  1   <1 ms   <1 ms   <1 ms   192.168.10.1
+  2    3 ms    2 ms    3 ms   10.20.30.8
+
+Trace complete.`,
+      },
+    ],
+    laptop: [
+      { id: "ip", label: "ipconfig /all", output: primaryConfig.output },
+      {
+        id: "arp",
+        label: "arp -a",
+        output: `Laptop-B> arp -a
+
+Interface: 192.168.10.44
+  Internet Address      Physical Address      Type
+  192.168.10.1          cc-10-00-01-00-01     dynamic
+  192.168.10.25         aa-10-00-25-00-01     dynamic`,
+      },
+    ],
+    internet: [
+      { id: "path", label: "path view", output: primaryConfig.output },
+      {
+        id: "edge",
+        label: "edge summary",
+        output: `ISP edge view
+
+Neighbor route: 203.0.113.10/30
+Customer inside source seen after NAT: 203.0.113.10
+Private client address hidden: 192.168.10.25
+Return path: ISP -> 203.0.113.10 -> NAT table -> client`,
+      },
+    ],
+  };
+  return commands[deviceId] ?? [{ id: "primary", label: primaryConfig.command, output: primaryConfig.output }];
+}
+
+function LifeOfPacketView() {
+  const packetColor = packetScenarios.web.color;
+  const explanations = [
+    {
+      title: "1. Client sends",
+      body: "The workstation builds a request and wraps it in a local Ethernet frame.",
+    },
+    {
+      title: "2. LAN forwards",
+      body: "The switch forwards the frame toward the default gateway using MAC addresses.",
+    },
+    {
+      title: "3. Router sends",
+      body: "The router strips the local frame, keeps the IP packet, and sends it toward the server.",
+    },
+    {
+      title: "4. Server replies",
+      body: "The response comes back through the router and switch to the original client.",
+    },
+  ];
+
+  return (
+    <div className="page packet-page">
+      <div className="page-intro packet-intro">
+        <div>
+          <p className="eyebrow">Packet path</p>
+          <h2>Life of a packet</h2>
+          <p>
+            Watch one request leave a workstation, cross the switch, pass
+            through the default gateway, reach a server, and return.
+          </p>
+        </div>
+      </div>
+      <section
+        className="packet-lab packet-lab--simple packet-lab--story"
+        style={{ "--packet-color": packetColor, "--packet-duration": "5.8s" }}
+      >
+        <div className="packet-stage packet-stage--story" aria-label="Animated packet path from client through switch and router to server">
+          <svg
+            className="packet-schematic"
+            viewBox="0 0 390 620"
+            role="img"
+            aria-labelledby="packet-schematic-title packet-schematic-desc"
+          >
+            <title id="packet-schematic-title">Packet path through a small network</title>
+            <desc id="packet-schematic-desc">
+              A request leaves a client, passes through an access switch and router,
+              reaches a web server, then returns as a reply.
+            </desc>
+            <defs>
+              <marker id="packet-arrow-down" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path className="packet-arrowhead packet-arrowhead--down" d="M 0 0 L 10 5 L 0 10 z" />
+              </marker>
+              <marker id="packet-arrow-up" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path className="packet-arrowhead packet-arrowhead--up" d="M 0 0 L 10 5 L 0 10 z" />
+              </marker>
+              <filter id="packet-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            <path className="packet-schematic__cable" d="M 195 118 V 498" />
+            <path className="packet-schematic__arrow packet-schematic__arrow--down" d="M 176 132 V 484" markerEnd="url(#packet-arrow-down)" />
+            <path className="packet-schematic__arrow packet-schematic__arrow--up" d="M 214 484 V 132" markerEnd="url(#packet-arrow-up)" />
+
+            <g className="packet-node packet-node--client" transform="translate(45 34)">
+              <rect width="300" height="82" rx="18" />
+              <circle className="packet-node__badge" cx="30" cy="28" r="15" />
+              <text className="packet-node__badge-text" x="30" y="33">1</text>
+              <rect className="packet-node__icon" x="60" y="20" width="44" height="30" rx="5" />
+              <path className="packet-node__icon-line" d="M 75 59 H 89 M 82 50 V 59" />
+              <text className="packet-node__title" x="122" y="35">Client PC</text>
+              <text className="packet-node__meta" x="122" y="58">192.168.10.25</text>
+            </g>
+
+            <text className="packet-hop-label" x="195" y="149">Ethernet frame</text>
+
+            <g className="packet-node packet-node--switch" transform="translate(45 164)">
+              <rect width="300" height="82" rx="18" />
+              <circle className="packet-node__badge" cx="30" cy="28" r="15" />
+              <text className="packet-node__badge-text" x="30" y="33">2</text>
+              <rect className="packet-node__icon" x="58" y="24" width="50" height="26" rx="5" />
+              <path className="packet-node__icon-line" d="M 67 37 H 99 M 73 31 L 67 37 L 73 43 M 93 31 L 99 37 L 93 43" />
+              <text className="packet-node__title" x="122" y="35">Access Switch</text>
+              <text className="packet-node__meta" x="122" y="58">forwards by MAC</text>
+            </g>
+
+            <text className="packet-hop-label" x="195" y="279">gateway handoff</text>
+
+            <g className="packet-node packet-node--router" transform="translate(45 294)">
+              <rect width="300" height="82" rx="18" />
+              <circle className="packet-node__badge" cx="30" cy="28" r="15" />
+              <text className="packet-node__badge-text" x="30" y="33">3</text>
+              <circle className="packet-node__router-icon" cx="83" cy="38" r="24" />
+              <path className="packet-node__icon-line" d="M 70 38 H 96 M 76 31 L 70 38 L 76 45 M 90 31 L 96 38 L 90 45 M 83 25 V 51" />
+              <text className="packet-node__title" x="122" y="35">Router</text>
+              <text className="packet-node__meta" x="122" y="58">routes by IP</text>
+            </g>
+
+            <text className="packet-hop-label" x="195" y="409">IP packet</text>
+
+            <g className="packet-node packet-node--server" transform="translate(45 424)">
+              <rect width="300" height="82" rx="18" />
+              <circle className="packet-node__badge" cx="30" cy="28" r="15" />
+              <text className="packet-node__badge-text" x="30" y="33">4</text>
+              <rect className="packet-node__icon" x="66" y="15" width="34" height="48" rx="6" />
+              <path className="packet-node__icon-line" d="M 74 27 H 92 M 74 39 H 92 M 74 51 H 92" />
+              <text className="packet-node__title" x="122" y="35">Web Server</text>
+              <text className="packet-node__meta" x="122" y="58">10.20.30.8</text>
+            </g>
+
+            <g className="packet-dot packet-token packet-token--request">
+              <rect x="-26" y="-15" width="52" height="30" rx="15" />
+              <text x="0" y="5">REQ</text>
+              <animateMotion dur="4.2s" repeatCount="indefinite" path="M 176 124 V 492" />
+            </g>
+            <g className="packet-dot packet-token packet-token--reply">
+              <rect x="-26" y="-15" width="52" height="30" rx="15" />
+              <text x="0" y="5">RSP</text>
+              <animateMotion dur="4.2s" begin="1.15s" repeatCount="indefinite" path="M 214 492 V 124" />
+            </g>
+
+            <g className="packet-legend" transform="translate(45 548)">
+              <rect width="300" height="44" rx="14" />
+              <circle className="packet-legend__request" cx="24" cy="22" r="7" />
+              <text x="38" y="27">request outbound</text>
+              <circle className="packet-legend__reply" cx="170" cy="22" r="7" />
+              <text x="184" y="27">reply returns</text>
+            </g>
+          </svg>
+        </div>
+        <aside className="packet-guide packet-guide--story" aria-label="Packet path explanation">
+          <p className="eyebrow">What to notice</p>
+          <h3>Request goes out. Reply comes back.</h3>
+          <div className="packet-guide__list">
+            {explanations.map((item) => (
+              <article key={item.title}>
+                <strong>{item.title}</strong>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </aside>
+      </section>
+    </div>
+  );
+}
+
+function ArpLab({ defaultOpen = true, canCollapse = false }) {
+  const [arpTargetId, setArpTargetId] = useState("gateway");
+  const [arpStepIndex, setArpStepIndex] = useState(0);
+  const [showArpNetwork, setShowArpNetwork] = useState(defaultOpen);
+  const arpTarget = arpTargets[arpTargetId];
+  const arpStep = arpSteps[arpStepIndex];
+  const arpWireMode =
+    arpStepIndex >= 4
+      ? "is-unicast"
+      : arpStepIndex >= 3
+        ? "is-reply"
+        : arpStepIndex >= 2
+          ? "is-request"
+          : "";
+  const selectArpTarget = (targetId) => {
+    setArpTargetId(targetId);
+    setArpStepIndex(0);
+  };
+  const resetArpWalkthrough = () => {
+    setShowArpNetwork(true);
+    setArpTargetId("gateway");
+    setArpStepIndex(0);
+  };
+
+  return (
+    <section
+      className={`panel arp-lab ${showArpNetwork ? "arp-lab--open" : ""}`}
+      aria-labelledby="arp-lab-title"
+    >
+      <div className="arp-lab__header">
+        <div>
+          <p className="eyebrow">Address resolution</p>
+          <h3 id="arp-lab-title">ARP: IP question, MAC answer</h3>
+          <p>
+            ARP bridges Layer 3 and Layer 2 on an IPv4 LAN. Pick the destination,
+            then step through how the host finds the next local MAC address
+            before any Ethernet frame can leave.
+          </p>
+        </div>
+        <div className="arp-lab__actions">
+          <button
+            type="button"
+            className="button button--primary"
+            onClick={showArpNetwork ? resetArpWalkthrough : () => setShowArpNetwork(true)}
+          >
+            {showArpNetwork ? (
+              <RotateCcw size={16} />
+            ) : (
+              <Play size={16} fill="currentColor" />
+            )}
+            {showArpNetwork ? "Replay ARP flow" : "Show ARP network"}
+          </button>
+          {showArpNetwork && canCollapse && (
+            <button
+              type="button"
+              className="button button--ghost"
+              onClick={() => setShowArpNetwork(false)}
+            >
+              Hide walkthrough
+            </button>
+          )}
+        </div>
+      </div>
+      {!showArpNetwork ? (
+        <button
+          type="button"
+          className="arp-launch-card"
+          onClick={() => setShowArpNetwork(true)}
+        >
+          <span className="arp-launch-card__icon">
+            <Activity size={24} />
+          </span>
+          <span>
+            <b>Open the ARP mini network</b>
+            <small>
+              Watch a workstation ask for the right MAC, receive the reply,
+              update its cache, and build the Ethernet frame.
+            </small>
+          </span>
+          <ArrowRight size={18} />
+        </button>
+      ) : (
+        <>
+          <div className="arp-targets" aria-label="ARP destination scenarios">
+            {Object.entries(arpTargets).map(([id, target]) => (
+              <button
+                key={id}
+                type="button"
+                className={arpTargetId === id ? "is-active" : ""}
+                aria-pressed={arpTargetId === id}
+                onClick={() => selectArpTarget(id)}
+              >
+                {target.label}
+              </button>
+            ))}
+          </div>
+          <div className="arp-lab__grid">
+            <div className="arp-mini-network" aria-label="Interactive ARP network diagram">
+              <div className="arp-mini-network__topline">
+                <span>Mini LAN</span>
+                <strong>{arpTarget.label}</strong>
+              </div>
+              <div className="arp-mini-network__map">
+                <svg
+                  className="arp-mini-network__wires"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    className={`arp-wire-path arp-wire-path--cache ${arpStepIndex === 1 ? "is-live is-cache" : ""}`}
+                    d="M20 26 C21 35 21 42 20 50"
+                  />
+                  <path
+                    className={`arp-wire-path arp-wire-path--host-switch ${arpWireMode}`}
+                    d="M22 50 C33 48 40 48 50 50"
+                  />
+                  <path
+                    className={`arp-wire-path arp-wire-path--switch-owner ${arpWireMode}`}
+                    d="M50 50 C61 48 68 48 79 50"
+                  />
+                  <path
+                    className={`arp-wire-path arp-wire-path--broadcast ${arpStepIndex === 2 ? "is-live is-request" : ""}`}
+                    d="M50 50 C58 62 67 72 80 77"
+                  />
+                  <g className={`arp-spark ${arpStepIndex === 2 ? "is-live" : ""}`}>
+                    <circle r="2.1" />
+                    <animateMotion
+                      dur="1.45s"
+                      repeatCount="indefinite"
+                      path="M22 50 C33 48 40 48 50 50 C61 48 68 48 79 50"
+                    />
+                  </g>
+                  <g className={`arp-spark arp-spark--reply ${arpStepIndex === 3 ? "is-live" : ""}`}>
+                    <circle r="2.1" />
+                    <animateMotion
+                      dur="1.45s"
+                      repeatCount="indefinite"
+                      path="M79 50 C68 48 61 48 50 50 C40 48 33 48 22 50"
+                    />
+                  </g>
+                  <g className={`arp-spark arp-spark--unicast ${arpStepIndex >= 4 ? "is-live" : ""}`}>
+                    <circle r="2.1" />
+                    <animateMotion
+                      dur="1.7s"
+                      repeatCount="indefinite"
+                      path="M22 50 C33 48 40 48 50 50 C61 48 68 48 79 50"
+                    />
+                  </g>
+                </svg>
+                <button
+                  type="button"
+                  className={`arp-mini-device arp-mini-device--host ${[0, 4].includes(arpStepIndex) ? "is-active" : ""}`}
+                  onClick={() => setArpStepIndex(0)}
+                  aria-label="Step 1: decide what IP needs a MAC"
+                >
+                  <Contact size={18} />
+                  <strong>Workstation</strong>
+                  <span>AA:10:25</span>
+                </button>
+                <button
+                  type="button"
+                  className={`arp-mini-device arp-mini-device--cache ${arpStepIndex === 1 ? "is-active" : ""}`}
+                  onClick={() => setArpStepIndex(1)}
+                  aria-label="Step 2: check the ARP cache"
+                >
+                  <Command size={18} />
+                  <strong>ARP cache</strong>
+                  <span>{arpTarget.cacheBefore.length ? "check table" : "empty"}</span>
+                </button>
+                <button
+                  type="button"
+                  className={`arp-mini-device arp-mini-device--switch ${[2, 5].includes(arpStepIndex) ? "is-active" : ""}`}
+                  onClick={() => setArpStepIndex(2)}
+                  aria-label="Step 3: broadcast who-has through the switch"
+                >
+                  <CiscoStyleSwitchIcon />
+                  <strong>Switch</strong>
+                  <span>VLAN 10</span>
+                </button>
+                <button
+                  type="button"
+                  className={`arp-mini-device arp-mini-device--owner ${arpStepIndex === 3 ? "is-active" : ""}`}
+                  onClick={() => setArpStepIndex(3)}
+                  aria-label={`Step 4: ${arpTarget.owner} replies unicast`}
+                >
+                  {arpTarget.owner === "Laptop-B" ? <Contact size={18} /> : <CiscoStyleRouterIcon />}
+                  <strong>{arpTarget.owner}</strong>
+                  <span>{arpTarget.ownerMac}</span>
+                </button>
+                <button
+                  type="button"
+                  className={`arp-mini-device arp-mini-device--others ${arpStepIndex === 2 ? "is-active" : ""}`}
+                  onClick={() => setArpStepIndex(2)}
+                  aria-label="Broadcast copy reaches other hosts in the VLAN"
+                >
+                  <UsersRound size={18} />
+                  <strong>Other hosts</strong>
+                  <span>hear request</span>
+                </button>
+                <button
+                  type="button"
+                  className={`arp-mini-packet arp-mini-packet--request ${arpStepIndex === 2 ? "is-active" : ""}`}
+                  onClick={() => setArpStepIndex(2)}
+                >
+                  Who has {arpTarget.resolveIp}?
+                </button>
+                <button
+                  type="button"
+                  className={`arp-mini-packet arp-mini-packet--reply ${arpStepIndex === 3 ? "is-active" : ""}`}
+                  onClick={() => setArpStepIndex(3)}
+                >
+                  {arpTarget.ownerMac}
+                </button>
+              </div>
+              <div className="arp-mini-network__footer" aria-live="polite">
+                <span>Step {arpStepIndex + 1}</span>
+                <strong>{arpStep.title}</strong>
+                <div className="arp-mini-step-dots" role="group" aria-label="ARP walkthrough steps">
+                  {arpSteps.map((item, index) => (
+                    <button
+                      key={item.title}
+                      type="button"
+                      className={arpStepIndex === index ? "is-active" : ""}
+                      aria-pressed={arpStepIndex === index}
+                      aria-label={`Step ${index + 1}: ${item.title}`}
+                      onClick={() => setArpStepIndex(index)}
+                    >
+                      {index + 1}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <article className="arp-visual" aria-live="polite">
+              <div className="arp-visual__nodes">
+                <div className="arp-node arp-node--source">
+                  <Contact size={21} />
+                  <strong>Workstation</strong>
+                  <span>AA:10:25</span>
+                </div>
+                <div className="arp-node arp-node--broadcast">
+                  <Layers3 size={21} />
+                  <strong>VLAN broadcast</strong>
+                  <span>FF:FF:FF:FF:FF:FF</span>
+                </div>
+                <div className="arp-node arp-node--owner">
+                  {arpTarget.owner === "Laptop-B" ? <Contact size={21} /> : <CiscoStyleRouterIcon />}
+                  <strong>{arpTarget.owner}</strong>
+                  <span>{arpTarget.ownerMac}</span>
+                </div>
+              </div>
+              <div className="arp-frame-stack">
+                <div className={`arp-frame ${arpStepIndex >= 2 ? "is-active" : ""}`}>
+                  <span>ARP request</span>
+                  <strong>Who has {arpTarget.resolveIp}?</strong>
+                  <small>Ethernet dst FF:FF:FF:FF:FF:FF</small>
+                </div>
+                <ArrowRight size={18} />
+                <div className={`arp-frame ${arpStepIndex >= 3 ? "is-active" : ""}`}>
+                  <span>ARP reply</span>
+                  <strong>{arpTarget.resolveIp} is at {arpTarget.ownerMac}</strong>
+                  <small>Unicast back to AA:10:25</small>
+                </div>
+              </div>
+              <div className="arp-result-card">
+                <p className="eyebrow">Frame decision</p>
+                <h4>{arpStep.title}</h4>
+                <p>{arpStep.detail}</p>
+                <strong>{arpTarget.result}</strong>
+              </div>
+            </article>
+            <aside className="arp-cache-card">
+              <p className="eyebrow">ARP cache</p>
+              <h4>{arpTarget.intent}</h4>
+              <div className="arp-cache-columns">
+                <div>
+                  <span>Before</span>
+                  {arpTarget.cacheBefore.map((entry) => (
+                    <p key={`${entry.ip}-${entry.mac}`}>
+                      <code>{entry.ip}</code>
+                      <b>{entry.mac}</b>
+                      <em>{entry.state}</em>
+                    </p>
+                  ))}
+                </div>
+                <div>
+                  <span>After</span>
+                  {arpTarget.cacheAfter.map((entry) => (
+                    <p key={`${entry.ip}-${entry.mac}`}>
+                      <code>{entry.ip}</code>
+                      <b>{entry.mac}</b>
+                      <em>{entry.state}</em>
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </aside>
+          </div>
+          <div className="arp-doc-grid">
+            <article>
+              <p className="eyebrow">Terms to know</p>
+              <div className="arp-glossary">
+                {arpGlossary.map(([term, definition]) => (
+                  <span key={term}>
+                    <strong>{term}</strong>
+                    <small>{definition}</small>
+                  </span>
+                ))}
+              </div>
+            </article>
+            <article>
+              <p className="eyebrow">Troubleshooting clues</p>
+              <ul>
+                {arpTarget.clues.map((clue) => (
+                  <li key={clue}>{clue}</li>
+                ))}
+                <li>
+                  If a host ARPs for a remote server IP, suspect the subnet mask
+                  or default gateway configuration.
+                </li>
+                <li>
+                  If the gateway IP maps to an unexpected MAC, investigate
+                  duplicate IPs, spoofing, ARP poisoning, or Dynamic ARP Inspection.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </>
+      )}
+    </section>
+  );
+}
+
+function LifeOfArpView() {
+  return (
+    <div className="page arp-page">
+      <div className="page-intro arp-intro">
+        <div>
+          <p className="eyebrow">Focused lab</p>
+          <h2>Life of ARP</h2>
+          <p>
+            Follow how an IPv4 host turns a next-hop IP address into a usable
+            Ethernet destination, then read the cache and troubleshooting clues
+            that prove what happened.
+          </p>
+        </div>
+      </div>
+      <ArpLab defaultOpen canCollapse={false} />
+    </div>
+  );
+}
+
 function ProgressView({ progress, onOpenActivity }) {
   const readiness = getReadiness(progress);
   const readinessSignals = getReadinessSignals(progress);
   const weakObjectives = getWeakObjectives(progress, 6);
   const feedback = progress.learnerFeedback ?? [];
-  const confidenceEntries = Object.values(progress.confidenceRatings ?? {});
-  const lowConfidence = confidenceEntries.filter((entry) => entry.rating === "low" || entry.rating === "medium").slice(-8).reverse();
   const latestExamAttempt = getLatestExamAttempt(progress);
   const examRemediation = getExamRemediationMap(latestExamAttempt).slice(0, 8);
   const feedbackBySignal = feedback.reduce((counts, entry) => {
@@ -847,7 +2158,6 @@ function ProgressView({ progress, onOpenActivity }) {
       type: "network-plus-learner-feedback",
       exportedAt: new Date().toISOString(),
       feedback,
-      confidenceRatings: progress.confidenceRatings ?? {},
     }, null, 2);
     navigator.clipboard?.writeText(payload);
   };
@@ -1007,32 +2317,6 @@ function ProgressView({ progress, onOpenActivity }) {
           </p>
         )}
       </section>
-      <section className="panel confidence-review">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Confidence review</p>
-            <h3>Activities to revisit</h3>
-          </div>
-          <span className="trend-up">{lowConfidence.length} study signals</span>
-        </div>
-        {lowConfidence.length ? (
-          <div className="confidence-review-list">
-            {lowConfidence.map((entry) => (
-              <button
-                key={entry.activityId}
-                type="button"
-                onClick={() => onOpenActivity(entry.activityId)}
-              >
-                <span>Objective {entry.objective} · {entry.rating === "low" ? "Not yet" : "Almost"}</span>
-                <strong>{entry.activityTitle}</strong>
-                <em>Review activity</em>
-              </button>
-            ))}
-          </div>
-        ) : (
-          <p className="validation-empty">No low-confidence activities yet. Use the confidence check at the end of activities to build a review list.</p>
-        )}
-      </section>
     </div>
   );
 }
@@ -1047,7 +2331,7 @@ const tierOneValidationTasks = [
 ]
 
 const manualQaItems = [
-  ["keyboard-lesson", "Keyboard: lesson journey", "Open a lesson, move through content, confidence check, validation form, and completion using keyboard only."],
+  ["keyboard-lesson", "Keyboard: lesson journey", "Open a lesson, move through content, validation form, and completion using keyboard only."],
   ["keyboard-flashcards", "Keyboard: flashcards", "Launch flashcards, flip cards, move previous/next, and complete the deck using keyboard only."],
   ["keyboard-quiz", "Keyboard: quiz/checkpoint", "Answer a quiz or checkpoint, read feedback, advance questions, and save completion using keyboard only."],
   ["keyboard-scenario", "Keyboard: scenario", "Complete a decision scenario and verify selected actions are reachable and understandable."],
@@ -1072,22 +2356,6 @@ function ValidationLabView({ progress, onSaveSession, onSaveQaCheck, onOpenActiv
   const gate = validationGateStatus(progress, tiers);
   const qa = manualQaSummary(progress);
   const objectiveFeedback = feedbackByObjective(progress).slice(0, 8);
-  const confidenceEntries = Object.values(progress.confidenceRatings ?? {});
-  const shakyObjectives = confidenceEntries
-    .filter((entry) => entry.rating === "low" || entry.rating === "medium")
-    .reduce((rows, entry) => {
-      const key = entry.objective ?? "unmapped";
-      const row = rows.get(key) ?? { objective: key, total: 0, low: 0, medium: 0, titles: [] };
-      row.total += 1;
-      if (entry.rating === "low") row.low += 1;
-      if (entry.rating === "medium") row.medium += 1;
-      row.titles.push(entry.activityTitle);
-      rows.set(key, row);
-      return rows;
-    }, new Map());
-  const confidenceTriage = [...shakyObjectives.values()]
-    .sort((a, b) => b.total - a.total || a.objective.localeCompare(b.objective, undefined, { numeric: true }))
-    .slice(0, 6);
   const tierOne = getTier("tier-1");
   const latestExamAttempt = getLatestExamAttempt(progress);
   const tierOneActivities = tierOne.modules.flatMap((module) => module.activities).filter((activity) => activity.required);
@@ -1098,7 +2366,6 @@ function ValidationLabView({ progress, onSaveSession, onSaveQaCheck, onOpenActiv
       exportedAt: new Date().toISOString(),
       validationSessions: progress.validationSessions ?? [],
       learnerFeedback: progress.learnerFeedback ?? [],
-      confidenceRatings: progress.confidenceRatings ?? {},
       manualQaChecks: progress.manualQaChecks ?? {},
       manualQaSummary: manualQaSummary(progress),
       latestExamRemediation: getExamRemediationMap(latestExamAttempt),
@@ -1323,28 +2590,6 @@ function ValidationLabView({ progress, onSaveSession, onSaveQaCheck, onOpenActiv
           </div>
         ) : (
           <p className="validation-empty">No activity-level feedback yet. Have learners use the validation form inside activities.</p>
-        )}
-      </section>
-      <section className="panel validation-review">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">Learner review dashboard</p>
-            <h3>Confidence clusters to watch</h3>
-          </div>
-          <span className="trend-up">{confidenceTriage.length} objective groups</span>
-        </div>
-        {confidenceTriage.length ? (
-          <div className="objective-feedback-list">
-            {confidenceTriage.map((row) => (
-              <article key={row.objective}>
-                <strong>Objective {row.objective}</strong>
-                <span>{row.total} shaky ratings · {row.low} not yet · {row.medium} almost</span>
-                <p>{row.titles[0]}</p>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <p className="validation-empty">No low-confidence clusters yet. Ask learners to use confidence checks after activities.</p>
         )}
       </section>
     </div>
@@ -1625,6 +2870,124 @@ function ReadMeView() {
   );
 }
 
+function PrivacyView({ progress, onResetLocalData }) {
+  const [armed, setArmed] = useState(false);
+  const completedCount = progress.completedActivityIds.length;
+  const examAttemptCount = progress.examAttempts?.length ?? 0;
+  const feedbackCount = progress.learnerFeedback?.length ?? 0;
+  const privacyPoints = [
+    {
+      title: "Offline after install",
+      body:
+        "Lessons, labs, diagrams, flashcards, practice exams, icons, and styles are packaged into the app bundle.",
+    },
+    {
+      title: "Local progress only",
+      body:
+        "Study progress, exam attempts, and saved practice state stay in this device's app storage unless you manually export them.",
+    },
+    {
+      title: "No tracking stack",
+      body:
+        "The app has no account system, analytics SDK, advertising identifier use, remote logging, or third-party tracking code.",
+    },
+    {
+      title: "No external study links",
+      body:
+        "The installed app does not open remote resources for normal study flows, so it remains usable without network access.",
+    },
+  ];
+
+  return (
+    <div className="page privacy-page">
+      <section className="privacy-hero">
+        <div>
+          <p className="eyebrow">Data & Privacy</p>
+          <h2>Your study data stays on this device.</h2>
+          <p>
+            Network+ N10-009 is designed as an offline local-storage study app.
+            App Store purchases and Apple ID account handling are managed by
+            Apple, not by this app.
+          </p>
+        </div>
+        <div className="privacy-lock" aria-hidden="true">
+          <LockKeyhole size={44} />
+          <span>Local only</span>
+        </div>
+      </section>
+
+      <section className="privacy-grid" aria-label="Privacy posture">
+        {privacyPoints.map((point) => (
+          <article className="panel privacy-card" key={point.title}>
+            <ShieldCheck size={20} />
+            <h3>{point.title}</h3>
+            <p>{point.body}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="panel local-data-panel">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Stored on device</p>
+            <h3>Current local study footprint</h3>
+          </div>
+        </div>
+        <div className="local-data-stats">
+          <span>
+            <strong>{completedCount}</strong>
+            completed activities
+          </span>
+          <span>
+            <strong>{examAttemptCount}</strong>
+            exam attempts
+          </span>
+          <span>
+            <strong>{progress.totalStudyMinutes}</strong>
+            study minutes
+          </span>
+          <span>
+            <strong>{feedbackCount}</strong>
+            local notes
+          </span>
+        </div>
+        <p>
+          Deleting local data clears learner progress and saved practice-exam
+          drafts from this device. It does not affect App Store purchase
+          history or Apple ID account information.
+        </p>
+      </section>
+
+      <section className="panel danger-zone">
+        <div>
+          <p className="eyebrow">Local data control</p>
+          <h3>Reset this device</h3>
+          <p>
+            Use this before handing the device to another learner, or whenever
+            you want to restart the course from a clean state.
+          </p>
+        </div>
+        <label className="danger-confirm">
+          <input
+            type="checkbox"
+            checked={armed}
+            onChange={(event) => setArmed(event.target.checked)}
+          />
+          I understand this deletes local learner progress on this device.
+        </label>
+        <button
+          className="button button--danger"
+          disabled={!armed}
+          onClick={onResetLocalData}
+        >
+          <RotateCcw size={16} />
+          Delete local progress
+        </button>
+      </section>
+    </div>
+  );
+}
+
 function StudyGuideView() {
   return (
     <div className="page study-guide-page">
@@ -1761,33 +3124,31 @@ function StudyGuideView() {
       </aside>
       <footer className="additional-resources">
         <div>
-          <p className="eyebrow">Continue learning</p>
-          <h3>Additional resources</h3>
+          <p className="eyebrow">Offline package</p>
+          <h3>Everything here works without internet</h3>
           <p>
-            For comprehensive video instruction and another perspective on the
-            exam objectives, consider exploring these independent educators.
+            Lessons, labs, flashcards, practice exams, progress, and remediation
+            are bundled into the app. Learner progress stays on this device.
           </p>
         </div>
-        <nav aria-label="Additional Network+ study resources">
-          <a
-            href="https://www.youtube.com/watch?v=KiEptGbnEBc&list=PLG49S3nxzAnl4QDVqK-hOnoqcSKEIDDuv"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Professor Messer <ArrowRight size={16} />
-          </a>
-          <a
-            href="https://www.udemy.com/user/jason-dion/?kw=jason+di&src=sac"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Jason Dion <ArrowRight size={16} />
-          </a>
-        </nav>
+        <div className="offline-resource-list" aria-label="Offline app readiness">
+          <span>
+            <ShieldCheck size={16} />
+            No account login or cloud sync
+          </span>
+          <span>
+            <ShieldCheck size={16} />
+            No analytics or remote tracking
+          </span>
+          <span>
+            <ShieldCheck size={16} />
+            No web resources required after install
+          </span>
+        </div>
         <p className="resources-disclosure">
           Net+ Field Guide and its creator are not affiliated with, endorsed by,
-          or sponsored by CompTIA, Udemy, Jason Dion, or Professor Messer. All
-          trademarks and course materials belong to their respective owners.
+          or sponsored by CompTIA. All trademarks and course materials belong to
+          their respective owners.
         </p>
       </footer>
     </div>
@@ -1983,11 +3344,6 @@ function WhyChooseAppView() {
 function LessonActivity({ activity, onComplete, completed }) {
   return (
     <>
-      <div className="lesson-objective">
-        <span>Domain {activity.domain}</span>
-        <span>Objective {activity.objective}</span>
-        <span>{activity.duration} min</span>
-      </div>
       {activity.media && (
         <figure className="lesson-media">
           <img src={`${import.meta.env.BASE_URL}${activity.media.src.replace(/^\/+/, '')}`} alt={activity.media.alt} />
@@ -2073,11 +3429,6 @@ function SubnettingActivity({ activity, onComplete, completed }) {
 
   return (
     <>
-      <div className="lesson-objective">
-        <span>Subnetting Lab</span>
-        <span>Binary + CIDR</span>
-        <span>{activity.duration} min</span>
-      </div>
       <section className="subnetting-brief">
         <div>
           <p className="eyebrow">Binary foundation</p>
@@ -2213,6 +3564,7 @@ function FlashcardActivity({ activity, onComplete, completed }) {
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const card = activity.cards[index];
+  const revealTerm = getFlashcardRevealTerm(card[0]);
   return (
     <>
       <p className="activity-instruction">
@@ -2228,7 +3580,14 @@ function FlashcardActivity({ activity, onComplete, completed }) {
             ? "Definition"
             : `Term ${index + 1} of ${activity.cards.length}`}
         </span>
-        <strong>{flipped ? card[1] : card[0]}</strong>
+        {flipped ? (
+          <span className="flashcard__answer">
+            <strong className="flashcard__term">{revealTerm}</strong>
+            <span className="flashcard__definition">{card[1]}</span>
+          </span>
+        ) : (
+          <strong>{card[0]}</strong>
+        )}
         <small>{flipped ? "Tap to see term" : "Tap to reveal"}</small>
       </button>
       <div className="flashcard-controls">
@@ -2324,9 +3683,6 @@ function QuizActivity({ activity, onComplete }) {
           <p className="eyebrow">
             Question {index + 1} of {activity.questions.length}
           </p>
-          <span>
-            Domain {question.domain} · Objective {question.objective}
-          </span>
         </div>
         <div className="quiz-dots">
           {activity.questions.map((_, i) => (
@@ -2506,8 +3862,12 @@ export default function App() {
     () => !progressRepository.load().completedOnboarding,
   );
   const activityTriggerRef = useRef(null);
+  const homeScrollPendingRef = useRef(false);
   const titles = useMemo(
-    () => Object.fromEntries(navItems.map((item) => [item.id, item.label])),
+    () => ({
+      ...Object.fromEntries(navItems.map((item) => [item.id, item.label])),
+      "life-of-arp": "Life of ARP",
+    }),
     [],
   );
 
@@ -2525,6 +3885,11 @@ export default function App() {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [activityId]);
+  useEffect(() => {
+    if (!homeScrollPendingRef.current || active !== "dashboard") return;
+    homeScrollPendingRef.current = false;
+    scheduleScrollAppToTop();
+  }, [active]);
   const persist = (next) => {
     const saved = progressRepository.save(next);
     setProgress(saved);
@@ -2585,21 +3950,6 @@ export default function App() {
     setToastActivity({ activity, nextActivity });
     window.setTimeout(() => setToastActivity(null), 4200);
   };
-  const saveLearnerFeedback = (entry) => {
-    persist({
-      ...progress,
-      learnerFeedback: [...(progress.learnerFeedback ?? []), entry],
-    });
-  };
-  const saveConfidenceRating = (entry) => {
-    persist({
-      ...progress,
-      confidenceRatings: {
-        ...(progress.confidenceRatings ?? {}),
-        [entry.activityId]: entry,
-      },
-    });
-  };
   const saveValidationSession = (entry) => {
     persist({
       ...progress,
@@ -2634,6 +3984,31 @@ export default function App() {
     setSelectedTierId(next.tierId);
     openActivity(next.id);
   };
+  const goHome = () => {
+    homeScrollPendingRef.current = true;
+    setActivityId(null);
+    setSelectedTierId(null);
+    setSearchQuery("");
+    setMenuOpen(false);
+    setActive("dashboard");
+    scheduleScrollAppToTop();
+  };
+  const resetLocalStudyData = () => {
+    Object.keys(window.localStorage)
+      .filter((key) => key === "networkplus-learner-progress" || key.startsWith("network-plus-exam-v4-"))
+      .forEach((key) => window.localStorage.removeItem(key));
+    progressRepository.clear();
+    const freshProgress = progressRepository.load();
+    setProgress(freshProgress);
+    setActivityId(null);
+    setSelectedTierId(null);
+    setSearchQuery("");
+    setToastActivity(null);
+    setMenuOpen(false);
+    setShowWelcome(true);
+    setActive("dashboard");
+    scheduleScrollAppToTop();
+  };
   const openSubnettingLab = () => {
     const subnettingActivity = allActivities.find((candidate) => candidate.type === "subnetting");
     if (subnettingActivity) openActivity(subnettingActivity.id);
@@ -2661,6 +4036,7 @@ export default function App() {
         <Topbar
           title={titles[active]}
           onMenu={() => setMenuOpen(true)}
+          onHome={goHome}
           query={searchQuery}
           onQueryChange={setSearchQuery}
           onSearchActivate={activateSearch}
@@ -2696,6 +4072,8 @@ export default function App() {
             />
           ))}
         {active === "domains" && <DomainsView progress={progress} />}
+        {active === "life-of-a-packet" && <LifeOfPacketView />}
+        {active === "life-of-arp" && <LifeOfArpView />}
         {active === "subnetting" && (
           <div className="page subnetting-practice-page">
             <SubnettingPractice onBack={() => setActive("path")} />
@@ -2712,6 +4090,12 @@ export default function App() {
         {active === "study-guide" && <StudyGuideView />}
         {active === "developers" && <MeetDevelopersView />}
         {active === "read-me" && <ReadMeView />}
+        {active === "privacy" && (
+          <PrivacyView
+            progress={progress}
+            onResetLocalData={resetLocalStudyData}
+          />
+        )}
         {active === "why-network" && <WhyNetworkView />}
         {active === "why-app" && <WhyChooseAppView />}
         <footer className="legal-disclaimer">
@@ -2734,16 +4118,9 @@ export default function App() {
           nextActivity={nextActivity}
           progress={progress}
           onClose={closeActivity}
-          onHome={() => {
-            setActivityId(null);
-            setSelectedTierId(null);
-            setActive("dashboard");
-            window.scrollTo({ top: 0 });
-          }}
+          onHome={goHome}
           onOpenNext={setActivityId}
           onComplete={completeActivity}
-          onFeedbackSaved={saveLearnerFeedback}
-          onConfidenceSaved={saveConfidenceRating}
         />
       )}
       {toastActivity && (

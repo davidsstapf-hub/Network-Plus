@@ -2,23 +2,26 @@
 
 ## Recommended First Deployment
 
-Deploy the Vite production build as a static browser app.
+Package the Vite production build as an offline iOS app with Capacitor.
 
 Use:
 
 ```sh
-pnpm run build
+pnpm run cap:sync:ios
 ```
 
-Serve the generated `dist/` directory from the selected static host.
+This builds `dist/`, copies the web assets into `ios/App/App/public`, and keeps
+the app usable without an internet connection after installation.
 
-## Hosting Requirements
+## Offline App Requirements
 
-- HTTPS enabled.
-- Static asset caching enabled.
-- No server-side learner data collection.
-- No analytics unless added through a future privacy review.
-- Fallback to `index.html` for client-side routing if host routing rules are required.
+- Capacitor config uses `webDir: "dist"` and must not define a remote `server.url`.
+- No remote fonts, remote images, analytics SDKs, remote logging, or API calls.
+- Learner progress remains in local storage unless manually exported.
+- App Store privacy answers should reflect no off-device data collection by this app.
+- The in-app Data & Privacy page and `docs/PRIVACY_POLICY.md` should stay aligned.
+- The iOS target includes `PrivacyInfo.xcprivacy` and `ITSAppUsesNonExemptEncryption=false`.
+- Run airplane-mode QA on the installed simulator/device before submission.
 
 ## Pre-Deploy Checklist
 
@@ -26,13 +29,14 @@ Serve the generated `dist/` directory from the selected static host.
 - Production build passes.
 - Playwright desktop/tablet/mobile smoke and accessibility checks pass.
 - Manual keyboard and mobile checks are documented.
+- Offline readiness unit checks pass.
+- Installed iOS app opens, studies, saves progress, resumes, and launches practice modes without network.
+- In-app local data reset clears learner progress and saved exam drafts.
 - Learner validation summary has no unresolved critical/high findings.
-- Security/privacy review is updated for the chosen host.
+- Security/privacy review is updated for the offline packaged app.
 
 ## Deferred Work
 
-- Capacitor/mobile packaging.
 - Account sync.
 - Remote learner analytics.
 - Bundle code splitting unless performance testing shows a need.
-

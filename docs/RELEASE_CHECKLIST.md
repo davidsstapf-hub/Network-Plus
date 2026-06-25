@@ -26,11 +26,19 @@
 
 - [x] Unit tests pass.
 - [x] Production build passes.
+- [x] Offline readiness checks guard against remote app shell dependencies.
+- [x] Capacitor iOS packaging uses bundled `dist` assets instead of a remote server URL.
+- [x] Add in-app Data & Privacy page with local data disclosure and delete-local-progress control.
+- [x] Add iOS privacy manifest and non-exempt encryption export-compliance hint.
+- [x] Draft App Store privacy policy text in `docs/PRIVACY_POLICY.md`.
 - [x] Run desktop, tablet, and phone Playwright accessibility and smoke checks.
 - [x] Add Playwright smoke coverage for final exam practice/exam launch, responsive navigation, subnetting, flashcards, and feedback capture.
 - [x] Verify subnetting remains reachable through curriculum search/activity flow without adding extra sidebar shortcuts.
 - [ ] Complete keyboard-only journeys for lessons, cards, quizzes, scenarios, and the final exam.
 - [ ] Verify focus order, visible focus, announcements, headings, contrast, reduced motion, and mobile layouts.
+- [ ] Complete airplane-mode QA on installed iPhone and iPad builds.
+- [ ] Publish privacy policy at a public URL for App Store Connect.
+- [ ] Confirm App Store privacy answers match the local-only/no-tracking implementation.
 
 ## Learner Acceptance
 

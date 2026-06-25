@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   Layers3,
   RotateCcw,
-  Send,
   ShieldCheck,
   Sparkles,
   Trophy,
@@ -15,35 +14,13 @@ import { activityTypeLabels as typeLabels } from "../../content/advancedTiers.js
 import { getBeginnerBridge } from "../../content/beginnerReadiness.js";
 import { getEditorialExpansion } from "../../content/editorialExpansion.js";
 import { allActivities, getTier } from "../../content/studyData.js";
-import { getObjectiveVisual } from "../../content/objectiveVisuals.js";
 import { getExamRemediationMap } from "../../lib/learningLogic.js";
+import { getFlashcardRevealTerm } from "../../lib/flashcardTerms.js";
 import {
   isValidQuestionOrder,
   shuffleQuestionOrder,
 } from "../../lib/examOrder.js";
 import { SubnettingPractice } from "../subnetting/SubnettingPractice.jsx";
-
-function ObjectiveVisual({ visual }) {
-  if (!visual) return null;
-  const summary = `${visual.title}: ${visual.items.map((item) => `${item.label}, ${item.value}`).join("; ")}`;
-  return (
-    <section className={`objective-visual objective-visual--${visual.theme}`} aria-label={summary}>
-      <div className="objective-visual__header">
-        <span className="eyebrow">Objective map</span>
-        <h2>{visual.title}</h2>
-        <p>{visual.caption}</p>
-      </div>
-      <div className="objective-visual__diagram" aria-hidden="true">
-        {visual.items.map((item, index) => (
-          <div className="objective-visual__node" key={`${visual.title}-${item.label}`} style={{ "--node-index": index }}>
-            <b>{item.label}</b>
-            <span>{item.value}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
 
 function QuestionFeedback({ correct, explanation }) {
   return (
@@ -66,134 +43,24 @@ function QuestionFeedback({ correct, explanation }) {
   );
 }
 
-function LearnerValidationForm({ activity, onFeedbackSaved }) {
-  const [signal, setSignal] = useState("confusing");
-  const [note, setNote] = useState("");
-  const [saved, setSaved] = useState(false);
-  const signals = [
-    ["confusing", "Confusing"],
-    ["too-hard", "Too hard"],
-    ["good-explanation", "Good explanation"],
-    ["needs-example", "Needs example"],
-  ];
-  const save = () => {
-    onFeedbackSaved?.({
-      id: `feedback-${Date.now()}-${Math.random().toString(16).slice(2)}`,
-      activityId: activity.id,
-      activityTitle: activity.title,
-      activityType: activity.type,
-      objective: activity.objective,
-      domain: activity.domain,
-      signal,
-      note: note.trim(),
-      createdAt: new Date().toISOString(),
-    });
-    setNote("");
-    setSaved(true);
-    window.setTimeout(() => setSaved(false), 2600);
-  };
-  return (
-    <section className="learner-validation" aria-labelledby="learner-validation-title">
-      <div>
-        <p className="eyebrow">Learner validation</p>
-        <h2 id="learner-validation-title">Flag this activity for review</h2>
-        <p>
-          Mark what happened while studying. These notes stay on this device
-          and export with learner progress.
-        </p>
-      </div>
-      <div className="validation-signals" role="group" aria-label="Feedback type">
-        {signals.map(([id, label]) => (
-          <button
-            key={id}
-            type="button"
-            className={signal === id ? "is-active" : ""}
-            aria-pressed={signal === id}
-            onClick={() => setSignal(id)}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-      <label className="validation-note">
-        <span>Optional note</span>
-        <textarea
-          value={note}
-          onChange={(event) => setNote(event.target.value)}
-          placeholder="What was unclear, too fast, or especially helpful?"
-          rows={3}
-        />
-      </label>
-      <button className="button button--ghost validation-submit" type="button" onClick={save}>
-        <Send size={15} />
-        Save validation note
-      </button>
-      {saved && <p className="validation-saved" role="status">Feedback saved for this activity.</p>}
-    </section>
-  );
-}
-
-function ConfidenceCheck({ activity, currentRating, onConfidenceSaved }) {
-  const [savedRating, setSavedRating] = useState(null);
-  const ratings = [
-    ["low", "Not yet", "Review this again soon."],
-    ["medium", "Almost", "Practice once more."],
-    ["high", "Got it", "Ready to apply it."],
-  ];
-  const saveRating = (rating) => {
-    onConfidenceSaved?.({
-      activityId: activity.id,
-      activityTitle: activity.title,
-      activityType: activity.type,
-      objective: activity.objective,
-      domain: activity.domain,
-      rating,
-      updatedAt: new Date().toISOString(),
-    });
-    setSavedRating(rating);
-    window.setTimeout(() => setSavedRating(null), 2200);
-  };
-  return (
-    <section className="confidence-check" aria-labelledby="confidence-check-title">
-      <div>
-        <p className="eyebrow">Confidence check</p>
-        <h2 id="confidence-check-title">How solid does this feel?</h2>
-        <p>Use this as a study signal. Low-confidence items show up in Progress so you know what to revisit.</p>
-      </div>
-      <div className="confidence-options">
-        {ratings.map(([id, label, helper]) => (
-          <button
-            key={id}
-            type="button"
-            className={currentRating?.rating === id ? "is-active" : ""}
-            aria-pressed={currentRating?.rating === id}
-            onClick={() => saveRating(id)}
-          >
-            <strong>{label}</strong>
-            <span>{helper}</span>
-          </button>
-        ))}
-      </div>
-      {savedRating && (
-        <p className="confidence-saved" role="status">
-          Saved: {ratings.find(([id]) => id === savedRating)?.[1]}.
-        </p>
-      )}
-    </section>
-  );
+function recapPromptFromPracticePrompt(prompt) {
+  const cleanPrompt = String(prompt)
+    .replace(/^You need to /i, "")
+    .replace(/^Need to /i, "")
+    .replace(/^Need /i, "")
+    .replace(/[.?!]$/, "");
+  const [situation, answer] = cleanPrompt.split(/:\s+/, 2);
+  if (answer) {
+    return `What evidence would point you toward ${answer.replace(/^use /i, "")} for this case: ${situation}?`;
+  }
+  return `What clue would make this the right move: ${cleanPrompt}?`;
 }
 
 export function LessonActivity({ activity, onComplete, completed, nextTitle }) {
-  const objectiveVisual = getObjectiveVisual(activity);
   const beginnerBridge = getBeginnerBridge(activity.objective);
   const editorial = getEditorialExpansion(activity.objective);
   return (
     <>
-      <div className="lesson-objective">
-        <span>Domain {activity.domain}</span>
-        <span>Objective {activity.objective}</span>
-        <span>{activity.duration} min</span>
-      </div>
       {activity.media && (
         <figure className="lesson-media">
           <img src={`${import.meta.env.BASE_URL}${activity.media.src.replace(/^\/+/, '')}`} alt={activity.media.alt} />
@@ -211,7 +78,6 @@ export function LessonActivity({ activity, onComplete, completed, nextTitle }) {
           ))}
         </section>
       )}
-      <ObjectiveVisual visual={objectiveVisual} />
       {beginnerBridge && (
         <section className="beginner-bridge" aria-label={`Beginner bridge for objective ${activity.objective}`}>
           <div>
@@ -239,9 +105,9 @@ export function LessonActivity({ activity, onComplete, completed, nextTitle }) {
         </section>
       )}
       {editorial && (
-        <section className="editorial-expansion" aria-label={`Editorial expansion for objective ${activity.objective}`}>
+        <section className="editorial-expansion" aria-label={`Practice guidance for objective ${activity.objective}`}>
           <div className="editorial-expansion__intro">
-            <p className="eyebrow">Instructor pass</p>
+            <p className="eyebrow">Field practice</p>
             <h2>{editorial.title}</h2>
             <p>{editorial.plainLanguage}</p>
           </div>
@@ -293,7 +159,7 @@ export function LessonActivity({ activity, onComplete, completed, nextTitle }) {
           <h2>Try explaining these out loud.</h2>
           <ul>
             {editorial.practiceCluster.prompts.slice(0, 3).map((prompt) => (
-              <li key={prompt}>{prompt}</li>
+              <li key={prompt}>{recapPromptFromPracticePrompt(prompt)}</li>
             ))}
           </ul>
         </section>
@@ -368,6 +234,7 @@ export function FlashcardActivity({
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const card = cards[index];
+  const revealTerm = getFlashcardRevealTerm(card[0]);
   const cardsRemaining = cards.length - index - 1;
   const restartDeck = () => {
     setIndex(0);
@@ -401,7 +268,14 @@ export function FlashcardActivity({
             ? "Definition"
             : `Term ${index + 1} of ${cards.length}`}
         </span>
-        <strong>{flipped ? card[1] : card[0]}</strong>
+        {flipped ? (
+          <span className="flashcard__answer">
+            <strong className="flashcard__term">{revealTerm}</strong>
+            <span className="flashcard__definition">{card[1]}</span>
+          </span>
+        ) : (
+          <strong>{card[0]}</strong>
+        )}
         <small>{flipped ? "Definition shown · tap to see term" : "Tap, Space, or Enter to reveal"}</small>
       </button>
       <div className="flashcard-tools">
@@ -527,9 +401,6 @@ export function QuizActivity({ activity, onComplete, nextTitle }) {
           <p className="eyebrow">
             Question {index + 1} of {activity.questions.length}
           </p>
-          <span>
-            Domain {question.domain} · Objective {question.objective}
-          </span>
         </div>
         <div className="quiz-dots">
           {activity.questions.map((_, i) => (
@@ -585,28 +456,35 @@ export function QuizActivity({ activity, onComplete, nextTitle }) {
 export function ScenarioActivity({ activity, onComplete, nextTitle }) {
   const [selected, setSelected] = useState([]);
   const [finished, setFinished] = useState(false);
+  const actions = Array.isArray(activity.actions) ? activity.actions : [];
+  const evidence = Array.isArray(activity.evidence) ? activity.evidence : [];
+  const hints = Array.isArray(activity.hints) ? activity.hints : [];
+  const instructions =
+    activity.instructions ??
+    activity.summary ??
+    "Review the evidence, then choose the actions that best match the scenario.";
   const toggle = (id) =>
     setSelected((current) =>
       current.includes(id)
         ? current.filter((item) => item !== id)
         : [...current, id],
     );
-  const correct = activity.actions.filter(
-    (action) => action.correct && selected.includes(action.id),
+  const correct = actions.filter(
+    (action, index) => action.correct && selected.includes(scenarioActionId(action, index)),
   ).length;
-  const wrong = activity.actions.filter(
-    (action) => !action.correct && selected.includes(action.id),
+  const wrong = actions.filter(
+    (action, index) => !action.correct && selected.includes(scenarioActionId(action, index)),
   ).length;
-  const possible = activity.actions.filter((action) => action.correct).length;
-  const score = Math.max(0, (correct - wrong) / possible);
-  const recommendedSelected = activity.actions.filter(
-    (action) => action.correct && selected.includes(action.id),
+  const possible = actions.filter((action) => action.correct).length;
+  const score = possible ? Math.max(0, (correct - wrong) / possible) : 0;
+  const recommendedSelected = actions.filter(
+    (action, index) => action.correct && selected.includes(scenarioActionId(action, index)),
   );
-  const recommendedMissed = activity.actions.filter(
-    (action) => action.correct && !selected.includes(action.id),
+  const recommendedMissed = actions.filter(
+    (action, index) => action.correct && !selected.includes(scenarioActionId(action, index)),
   );
-  const unnecessarySelected = activity.actions.filter(
-    (action) => !action.correct && selected.includes(action.id),
+  const unnecessarySelected = actions.filter(
+    (action, index) => !action.correct && selected.includes(scenarioActionId(action, index)),
   );
   if (finished)
     return (
@@ -635,8 +513,8 @@ export function ScenarioActivity({ activity, onComplete, nextTitle }) {
           <section>
             <h3>Recommended and selected</h3>
             {recommendedSelected.length ? (
-              recommendedSelected.map((action) => (
-                <p key={action.id}>{action.label}</p>
+              recommendedSelected.map((action, index) => (
+                <p key={scenarioActionId(action, index)}>{action.label}</p>
               ))
             ) : (
               <p>No recommended actions selected.</p>
@@ -645,8 +523,8 @@ export function ScenarioActivity({ activity, onComplete, nextTitle }) {
           <section>
             <h3>Recommended but missed</h3>
             {recommendedMissed.length ? (
-              recommendedMissed.map((action) => (
-                <p key={action.id}>{action.label}</p>
+              recommendedMissed.map((action, index) => (
+                <p key={scenarioActionId(action, index)}>{action.label}</p>
               ))
             ) : (
               <p>No recommended actions missed.</p>
@@ -655,8 +533,8 @@ export function ScenarioActivity({ activity, onComplete, nextTitle }) {
           <section>
             <h3>Selected but unnecessary</h3>
             {unnecessarySelected.length ? (
-              unnecessarySelected.map((action) => (
-                <p key={action.id}>{action.label}</p>
+              unnecessarySelected.map((action, index) => (
+                <p key={scenarioActionId(action, index)}>{action.label}</p>
               ))
             ) : (
               <p>No unnecessary actions selected.</p>
@@ -688,33 +566,38 @@ export function ScenarioActivity({ activity, onComplete, nextTitle }) {
     <>
       <section className="scenario-brief">
         <p className="eyebrow">Mission</p>
-        <p>{activity.instructions}</p>
-        {activity.evidence.map((item) => (
-          <div key={item} className="scenario-evidence">
+        <p>{instructions}</p>
+        {evidence.map((item, index) => (
+          <div key={`${item}-${index}`} className="scenario-evidence">
             {item}
           </div>
         ))}
       </section>
       <h2 className="question-title">Choose the best coordinated actions</h2>
       <div className="answers">
-        {activity.actions.map((action, index) => (
-          <button
-            key={action.id}
-            className={`answer ${selected.includes(action.id) ? "answer--selected" : ""}`}
-            aria-pressed={selected.includes(action.id)}
-            onClick={() => toggle(action.id)}
-          >
-            <span>{letters[index] ?? index + 1}</span>
-            {action.label}
-          </button>
-        ))}
+        {actions.map((action, index) => {
+          const id = scenarioActionId(action, index);
+          return (
+            <button
+              key={id}
+              className={`answer ${selected.includes(id) ? "answer--selected" : ""}`}
+              aria-pressed={selected.includes(id)}
+              onClick={() => toggle(id)}
+            >
+              <span>{letters[index] ?? index + 1}</span>
+              {action.label}
+            </button>
+          );
+        })}
       </div>
-      <details className="scenario-hints">
-        <summary>Need a hint?</summary>
-        {activity.hints.map((hint) => (
-          <p key={hint}>{hint}</p>
-        ))}
-      </details>
+      {hints.length > 0 && (
+        <details className="scenario-hints">
+          <summary>Need a hint?</summary>
+          {hints.map((hint, index) => (
+            <p key={`${hint}-${index}`}>{hint}</p>
+          ))}
+        </details>
+      )}
       <div className="quiz-footer">
         <span>{selected.length} actions selected</span>
         <button
@@ -731,8 +614,14 @@ export function ScenarioActivity({ activity, onComplete, nextTitle }) {
 
 const letters = ["A", "B", "C", "D", "E", "F"];
 
+function scenarioActionId(action, index) {
+  return action.id ?? `${index}-${action.label}`;
+}
+
 export function ExamActivity({ activity, onComplete, nextTitle, onOpenActivity }) {
-  const storageKey = `secplus-exam-v3-${activity.id}`;
+  const examMinutes = activity.config.durationMinutes ?? activity.config.timedMinutes ?? activity.duration ?? 90;
+  const passThreshold = activity.config.passThreshold ?? activity.config.passingScore ?? 0.72;
+  const storageKey = `network-plus-exam-v4-${activity.id}`;
   const initial = useMemo(() => {
     try {
       return JSON.parse(localStorage.getItem(storageKey)) ?? {};
@@ -754,15 +643,15 @@ export function ExamActivity({ activity, onComplete, nextTitle, onOpenActivity }
   const [answers, setAnswers] = useState(initial.answers ?? {});
   const [index, setIndex] = useState(initial.index ?? 0);
   const [endsAt, setEndsAt] = useState(
-    initial.endsAt ??
+    Number.isFinite(initial.endsAt) ? initial.endsAt :
       (selectableMode
         ? null
-        : Date.now() + activity.config.durationMinutes * 60000),
+        : Date.now() + examMinutes * 60000),
   );
   const [remaining, setRemaining] = useState(
-    endsAt
+    Number.isFinite(endsAt)
       ? Math.max(0, endsAt - Date.now())
-      : activity.config.durationMinutes * 60000,
+      : examMinutes * 60000,
   );
   const [revealed, setRevealed] = useState(initial.revealed ?? false);
   const [finished, setFinished] = useState(false);
@@ -813,20 +702,20 @@ export function ExamActivity({ activity, onComplete, nextTitle, onOpenActivity }
         ]),
       ),
       elapsedSeconds: Math.round(
-        (activity.config.durationMinutes * 60000 - remaining) / 1000,
+        (examMinutes * 60000 - remaining) / 1000,
       ),
     };
-  }, [activity.config.durationMinutes, answers, orderedQuestions, remaining]);
+  }, [examMinutes, answers, orderedQuestions, remaining]);
   const remediationMap = useMemo(() => getExamRemediationMap(result).slice(0, 6), [result]);
   const begin = (selectedMode) => {
-    const deadline = Date.now() + activity.config.durationMinutes * 60000;
+    const deadline = Date.now() + examMinutes * 60000;
     setMode(selectedMode);
     setQuestionOrder(shuffleQuestionOrder(activity.questions.length));
     setAnswers({});
     setIndex(0);
     setRevealed(false);
     setEndsAt(deadline);
-    setRemaining(activity.config.durationMinutes * 60000);
+    setRemaining(examMinutes * 60000);
   };
   const move = (nextIndex) => {
     setIndex(nextIndex);
@@ -847,11 +736,11 @@ export function ExamActivity({ activity, onComplete, nextTitle, onOpenActivity }
             <span>questions</span>
           </article>
           <article>
-            <strong>{activity.config.durationMinutes}</strong>
+            <strong>{examMinutes}</strong>
             <span>minutes</span>
           </article>
           <article>
-            <strong>{Math.round(activity.config.passThreshold * 100)}%</strong>
+            <strong>{Math.round(passThreshold * 100)}%</strong>
             <span>target score</span>
           </article>
           <article>
@@ -859,7 +748,7 @@ export function ExamActivity({ activity, onComplete, nextTitle, onOpenActivity }
             <span>new order each run</span>
           </article>
         </div>
-        <div>
+        <div className="exam-mode-options">
           <button onClick={() => begin("practice")}>
             <Sparkles size={24} />
             <strong>Practice Mode</strong>
@@ -897,7 +786,7 @@ export function ExamActivity({ activity, onComplete, nextTitle, onOpenActivity }
             : "Practice exam complete"}
         </p>
         <h2>
-          {result.score >= activity.config.passThreshold
+          {result.score >= passThreshold
             ? "Readiness confirmed."
             : "Your review map is ready."}
         </h2>
@@ -950,8 +839,8 @@ export function ExamActivity({ activity, onComplete, nextTitle, onOpenActivity }
     <>
       <div className="exam-status">
         <strong>
-          {String(Math.floor(remaining / 60000)).padStart(2, "0")}:
-          {String(Math.floor(remaining / 1000) % 60).padStart(2, "0")}
+          {String(Math.floor((Number.isFinite(remaining) ? remaining : 0) / 60000)).padStart(2, "0")}:
+          {String(Math.floor((Number.isFinite(remaining) ? remaining : 0) / 1000) % 60).padStart(2, "0")}
         </strong>
         <span>
           {mode === "practice" ? "Practice Mode" : "Exam Mode"} ·{" "}
@@ -963,9 +852,6 @@ export function ExamActivity({ activity, onComplete, nextTitle, onOpenActivity }
           <p className="eyebrow">
             Question {index + 1} of {activity.questions.length}
           </p>
-          <span>
-            Domain {question.domain} · Objective {question.objective}
-          </span>
         </div>
       </div>
       <h2 className="question-title">{question.prompt}</h2>
@@ -1056,8 +942,6 @@ export function ActivityView({
   onHome,
   onComplete,
   onOpenNext,
-  onFeedbackSaved,
-  onConfidenceSaved,
 }) {
   const completed = progress.completedActivityIds.includes(activity.id);
   const hasContent =
@@ -1072,7 +956,20 @@ export function ActivityView({
   const dialogRef = useRef(null);
   const closeRef = useRef(null);
   useEffect(() => {
-    closeRef.current?.focus();
+    const overlay = dialogRef.current;
+    if (overlay) {
+      overlay.scrollTop = 0;
+      overlay.scrollLeft = 0;
+    }
+    setReadingProgress(0);
+    const frame = window.requestAnimationFrame(() => {
+      if (overlay) {
+        overlay.scrollTop = 0;
+        overlay.scrollLeft = 0;
+      }
+      closeRef.current?.focus({ preventScroll: true });
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [activity.id]);
   const trapFocus = (event) => {
     if (event.key !== "Tab") return;
@@ -1215,15 +1112,6 @@ export function ActivityView({
               onComplete={finish}
             />
           )}
-          <ConfidenceCheck
-            activity={activity}
-            currentRating={progress.confidenceRatings?.[activity.id]}
-            onConfidenceSaved={onConfidenceSaved}
-          />
-          <LearnerValidationForm
-            activity={activity}
-            onFeedbackSaved={onFeedbackSaved}
-          />
         </div>
       </main>
     </div>

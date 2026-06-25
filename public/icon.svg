@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Network+ N10-009 app icon</title>
+  <desc id="desc">A bright cyan Network+ monogram over a dark network grid.</desc>
+  <rect width="512" height="512" rx="112" fill="#061117"/>
+  <path d="M92 148h328M92 256h328M92 364h328M148 92v328M256 92v328M364 92v328" stroke="#113642" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="148" cy="148" r="26" fill="#00d9ff"/>
+  <circle cx="364" cy="148" r="26" fill="#00d9ff"/>
+  <circle cx="148" cy="364" r="26" fill="#00d9ff"/>
+  <circle cx="364" cy="364" r="26" fill="#00d9ff"/>
+  <path d="M160 300V202l86 98v-98h38v156h-31l-86-97v97h-38V202h31l86 98z" fill="#edf7f3"/>
+  <path d="M333 204h33v47h46v33h-46v47h-33v-47h-46v-33h46z" fill="#00d9ff"/>
+</svg>

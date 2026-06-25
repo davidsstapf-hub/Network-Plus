@@ -133,7 +133,7 @@ export const editorialExpansion = {
     workplaceExample: 'A messy closet with unlabeled patch cords turns a five-minute port move into an outage risk.',
     misconception: 'Physical work is not separate from networking. Bad power, heat, labels, or cable bend radius can create network incidents.',
     examReasoning: 'Match symptoms and requirements to UPS, PDU, rack unit, patch panel, cable tray, grounding, and temperature controls.',
-    practiceCluster: { title: 'Install mini-drill', prompts: ['Need graceful shutdown during power loss: UPS.', 'Need organized wall-jack termination: patch panel.', 'Need avoid overheating: airflow and environmental monitoring.', 'Need trace a user port quickly: labeling and documentation.'] },
+    practiceCluster: { title: 'Install mini-drill', prompts: ['Need graceful shutdown during power loss: UPS.', 'Need organized wall-jack termination: patch panel.', 'Need to avoid overheating: airflow and environmental monitoring.', 'Need trace a user port quickly: labeling and documentation.'] },
   },
   '3.1': {
     title: 'Operations vocabulary in practice',
@@ -226,7 +226,7 @@ export const editorialExpansion = {
       prompts: [
         'Output `Reply from 192.168.1.1` proves basic IP reachability with ping.',
         'Output showing hops ending at the ISP edge points to path testing with traceroute/tracert.',
-        'Output `server can not find app.local: NXDOMAIN` points to DNS record or zone issues.',
+        'Output `server cannot find app.local: NXDOMAIN` points to DNS record or zone issues.',
         'Output showing the connected switch name and port is neighbor discovery with LLDP/CDP.',
       ],
     },

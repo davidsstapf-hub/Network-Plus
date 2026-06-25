@@ -13,8 +13,9 @@
 
 ## Deployment
 
-- Browser-first static deployment is the recommended first release.
-- App Store or packaged mobile release is intentionally deferred.
+- iOS/Capacitor offline packaging is now the recommended first release path.
+- Final App Store metadata, screenshots, privacy answers, and TestFlight review remain required.
+- Airplane-mode QA on installed iPhone and iPad builds remains required before submission.
 - The production build currently passes with a Vite large-bundle warning. Code splitting can be considered after launch readiness if measured loading performance is poor.
 
 ## Data
@@ -22,4 +23,4 @@
 - Learner progress is stored locally in browser storage.
 - There is no account sync, backend, analytics, or cloud backup.
 - Export/import is manual.
-
+- Progress does not sync across devices unless a learner manually exports and imports their data.

@@ -11,15 +11,23 @@
     "test": "node --test tests/unit/*.test.js",
     "test:e2e": "playwright test",
     "test:a11y": "playwright test tests/e2e/accessibility.spec.js",
-    "validate": "npm test && npm run build && npm run test:e2e"
+    "validate": "pnpm test && pnpm run build && pnpm run test:e2e",
+    "cap:add:ios": "node --run build && cap add ios",
+    "cap:sync:ios": "node --run build && cap sync ios",
+    "cap:run:ios": "node --run build && cap run ios",
+    "cap:open:ios": "cap open ios",
+    "ios:prepare": "pnpm run cap:sync:ios"
   },
   "dependencies": {
+    "@capacitor/core": "^8.4.1",
+    "@capacitor/ios": "^8.4.1",
     "lucide-react": "^1.21.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
+    "@capacitor/cli": "^8.4.1",
     "@playwright/test": "^1.61.0",
     "@vitejs/plugin-react": "^6.0.2",
     "vite": "^8.0.16"

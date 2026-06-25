@@ -6,4 +6,6 @@ Current question metadata references the official CompTIA Network+ certification
 
 - CompTIA Network+ certification: https://www.comptia.org/en-us/certifications/network/
 
-Before public release, add concept-level supporting references for technical areas such as IPv6, DNS, DHCP, routing, wireless, TLS/IPSec, SNMP, and disaster recovery.
+The automated integrity suite now checks that the final exam keeps official domain weighting while sampling a distinct concept each time an objective appears. It also guards against repeated prompts, repeated option sets, repeated explanations, answer-position bias, weak distractors, and stale generated wording.
+
+Before public release, complete human bullet-by-bullet signoff against the official objective PDF and add concept-level supporting references for technical areas such as IPv6, DNS, DHCP, routing, wireless, TLS/IPSec, SNMP, and disaster recovery.

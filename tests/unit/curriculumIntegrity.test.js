@@ -5,6 +5,7 @@ import { allActivities, tiers, masterFlashcardsActivity } from '../../src/conten
 import { getBeginnerBridge } from '../../src/content/beginnerReadiness.js'
 import { getEditorialExpansion, tierOneEditorialObjectives } from '../../src/content/editorialExpansion.js'
 import { buildTraceabilityMatrix, curriculumMetadata, objectiveHasCurriculumCoverage, officialObjectiveCodes } from '../../src/content/curriculumMetadata.js'
+import { getFlashcardRevealTerm } from '../../src/lib/flashcardTerms.js'
 
 const networkAppSource = readFileSync(new URL('../../src/app/App.jsx', import.meta.url), 'utf8')
 const securityAppSource = readFileSync(new URL('../../../GitHub/Security-Project/src/app/App.jsx', import.meta.url), 'utf8')
@@ -36,14 +37,20 @@ test('Network+ metadata records the verified N10-009 objective source', () => {
 })
 
 test('Network+ sidebar navigation stays in Security+ parity', () => {
+  const networkPrimaryNav = extractNavItems(networkAppSource, 'primaryNavItems')
+  const networkParityNav = networkPrimaryNav.filter((item) => !item.includes('"life-of-a-packet"'))
+  const networkAboutNav = extractNavItems(networkAppSource, 'aboutNavItems')
+  const networkAboutParityNav = networkAboutNav.filter((item) => !item.includes('"privacy"'))
   assert.deepEqual(
-    extractNavItems(networkAppSource, 'primaryNavItems'),
+    networkParityNav,
     extractNavItems(securityAppSource, 'primaryNavItems'),
   )
+  assert.equal(networkPrimaryNav.includes('{ id: "life-of-a-packet", label: "Life of a Packet", icon: Activity }'), true)
   assert.deepEqual(
-    extractNavItems(networkAppSource, 'aboutNavItems'),
+    networkAboutParityNav,
     extractNavItems(securityAppSource, 'aboutNavItems'),
   )
+  assert.equal(networkAboutNav.includes('{ id: "privacy", label: "Data & Privacy", icon: LockKeyhole }'), true)
   assert.equal(networkAppSource.includes('sidebar__mission'), true)
   assert.equal(networkAppSource.includes('className="profile"'), true)
   assert.equal(networkAppSource.includes('{active === "progress"'), true)
@@ -161,14 +168,47 @@ test('assessment questions have valid shape, unique ids, and useful explanations
     'Restart every device',
     'Core concept for',
     'A Network+ learner is reviewing',
+    'During a Network+ review',
     'Which description correctly matches',
+    'Before changing production settings',
+    'A help desk note says',
+    'Which evidence would most improve confidence',
     'choose the newest technology term',
+    'Good Network+ answers',
+    'This is the safer Network+ approach',
     'ignore scope because all network symptoms have the same cause',
     'restart unrelated devices',
     'A successful test of an unrelated service only',
     'A change made without a rollback plan',
     'A guess based only on the device brand',
   ]
+  const grammarArtifacts = [
+    'a after-hours',
+    'handoff handoff',
+    'a outage',
+  ]
+  const malformedAcronymArtifacts = [
+    'iP ',
+    'iPv4',
+    'iPv6',
+    'tCP',
+    'uDP',
+    'dNS',
+    'dHCP',
+    'sNMP',
+    'vLAN',
+    'wAN',
+  ]
+  const implausibleDistractors = [
+    'rack humidity sensor',
+    'UPS runtime report',
+    'NAS to route traffic',
+    'IDS to encrypt',
+    'media converter',
+  ]
+  const objectiveTermBlocklist = new Map([
+    ['1.2', ['TTL']],
+  ])
   for (const question of questions) {
     assert.equal(question.options.length, 4, question.id)
     assert.equal(new Set(question.options.map((option) => option.trim().toLowerCase())).size, 4, question.id)
@@ -177,6 +217,32 @@ test('assessment questions have valid shape, unique ids, and useful explanations
     assert.ok(question.explanation.length >= 80, question.id)
     const combinedText = [question.prompt, ...question.options, question.explanation].join(' ')
     for (const phrase of genericAssessmentPhrases) assert.equal(combinedText.includes(phrase), false, `${question.id} contains "${phrase}"`)
+    for (const phrase of grammarArtifacts) assert.equal(combinedText.toLowerCase().includes(phrase), false, `${question.id} contains grammar artifact "${phrase}"`)
+    for (const phrase of malformedAcronymArtifacts) assert.equal(combinedText.includes(phrase), false, `${question.id} contains malformed acronym "${phrase}"`)
+    for (const phrase of implausibleDistractors) assert.equal(combinedText.includes(phrase), false, `${question.id} contains weak distractor "${phrase}"`)
+    for (const term of objectiveTermBlocklist.get(question.objective) ?? []) {
+      assert.equal(new RegExp(`\\b${term}\\b`).test(combinedText), false, `${question.id} should not test ${term} in objective ${question.objective}`)
+    }
+  }
+  const exam = allActivities.find((activity) => activity.id === 't6-practice-exam')
+  assert.equal(new Set(exam.questions.map((question) => question.prompt)).size, exam.questions.length)
+  for (const [objective, items] of Object.entries(Object.groupBy(exam.questions, (question) => question.objective))) {
+    assert.equal(new Set(items.map((question) => question.concept)).size, items.length, objective)
+    for (const question of items) assert.ok(question.concept?.length >= 2, question.id)
+  }
+  const assessmentPrompts = questions.map((question) => question.prompt.trim().toLowerCase())
+  assert.equal(new Set(assessmentPrompts).size, assessmentPrompts.length)
+  const optionSets = questions.map((question) =>
+    question.options.map((option) => option.trim().toLowerCase()).sort().join('||'),
+  )
+  assert.equal(new Set(optionSets).size, optionSets.length)
+  const explanations = questions.map((question) => question.explanation.trim().toLowerCase())
+  assert.equal(new Set(explanations).size, explanations.length)
+  for (const activity of allActivities.filter((item) => item.questions?.length >= 20)) {
+    const answerDistribution = [0, 1, 2, 3].map((index) =>
+      activity.questions.filter((question) => question.correctIndex === index).length,
+    )
+    assert.ok(Math.max(...answerDistribution) - Math.min(...answerDistribution) <= 1, activity.id)
   }
 })
 
@@ -185,4 +251,66 @@ test('master flashcards aggregate all objective decks', () => {
   assert.equal(masterFlashcardsActivity.cards.length, objectiveCards.length)
   assert.ok(masterFlashcardsActivity.cards.length >= 250)
   assert.equal(masterFlashcardsActivity.shuffleCards, true)
+  const normalizedFronts = masterFlashcardsActivity.cards.map((card) =>
+    card[0].trim().toLowerCase().replace(/[^a-z0-9]+/g, ' '),
+  )
+  assert.equal(new Set(normalizedFronts).size, normalizedFronts.length)
+  const promptLikeFront = /^(what|which|how|why|when|where|who|explain|describe|identify|compare|choose|select|before|during|if|you|need|use)\b/i
+  const deprecatedGeneratedFronts = [
+    'Router appliance',
+    'Switch appliance',
+    'VPN concentrator appliance',
+    'QoS performance control',
+    'SSH remote access',
+    'DNS service',
+    'DHCP service',
+    'RDP remote access',
+    'EMI source',
+    'EMI cable symptom',
+    'APIPA symptom',
+    'Default gateway route',
+    'traceroute command',
+    'Port security control',
+    '802.1X control',
+    'Latency issue',
+    'Jitter issue',
+    'ACL control',
+    'ACL service block',
+    'OTDR tool',
+  ]
+  const ipsCard = masterFlashcardsActivity.cards.find(([front]) => front === 'Intrusion prevention system (IPS)')
+  assert.ok(ipsCard, 'IPS card should state the full term on the front')
+  assert.match(ipsCard[1], /inline.*block|block.*inline/i)
+  for (const card of masterFlashcardsActivity.cards) {
+    assert.equal(card.length, 2)
+    const [front, back] = card
+    assert.equal(typeof front, 'string')
+    assert.equal(typeof back, 'string')
+    assert.ok(front.length >= 2)
+    assert.ok(back.length >= 28, front)
+    assert.equal(promptLikeFront.test(front), false, `${front} reads like a prompt instead of a term`)
+    assert.equal(deprecatedGeneratedFronts.includes(front), false, `${front} is a generated cleanup label, not a learner-facing term`)
+  }
+})
+
+test('acronym flashcards reveal expanded terms before definitions', () => {
+  const examples = new Map([
+    ['DHCP', 'Dynamic Host Configuration Protocol'],
+    ['DNS', 'Domain Name System'],
+    ['Intrusion prevention system (IPS)', 'Intrusion prevention system'],
+    ['DHCP address assignment', 'Dynamic Host Configuration Protocol (DHCP) address assignment'],
+    ['DNS resolver', 'Domain Name System (DNS) resolver'],
+    ['Duplicate IP', 'Duplicate Internet Protocol address'],
+    ['Rogue AP', 'Rogue access point'],
+    ['SSE', 'Secure Service Edge'],
+    ['VLAN hopping', 'virtual local area network (VLAN) hopping'],
+    ['Client-to-site VPN', 'Client-to-site virtual private network (VPN)'],
+    ['traceroute / tracert', 'traceroute / trace route (tracert)'],
+    ['ip address (Linux command)', 'Internet Protocol address (Linux command)'],
+  ])
+
+  for (const [front, expectedReveal] of examples) {
+    assert.ok(masterFlashcardsActivity.cards.some(([cardFront]) => cardFront === front), `${front} card missing`)
+    assert.equal(getFlashcardRevealTerm(front), expectedReveal)
+  }
 })

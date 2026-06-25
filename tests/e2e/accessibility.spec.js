@@ -3,22 +3,27 @@ import AxeBuilder from '@axe-core/playwright'
 
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
-    localStorage.setItem('networkplus-learner-progress', JSON.stringify({
-      version: 7,
-      learnerName: 'David',
-      completedOnboarding: true,
-      completedActivityIds: [],
-      results: {},
-      scenarioResults: {},
-      examAttempts: [],
-      learnerFeedback: [],
-      confidenceRatings: {},
-      manualQaChecks: {},
-      validationSessions: [],
-      totalStudyMinutes: 0,
-      currentActivityId: 'n11-osi-reference-model-lesson',
-      lastStudiedAt: null
-    }))
+    if (sessionStorage.getItem('networkplus-e2e-first-run') === 'true') {
+      localStorage.removeItem('networkplus-learner-progress')
+    } else {
+      localStorage.setItem('networkplus-learner-progress', JSON.stringify({
+        version: 7,
+        learnerName: 'David',
+        completedOnboarding: true,
+        completedActivityIds: [],
+        results: {},
+        scenarioResults: {},
+        examAttempts: [],
+        learnerFeedback: [],
+        confidenceRatings: {},
+        manualQaChecks: {},
+        validationSessions: [],
+        totalStudyMinutes: 0,
+        currentActivityId: 'n11-osi-reference-model-lesson',
+        lastStudiedAt: null
+      }))
+    }
+    localStorage.removeItem('network-plus-exam-v4-t6-practice-exam')
     Object.defineProperty(navigator, 'clipboard', {
       configurable: true,
       value: {
@@ -57,35 +62,132 @@ test('responsive core surfaces render on narrow viewports @responsive', async ({
   await expect(page.locator('body')).not.toHaveCSS('overflow-x', 'scroll')
 })
 
-test('shared UI surfaces do not overflow horizontally', async ({ page }) => {
-  const checkNoHorizontalOverflow = async () => {
-    const overflow = await page.evaluate(() => {
+test('first-run welcome tiers fit narrow viewports @responsive', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === 'desktop', 'First-run welcome layout runs on tablet and mobile projects.')
+  await page.evaluate(() => {
+    sessionStorage.setItem('networkplus-e2e-first-run', 'true')
+    localStorage.removeItem('networkplus-learner-progress')
+  })
+  await page.goto('/')
+  await expect(page.locator('.welcome-card')).toBeVisible()
+  await expect(page.locator('.welcome-tiers')).toContainText('Subnet')
+  await expect(page.locator('.welcome-tiers')).not.toContainText('0Subnet')
+  const overflow = await page.evaluate(() => {
+    const pageWidth = document.documentElement.clientWidth
+    const documentOverflow = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) > pageWidth + 2
+    const tierOverflow = Array.from(document.querySelectorAll('.welcome-tiers span')).map((node) => ({
+      text: node.textContent,
+      widthOverflow: Math.ceil(node.scrollWidth) > Math.ceil(node.clientWidth) + 2,
+      heightOverflow: Math.ceil(node.scrollHeight) > Math.ceil(node.clientHeight) + 2,
+    })).filter((entry) => entry.widthOverflow || entry.heightOverflow)
+    return { documentOverflow, tierOverflow }
+  })
+  expect(overflow).toEqual({ documentOverflow: false, tierOverflow: [] })
+})
+
+test('shared UI surfaces do not overflow horizontally @responsive', async ({ page }) => {
+  const openNavigationIfNeeded = async () => {
+    const menuButton = page.getByRole('button', { name: /Open navigation/i })
+    if (await menuButton.isVisible()) await menuButton.click()
+  }
+  const navigate = async (name) => {
+    await openNavigationIfNeeded()
+    await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name }).click()
+  }
+  const checkNoHorizontalOverflow = async (extraSelectors = []) => {
+    const overflow = await page.evaluate((selectorsFromTest) => {
+      const pageWidth = document.documentElement.clientWidth
       const selectors = [
         'body',
+        '.app-shell',
+        '.page',
         '.topbar',
         '.sidebar',
         '.start-card--primary',
         '.stats-row',
         '.journey-panel',
+        '.domain-grid',
+        '.domain-card',
+        '.flashcards-hero',
+        '.ports-hero',
+        '.ports-grid',
+        '.packet-lab',
+        '.packet-stage',
+        '.packet-node',
+        '.packet-step-strip',
+        '.arp-lab',
+        '.arp-mini-network',
+        '.arp-visual',
+        '.arp-cache-card',
+        '.arp-doc-grid',
+        '.activity-header',
+        '.activity-shell',
+        '.exam-mode-picker',
+        ...selectorsFromTest,
       ]
-      return selectors
-        .map((selector) => {
-          const node = document.querySelector(selector)
-          if (!node) return null
+      const documentOverflow = Math.max(
+        document.documentElement.scrollWidth,
+        document.body.scrollWidth,
+      ) > pageWidth + 2
+        ? [{
+            selector: 'document',
+            scrollWidth: Math.ceil(Math.max(document.documentElement.scrollWidth, document.body.scrollWidth)),
+            clientWidth: Math.ceil(pageWidth),
+          }]
+        : []
+      const selectorOverflow = selectors
+        .flatMap((selector) =>
+          Array.from(document.querySelectorAll(selector)).slice(0, 12).map((node) => {
           return {
             selector,
             scrollWidth: Math.ceil(node.scrollWidth),
             clientWidth: Math.ceil(node.clientWidth),
           }
-        })
-        .filter(Boolean)
+        }))
         .filter((entry) => entry.scrollWidth > entry.clientWidth + 2)
-    })
+      return [...documentOverflow, ...selectorOverflow]
+    }, extraSelectors)
     expect(overflow).toEqual([])
   }
 
   await checkNoHorizontalOverflow()
-  await page.getByRole('button', { name: /Open next activity/i }).click()
+  await navigate(/Life of a Packet/i)
+  await expect(page.locator('.packet-lab')).toBeVisible()
+  await expect(page.locator('.arp-lab')).toHaveCount(0)
+  await expect(page.locator('.packet-mode-tabs')).toHaveCount(0)
+  await expect(page.locator('.packet-step-strip')).toHaveCount(0)
+  await expect(page.locator('.device-config-lab')).toHaveCount(0)
+  await expect(page.locator('.mac-lab')).toHaveCount(0)
+  await expect(page.locator('.packet-guide')).toContainText(/Request goes out/i)
+  await expect(page.locator('.packet-dot')).toHaveCount(2)
+  await expect(page.locator('.packet-node')).toHaveCount(4)
+  await checkNoHorizontalOverflow()
+  await navigate(/Life of ARP/i)
+  await expect(page.locator('.packet-lab')).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: /ARP: IP question, MAC answer/i })).toBeVisible()
+  await expect(page.getByRole('button', { name: /Replay ARP flow/i })).toBeVisible()
+  await expect(page.locator('.arp-mini-network')).toBeVisible()
+  await page.getByRole('button', { name: 'Step 3: Broadcast who-has', exact: true }).click()
+  await expect(page.locator('.arp-result-card')).toContainText(/every device in the VLAN sees it/i)
+  await page.getByRole('button', { name: /Same-LAN neighbor/i }).click()
+  await expect(page.locator('.arp-result-card')).toContainText(/Same-subnet traffic uses the neighbor MAC directly/i)
+  await checkNoHorizontalOverflow()
+  await navigate(/Exam Domains/i)
+  await expect(page.locator('.domain-grid')).toBeVisible()
+  await checkNoHorizontalOverflow()
+  await navigate(/^Flash Cards$/i)
+  await expect(page.locator('.flashcards-hero')).toBeVisible()
+  await checkNoHorizontalOverflow()
+  await navigate(/Common Ports/i)
+  await expect(page.locator('.ports-hero')).toBeVisible()
+  const matchingColumnCount = await page.locator('.matching-columns').evaluate((node) =>
+    getComputedStyle(node).gridTemplateColumns.split(' ').filter(Boolean).length
+  )
+  expect(matchingColumnCount).toBe(2)
+  await checkNoHorizontalOverflow(['.matching-columns', '.port-reference-card'])
+  await navigate(/Learning Path/i)
+  await page.locator('.tier-node').first().click()
+  await page.locator('.activity-row').first().click()
   await expect(page.getByRole('dialog')).toBeVisible()
   await checkNoHorizontalOverflow()
 })
@@ -93,6 +195,19 @@ test('shared UI surfaces do not overflow horizontally', async ({ page }) => {
 test('learning path opens the first lesson activity', async ({ page }) => {
   await page.getByRole('button', { name: /Open next activity/i }).click()
   await expect(page.locator('.activity-title h1')).toContainText(/OSI Reference Model/i)
+})
+
+test('completing an activity opens the next activity at the top', async ({ page }) => {
+  await page.getByRole('button', { name: /Open next activity/i }).click()
+  const dialog = page.locator('.activity-overlay')
+  await expect(dialog).toBeVisible()
+  await dialog.evaluate((node) => {
+    node.scrollTop = node.scrollHeight
+  })
+  await expect.poll(async () => dialog.evaluate((node) => node.scrollTop)).toBeGreaterThan(100)
+  await page.locator('.activity-complete').click()
+  await expect(page.getByLabel(/activity location/i)).toContainText(/Activity 2 of/i)
+  await expect.poll(async () => dialog.evaluate((node) => node.scrollTop)).toBe(0)
 })
 
 test('global Continue learning opens the next recommended Network+ activity', async ({ page }) => {
@@ -124,15 +239,99 @@ test('sidebar shield returns to Overview home', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Overview', exact: true })).toBeVisible()
 })
 
-test('learner validation feedback and confidence can be captured', async ({ page }) => {
+test('global topbar home button returns to Overview', async ({ page }) => {
+  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /Learning Path/i }).click()
+  await expect(page.getByRole('heading', { name: /See the whole mountain/i })).toBeVisible()
+  await page.locator('.topbar').getByRole('button', { name: /go to overview home/i }).click()
+  await expect(page.getByRole('heading', { name: 'Overview', exact: true })).toBeVisible()
+})
+
+test('global topbar home button scrolls Overview to the top', async ({ page }) => {
+  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /Learning Path/i }).click()
+  await expect(page.getByRole('heading', { name: /See the whole mountain/i })).toBeVisible()
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
+  await expect.poll(async () => page.evaluate(() => window.scrollY)).toBeGreaterThan(100)
+  await page.locator('.topbar').getByRole('button', { name: /go to overview home/i }).click()
+  await expect(page.getByRole('heading', { name: 'Overview', exact: true })).toBeVisible()
+  await expect.poll(async () => page.evaluate(() => window.scrollY)).toBe(0)
+})
+
+test('global topbar home button returns from every main app page', async ({ page }) => {
+  const navigation = page.getByRole('navigation', { name: /main navigation/i })
+  const home = page.locator('.topbar').getByRole('button', { name: /go to overview home/i })
+  const routes = [
+    { nav: /Learning Path/i, title: 'Learning Path' },
+    { nav: /Life of a Packet/i, title: 'Life of a Packet' },
+    { nav: /Exam Domains/i, title: 'Exam Domains' },
+    { nav: /^Flash Cards$/i, title: 'Flash Cards' },
+    { nav: /Common Ports/i, title: 'Common Ports' },
+    { nav: /^Progress$/i, title: 'Progress' },
+    { nav: /How to Study/i, title: 'How to Study' },
+    { nav: /Meet the Developers/i, title: 'Meet the Developers' },
+    { nav: /Read Me/i, title: 'Read Me' },
+    { nav: /Data & Privacy/i, title: 'Data & Privacy' },
+    { nav: /Why Network\+/i, title: 'Why Network+?' },
+  ]
+
+  for (const route of routes) {
+    await navigation.getByRole('button', { name: route.nav }).click()
+    await expect(page.locator('.topbar h1')).toHaveText(route.title)
+    await home.click()
+    await expect(page.getByRole('heading', { name: 'Overview', exact: true })).toBeVisible()
+    await expect.poll(async () => page.evaluate(() => window.scrollY)).toBe(0)
+  }
+
+  await navigation.getByRole('button', { name: /Life of a Packet/i }).click()
+  await page.getByRole('button', { name: /Life of ARP/i }).click()
+  await expect(page.locator('.topbar h1')).toHaveText('Life of ARP')
+  await home.click()
+  await expect(page.getByRole('heading', { name: 'Overview', exact: true })).toBeVisible()
+
+  await navigation.getByRole('button', { name: /Learning Path/i }).click()
+  await page.locator('.tier-node').first().click()
+  await expect(page.locator('.tier-detail-page')).toBeVisible()
+  await home.click()
+  await expect(page.getByRole('heading', { name: 'Overview', exact: true })).toBeVisible()
+})
+
+test('data privacy page explains local storage and clears local study data', async ({ page }) => {
+  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /Data & Privacy/i }).click()
+  await expect(page.getByRole('heading', { name: /Your study data stays on this device/i })).toBeVisible()
+  await expect(page.getByText(/No tracking stack/i)).toBeVisible()
+  await expect(page.getByText(/analytics SDK/i)).toBeVisible()
+  await expect(page.getByText(/App Store purchases and Apple ID account handling are managed by Apple/i)).toBeVisible()
+
+  const deleteButton = page.getByRole('button', { name: /Delete local progress/i })
+  await expect(deleteButton).toBeDisabled()
+  await page.getByLabel(/I understand this deletes local learner progress/i).check()
+  await expect(deleteButton).toBeEnabled()
+  await deleteButton.click()
+
+  await expect(page.locator('.welcome-card')).toBeVisible()
+  await expect.poll(async () => page.evaluate(() => localStorage.getItem('networkplus-learner-progress'))).toBeNull()
+})
+
+test('activity Field HQ home button returns to Overview top', async ({ page }) => {
   await page.getByRole('button', { name: /Open next activity/i }).click()
-  await expect(page.getByRole('heading', { name: /Flag this activity for review/i })).toBeVisible()
-  await page.getByRole('button', { name: /Needs example/i }).click()
-  await page.getByLabel(/Optional note/i).fill('Add another beginner-friendly analogy here.')
-  await page.getByRole('button', { name: /Save validation note/i }).click()
-  await expect(page.getByText(/Feedback saved/i)).toBeVisible()
-  await page.getByRole('button', { name: /Almost/i }).click()
-  await expect(page.getByText(/Saved: Almost/i)).toBeVisible()
+  const dialog = page.locator('.activity-overlay')
+  await expect(dialog).toBeVisible()
+  await dialog.evaluate((node) => {
+    node.scrollTop = node.scrollHeight
+  })
+  await page.getByRole('button', { name: /Return to Field HQ home/i }).click()
+  await expect(page.getByRole('heading', { name: 'Overview', exact: true })).toBeVisible()
+  await expect(dialog).toHaveCount(0)
+  await expect.poll(async () => page.evaluate(() => window.scrollY)).toBe(0)
+})
+
+test('activity objectives do not show learner review prompts', async ({ page }) => {
+  await page.getByRole('button', { name: /Open next activity/i }).click()
+  await expect(page.getByRole('dialog')).toBeVisible()
+  await expect(page.getByRole('heading', { name: /Flag this activity for review/i })).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: /How solid does this feel/i })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: /Save validation note/i })).toHaveCount(0)
+  await expect(page.locator('.lesson-objective')).toHaveCount(0)
+  await expect(page.locator('.objective-visual')).toHaveCount(0)
 })
 
 test('Security+ parity navigation exposes Progress but keeps Validation Lab hidden', async ({ page }) => {
@@ -159,7 +358,7 @@ test('final exam practice and timed modes launch cleanly', async ({ page }) => {
   await page.getByRole('button', { name: /Show answer/i }).click()
   await expect(page.getByText(/Exam takeaway/i)).toBeVisible()
   await page.getByRole('button', { name: /FIELD HQ/i }).click()
-  await page.evaluate(() => localStorage.removeItem('secplus-exam-v3-t6-practice-exam'))
+  await page.evaluate(() => localStorage.removeItem('network-plus-exam-v4-t6-practice-exam'))
   await page.getByRole('textbox', { name: /filter guided curriculum/i }).fill('practice exam')
   await page.getByRole('button', { name: /Network\+ N10-009 practice exam/i }).click()
   await page.getByRole('button', { name: /Exam Mode/i }).click()
@@ -197,14 +396,14 @@ test('subnetting lessons are separate from practice', async ({ page }) => {
 })
 
 test('flash card page launches the cumulative Network+ deck', async ({ page }) => {
-  await page.getByRole('button', { name: /flash cards/i }).click()
+  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: 'Flash Cards', exact: true }).click()
   await expect(page.getByRole('heading', { name: /Shuffle the whole Network\+ deck/i })).toBeVisible()
   await page.getByRole('button', { name: /Start shuffled deck/i }).click()
   await expect(page.locator('.activity-title h1')).toContainText(/Master Network\+ flashcards/i)
 })
 
 test('common ports page supports flashcards, matching, and explanations', async ({ page }) => {
-  await page.getByRole('button', { name: /Common Ports/i }).click()
+  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: 'Common Ports', exact: true }).click()
   await expect(page.getByRole('heading', { name: /Build the port-number reflex/i })).toBeVisible()
   await page.getByRole('button', { name: /Tap to reveal port/i }).click()
   await expect(page.locator('.matching-columns').getByRole('button', { name: '20/21', exact: true })).toBeVisible()

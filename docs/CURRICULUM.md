@@ -23,3 +23,5 @@ Every numbered objective `1.1-5.5` includes:
 5. Ten-question section quiz
 6. Tier checkpoint representation
 7. Final practice exam representation
+
+The dedicated Subnetting Lab is supplemental practice. It reinforces objective 1.7 skills but is excluded from official domain weighting and final-exam weighting.
