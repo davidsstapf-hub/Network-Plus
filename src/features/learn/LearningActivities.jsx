@@ -1073,6 +1073,26 @@ export function ActivityView({
             <h1 id="activity-title">{activity.title}</h1>
             <p>{activity.summary}</p>
           </div>
+          {!completed && nextActivity && (
+            <div className="activity-skip-panel" aria-label="Skip objective">
+              <div>
+                <p className="eyebrow">Need to move on?</p>
+                <strong>Skip this objective for now.</strong>
+                <span>
+                  Jump to {nextActivity.title} without marking this one complete.
+                </span>
+              </div>
+              <button
+                type="button"
+                className="button button--secondary"
+                onClick={() => onOpenNext(nextActivity.id)}
+                aria-label={`Skip this objective and go to ${nextActivity.title}`}
+              >
+                Skip
+                <ArrowRight size={16} />
+              </button>
+            </div>
+          )}
           {!hasContent ? (
             <div className="preview-state">
               <Layers3 size={35} />

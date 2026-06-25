@@ -232,7 +232,9 @@ test('activity skip advances without completing the objective @responsive', asyn
   await page.getByRole('button', { name: /Open next activity/i }).click()
   await expect(page.getByRole('dialog')).toBeVisible()
   await expect(page.getByLabel(/activity location/i)).toContainText(/Activity 1 of/i)
-  await page.getByRole('button', { name: /Skip to next objective/i }).click()
+  const bodySkip = page.getByRole('button', { name: /Skip this objective and go to/i })
+  await expect(bodySkip).toBeVisible()
+  await bodySkip.click()
   await expect(page.getByLabel(/activity location/i)).toContainText(/Activity 2 of/i)
   const completedIds = await page.evaluate(() => {
     const progress = JSON.parse(localStorage.getItem('networkplus-learner-progress'))
