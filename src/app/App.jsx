@@ -75,6 +75,7 @@ import { SubnettingExplanations } from "../features/subnetting/SubnettingExplana
 const primaryNavItems = [
   { id: "dashboard", label: "Overview", icon: LayoutDashboard },
   { id: "path", label: "Learning Path", icon: Layers3 },
+  { id: "osi-model", label: "OSI Model", icon: Command },
   { id: "life-of-a-packet", label: "Life of a Packet", icon: Activity },
   { id: "domains", label: "Exam Domains", icon: BookOpen },
   { id: "flashcards", label: "Flash Cards", icon: Contact },
@@ -114,6 +115,95 @@ const commonPorts = [
   { port: "993", protocol: "IMAPS", transport: "TCP", function: "Provides IMAP mail access over TLS.", memory: "Secure server-stored mailbox access." },
   { port: "995", protocol: "POP3S", transport: "TCP", function: "Provides POP3 mail download over TLS.", memory: "Secure mailbox download, less common than IMAPS in many workplaces." },
   { port: "3389", protocol: "RDP", transport: "TCP/UDP", function: "Provides graphical remote desktop access to Windows systems.", memory: "Useful for administration, risky if exposed directly to the internet." },
+];
+
+const osiLayers = [
+  {
+    number: 7,
+    name: "Application",
+    role: "The network service the user or application is trying to use.",
+    pdu: "Data",
+    examples: "HTTP, DNS, SMTP, SSH, DHCP clients",
+    devices: "Proxies, application gateways, API services",
+    breaks: "Wrong URL, failed name lookup, bad credentials, service down, blocked app request.",
+  },
+  {
+    number: 6,
+    name: "Presentation",
+    role: "Translation, encryption, compression, and formatting before data is handed to the app.",
+    pdu: "Data",
+    examples: "TLS, certificates, character encoding, compression",
+    devices: "TLS inspection points, certificate services",
+    breaks: "Certificate errors, unsupported cipher suites, encoding problems, unreadable payloads.",
+  },
+  {
+    number: 5,
+    name: "Session",
+    role: "Starts, maintains, resumes, and tears down conversations between endpoints.",
+    pdu: "Data",
+    examples: "Session tokens, RPC sessions, SMB sessions, NetBIOS session service",
+    devices: "Session-aware firewalls, load balancers",
+    breaks: "Dropped sessions, timeout loops, state mismatch, authentication session expiry.",
+  },
+  {
+    number: 4,
+    name: "Transport",
+    role: "End-to-end delivery between processes, including ports, reliability, flow, and recovery.",
+    pdu: "Segment or datagram",
+    examples: "TCP, UDP, port numbers, three-way handshake",
+    devices: "Firewalls, load balancers, NAT devices",
+    breaks: "Closed ports, blocked TCP handshake, UDP loss, reset packets, MTU-related stalls.",
+  },
+  {
+    number: 3,
+    name: "Network",
+    role: "Logical addressing and routing between networks.",
+    pdu: "Packet",
+    examples: "IPv4, IPv6, ICMP, routing tables, default gateway",
+    devices: "Routers, Layer 3 switches, firewalls",
+    breaks: "Wrong IP, bad mask, missing route, wrong gateway, ACL deny, failed ping beyond local LAN.",
+  },
+  {
+    number: 2,
+    name: "Data Link",
+    role: "Local network delivery on the same segment, including MAC addressing and frame handling.",
+    pdu: "Frame",
+    examples: "Ethernet, Wi-Fi, VLANs, ARP, MAC tables, STP",
+    devices: "Switches, wireless access points, NICs",
+    breaks: "VLAN mismatch, ARP failure, duplicate MAC, switch loop, bad wireless association.",
+  },
+  {
+    number: 1,
+    name: "Physical",
+    role: "Signals, media, connectors, pinouts, radio, light, and electrical transmission.",
+    pdu: "Bits",
+    examples: "Copper, fiber, RF, optics, cabling standards, link speed",
+    devices: "Cables, transceivers, repeaters, patch panels",
+    breaks: "No link light, damaged cable, bad optic, interference, speed or duplex mismatch.",
+  },
+];
+
+const osiImportance = [
+  {
+    title: "Troubleshooting gets smaller",
+    body:
+      "The OSI model turns a vague outage into layered questions: do we have signal, local delivery, routing, ports, sessions, formatting, and finally the app?",
+  },
+  {
+    title: "Teams get a shared map",
+    body:
+      "Network, system, cloud, and security teams can talk about the same failure without blaming the wrong part of the stack.",
+  },
+  {
+    title: "Security controls land in the right place",
+    body:
+      "Switch controls, firewall rules, TLS inspection, identity checks, and app controls each sit at different layers with different evidence.",
+  },
+  {
+    title: "Encapsulation makes packet behavior predictable",
+    body:
+      "Data gains headers as it moves down the stack, crosses the network, then those headers are removed as it moves back up on the receiver.",
+  },
 ];
 
 const typeLabels = {
@@ -953,6 +1043,153 @@ function DomainsView({ progress }) {
           ))}
         </div>
         <Ring value={selected.progress} color={selected.color} size={82} />
+      </section>
+    </div>
+  );
+}
+
+function OsiModelView() {
+  const layerColors = [
+    "#59e6ff",
+    "#78ffd2",
+    "#8ea7ff",
+    "#ffcf7a",
+    "#ff8f9b",
+    "#b78cff",
+    "#7fd4ff",
+  ];
+  return (
+    <div className="page osi-page">
+      <section className="osi-hero">
+        <div className="osi-hero__copy">
+          <p className="eyebrow">OSI Model</p>
+          <h2>
+            Seven layers.
+            <br />
+            One clean way to reason about networks.
+          </h2>
+          <p>
+            The OSI model is a vendor-neutral map for how data moves from an
+            application, through the network, onto a medium, and back up the
+            stack on the receiving host. It is not a perfect product blueprint,
+            but it is one of the best troubleshooting tools in networking.
+          </p>
+        </div>
+        <div className="osi-stack" aria-label="Seven OSI model layers">
+          {osiLayers.map((layer, index) => (
+            <div
+              className="osi-stack__layer"
+              key={layer.number}
+              style={{ "--layer-color": layerColors[index] }}
+            >
+              <span>{layer.number}</span>
+              <strong>{layer.name}</strong>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="osi-flow" aria-label="OSI encapsulation flow">
+        <article>
+          <strong>Sender</strong>
+          <span>Data moves down: app data gains transport, IP, frame, and bit-level handling.</span>
+        </article>
+        <div className="osi-flow__rail" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </div>
+        <article>
+          <strong>Network</strong>
+          <span>Switches focus on frames, routers focus on packets, and firewalls may inspect several layers.</span>
+        </article>
+        <div className="osi-flow__rail osi-flow__rail--reverse" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </div>
+        <article>
+          <strong>Receiver</strong>
+          <span>Data moves up: headers are interpreted and removed until the application can use the payload.</span>
+        </article>
+      </section>
+
+      <section className="osi-section-heading">
+        <div>
+          <p className="eyebrow">Layer rundown</p>
+          <h3>What each layer does, what it uses, and how it fails.</h3>
+        </div>
+      </section>
+
+      <section className="osi-layer-grid">
+        {osiLayers.map((layer, index) => (
+          <article
+            className="osi-layer-card"
+            key={layer.number}
+            style={{ "--layer-color": layerColors[index] }}
+          >
+            <header>
+              <span>Layer {layer.number}</span>
+              <h3>{layer.name}</h3>
+            </header>
+            <p>{layer.role}</p>
+            <dl>
+              <div>
+                <dt>PDU</dt>
+                <dd>{layer.pdu}</dd>
+              </div>
+              <div>
+                <dt>Examples</dt>
+                <dd>{layer.examples}</dd>
+              </div>
+              <div>
+                <dt>Common devices</dt>
+                <dd>{layer.devices}</dd>
+              </div>
+              <div>
+                <dt>Troubleshooting clues</dt>
+                <dd>{layer.breaks}</dd>
+              </div>
+            </dl>
+          </article>
+        ))}
+      </section>
+
+      <section className="osi-importance">
+        <div className="osi-section-heading">
+          <div>
+            <p className="eyebrow">Why it matters</p>
+            <h3>The model is useful because it gives you a method.</h3>
+          </div>
+        </div>
+        <div className="osi-importance__grid">
+          {osiImportance.map((item, index) => (
+            <article key={item.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{item.title}</strong>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="osi-troubleshoot panel">
+        <div>
+          <p className="eyebrow">Practical workflow</p>
+          <h3>Use OSI to avoid guessing.</h3>
+          <p>
+            Start with the symptom, then prove or eliminate layers. If there is
+            no link light, do not start with DNS. If ping works by IP but names
+            fail, move up toward application naming. If the app loads locally
+            but not remotely, check routing, ports, security policy, and TLS.
+          </p>
+        </div>
+        <ol>
+          <li><strong>Layer 1-2</strong><span>Link, VLAN, MAC, ARP, Wi-Fi association.</span></li>
+          <li><strong>Layer 3</strong><span>IP address, mask, gateway, routes, ICMP.</span></li>
+          <li><strong>Layer 4</strong><span>TCP/UDP ports, handshakes, resets, timeout behavior.</span></li>
+          <li><strong>Layer 5-7</strong><span>Sessions, certificates, authentication, DNS names, app errors.</span></li>
+        </ol>
       </section>
     </div>
   );
@@ -4079,6 +4316,7 @@ export default function App() {
             />
           ))}
         {active === "domains" && <DomainsView progress={progress} />}
+        {active === "osi-model" && <OsiModelView />}
         {active === "life-of-a-packet" && <LifeOfPacketView />}
         {active === "life-of-arp" && <LifeOfArpView />}
         {active === "subnetting" && (

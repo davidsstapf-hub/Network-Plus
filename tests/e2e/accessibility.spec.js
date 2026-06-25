@@ -297,6 +297,7 @@ test('global topbar home button returns from every main app page', async ({ page
   const home = page.locator('.topbar').getByRole('button', { name: /go to overview home/i })
   const routes = [
     { nav: /Learning Path/i, title: 'Learning Path' },
+    { nav: /OSI Model/i, title: 'OSI Model' },
     { nav: /Exam Domains/i, title: 'Exam Domains' },
     { nav: /^Flash Cards$/i, title: 'Flash Cards' },
     { nav: /Common Ports/i, title: 'Common Ports' },
@@ -381,6 +382,14 @@ test('why Network+ page uses network-specific career framing', async ({ page }) 
   await expect(page.getByText(/\$96,800/i)).toBeVisible()
   await expect(page.getByText(/14,300/i)).toBeVisible()
   await expect(page.locator('.info-copy small').getByText(/Network and Computer Systems Administrators/i)).toBeVisible()
+})
+
+test('OSI Model sidebar page explains layers and troubleshooting use', async ({ page }) => {
+  await page.getByRole('navigation', { name: /main navigation/i }).getByRole('button', { name: /OSI Model/i }).click()
+  await expect(page.getByRole('heading', { name: /Seven layers/i })).toBeVisible()
+  await expect(page.getByRole('heading', { name: /^Application$/i })).toBeVisible()
+  await expect(page.getByRole('heading', { name: /^Physical$/i })).toBeVisible()
+  await expect(page.getByText(/Use OSI to avoid guessing/i)).toBeVisible()
 })
 
 test('final exam practice and timed modes launch cleanly', async ({ page }) => {
