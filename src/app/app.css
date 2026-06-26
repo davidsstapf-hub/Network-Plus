@@ -2555,6 +2555,20 @@ body {
 .subnet-phone-header h2 { margin: 0; text-align: center; color: #f4fbff; font-size: 25px; font-weight: 700; letter-spacing: -.015em; text-shadow: 0 0 22px rgba(0,217,255,.28); }
 .subnet-drill-meter { height: 4px; background: rgba(0,217,255,.08); }
 .subnet-drill-meter span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg,#35f0a0,#00d9ff,#087bff); box-shadow: 0 0 20px rgba(0,217,255,.45); transition: width .28s ease; }
+.subnet-calculator-card { margin: 16px 12px 12px; padding: 17px; position: relative; z-index: 1; border: 1px solid rgba(53,240,160,.38); border-radius: 16px; background: linear-gradient(145deg,rgba(53,240,160,.16),rgba(0,217,255,.09) 54%,rgba(4,13,18,.92)); box-shadow: inset 0 1px rgba(255,255,255,.08),0 18px 46px rgba(0,217,255,.13); }
+.subnet-calculator-heading { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 14px; }
+.subnet-calculator-heading span { display: block; margin-bottom: 4px; color: #35f0a0; font: 800 10px 'DM Mono',monospace; text-transform: uppercase; }
+.subnet-calculator-heading strong { display: block; color: #f2fbff; font-size: 21px; line-height: 1.08; letter-spacing: -.012em; }
+.subnet-calculator-heading button { min-height: 38px; padding: 0 13px; flex: 0 0 auto; border: 1px solid rgba(0,217,255,.34); border-radius: 9px; color: #041219; background: linear-gradient(135deg,#35f0a0,#00d9ff); font: 900 11px 'DM Mono',monospace; text-transform: uppercase; cursor: pointer; box-shadow: 0 10px 24px rgba(0,217,255,.14); }
+.subnet-calculator-heading button:disabled { cursor: not-allowed; opacity: .48; box-shadow: none; }
+.subnet-calculator-inputs { display: grid; grid-template-columns: minmax(0,1fr) 94px; gap: 10px; }
+.subnet-calculator-inputs label { display: grid; gap: 7px; color: #a8d2dd; font: 800 9px 'DM Mono',monospace; text-transform: uppercase; }
+.subnet-calculator-inputs input { width: 100%; min-width: 0; height: 42px; padding: 0 11px; border: 1px solid rgba(139,231,255,.22); border-radius: 10px; color: #effbff; background: rgba(2,9,12,.66); font: 800 15px 'DM Mono',monospace; }
+.subnet-calculator-inputs input:focus { outline: 2px solid rgba(53,240,160,.45); outline-offset: 2px; }
+.subnet-calculator-results { margin-top: 12px; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+.subnet-calculator-results span { min-width: 0; min-height: 52px; padding: 9px 10px; display: grid; align-content: center; gap: 3px; border: 1px solid rgba(139,231,255,.18); border-radius: 10px; color: #f2fbff; background: rgba(2,9,12,.36); font: 800 14px 'DM Mono',monospace; overflow-wrap: anywhere; }
+.subnet-calculator-results b { color: #7edfff; font: 800 8px 'DM Mono',monospace; text-transform: uppercase; }
+.subnet-calculator-error { margin: 12px 0 0; padding: 10px 12px; border: 1px solid rgba(255,99,132,.34); border-radius: 10px; color: #ffd2dc; background: rgba(255,99,132,.08); font-size: 12px; font-weight: 700; }
 .subnet-question-card { margin: 16px 12px 12px; padding: 16px 16px 15px; position: relative; overflow: hidden; border: 1px solid rgba(0,217,255,.34); border-radius: 16px; color: #fff; background: linear-gradient(145deg,rgba(0,217,255,.2),rgba(8,123,255,.12) 58%,rgba(53,240,160,.06)); box-shadow: inset 0 1px rgba(255,255,255,.08),0 0 44px rgba(0,217,255,.1),0 18px 42px rgba(0,0,0,.16); }
 .subnet-question-card::after { content:""; position:absolute; right:-84px; top:-66px; width:160px; height:160px; border-radius:50%; border:1px solid rgba(0,217,255,.16); box-shadow: 0 0 0 18px rgba(0,217,255,.026),0 0 0 38px rgba(8,123,255,.022),inset 0 0 32px rgba(0,217,255,.06); pointer-events:none; }
 .subnet-orbit { position:absolute; right:14px; top:18px; width:54px; height:54px; pointer-events:none; opacity:.42; }
@@ -2564,7 +2578,7 @@ body {
 .subnet-orbit::after { content:""; position:absolute; left:50%; top:50%; width:8px; height:8px; border-radius:50%; background:#00d9ff; box-shadow:0 0 18px rgba(0,217,255,.8); transform:translate(-50%,-50%); }
 .subnet-question-topline { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 22px; min-width: 0; }
 .subnet-question-card strong { display: block; min-width: 0; position: relative; z-index: 1; font-size: 23px; line-height: 1.05; font-weight: 700; letter-spacing: -.01em; overflow-wrap: anywhere; }
-.subnet-question-topline span { max-width: 84px; flex: 0 1 auto; padding: 7px 10px; border: 1px solid rgba(0,217,255,.28); border-radius: 999px; color: #041219; background: #00d9ff; font: 900 13px 'DM Mono',monospace; text-align: center; overflow-wrap: anywhere; box-shadow: 0 0 22px rgba(0,217,255,.22); }
+.subnet-question-topline span { width: 58px; min-height: 34px; flex: 0 0 auto; display: grid; place-items: center; padding: 0 8px; border: 1px solid rgba(0,217,255,.28); border-radius: 999px; color: #041219; background: #00d9ff; font: 900 13px 'DM Mono',monospace; text-align: center; box-shadow: 0 0 22px rgba(0,217,255,.22); }
 .subnet-question-card p { margin: 0; max-width: 100%; position: relative; z-index: 1; color: #f4fbff; font-size: 21px; font-weight: 700; line-height: 1.18; letter-spacing: -.012em; overflow-wrap: anywhere; }
 .subnet-question-card .subnet-mode-copy { margin-top: 12px; color: #aeeeff; font-size: 14px; font-weight: 700; line-height: 1.45; }
 .subnet-octets { margin-top: 18px; display:grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap:8px; position: relative; z-index: 1; }

@@ -103,13 +103,49 @@ test('progress repository persists and rejects invalid imports', () => {
 
 test('migration repairs malformed progress and deduplicates activity ids', () => {
   const first = allActivities[0].id
-  const migrated = migrateProgress({ version: 0, completedActivityIds: [first, first], results: null, learnerFeedback: [{ activityId:first, signal:'too-hard' }, null, { signal:'bad' }], confidenceRatings: null, manualQaChecks: null, validationSessions: [{ tier:'1', learnerId:'A' }, { learnerId:'B' }] })
+  const migrated = migrateProgress({ version: 0, learnerName: '  Network learner  ', completedActivityIds: [first, first, null], results: { [first]: { score: 3, objectiveMisses: ['1.1', '1.1', null] } }, scenarioResults: null, learnerFeedback: [{ activityId:first, signal:'too-hard' }, null, { signal:'bad' }], confidenceRatings: null, manualQaChecks: null, validationSessions: [{ tier:'1', learnerId:'A' }, { learnerId:'B' }], totalStudyMinutes: -40, lastStudiedAt: 'not-a-date' })
   assert.deepEqual(migrated.completedActivityIds, [first])
-  assert.deepEqual(migrated.results, {})
+  assert.equal(migrated.learnerName, 'Network learner')
+  assert.equal(migrated.results[first].score, 1)
+  assert.deepEqual(migrated.results[first].objectiveMisses, ['1.1'])
+  assert.deepEqual(migrated.scenarioResults, {})
   assert.equal(migrated.learnerFeedback.length, 1)
   assert.deepEqual(migrated.confidenceRatings, {})
   assert.deepEqual(migrated.manualQaChecks, {})
   assert.equal(migrated.validationSessions.length, 1)
+  assert.equal(migrated.totalStudyMinutes, 0)
+  assert.equal(migrated.lastStudiedAt, null)
+})
+
+test('progress repository recovers from a corrupted primary record', () => {
+  const values = new Map()
+  const storage = { getItem:key => values.get(key) ?? null, setItem:(key,value)=>values.set(key,value), removeItem:key=>values.delete(key) }
+  const repository = createProgressRepository(storage)
+  repository.save({ ...createDefaultProgress(), learnerName:'First save' })
+  repository.save({ ...createDefaultProgress(), learnerName:'Recovered learner' })
+
+  values.set('networkplus-learner-progress', '{broken json')
+  const loaded = repository.load()
+
+  assert.equal(loaded.learnerName, 'First save')
+})
+
+test('progress repository clear removes primary and backup records', () => {
+  const values = new Map()
+  const storage = { getItem:key => values.get(key) ?? null, setItem:(key,value)=>values.set(key,value), removeItem:key=>values.delete(key) }
+  const repository = createProgressRepository(storage)
+  repository.save({ ...createDefaultProgress(), learnerName:'Saved learner' })
+  repository.save({ ...createDefaultProgress(), learnerName:'Latest learner' })
+
+  repository.clear()
+
+  assert.equal(values.has('networkplus-learner-progress'), false)
+  assert.equal(values.has('networkplus-learner-progress-backup'), false)
+})
+
+test('progress import rejects oversized payloads before parsing', () => {
+  const repository = createProgressRepository({ getItem:()=>null, setItem:()=>{}, removeItem:()=>{} })
+  assert.throws(() => repository.import('x'.repeat(2_000_001)), /too large/)
 })
 
 test('validation gate summarizes learner sessions and feedback by objective', () => {

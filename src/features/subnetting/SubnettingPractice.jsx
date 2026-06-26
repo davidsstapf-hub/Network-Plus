@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react"
 import { ArrowLeft, CheckCircle2, XCircle } from "lucide-react"
-import { checkSubnetPracticeAnswers, generateSubnetPracticeBank } from "../../lib/subnetting.js"
+import { calculateSubnet, checkSubnetPracticeAnswers, generateSubnetPracticeBank, isValidIpv4Address } from "../../lib/subnetting.js"
 
 export function SubnettingPractice({ onBack = null }) {
   const bank = useMemo(() => generateSubnetPracticeBank(360), [])
@@ -9,12 +9,17 @@ export function SubnettingPractice({ onBack = null }) {
   const [checked, setChecked] = useState(false)
   const [streak, setStreak] = useState(0)
   const [bestStreak, setBestStreak] = useState(0)
+  const [calculatorAddress, setCalculatorAddress] = useState("192.168.10.77")
+  const [calculatorPrefix, setCalculatorPrefix] = useState("24")
   const prompt = bank[index % bank.length]
   const answerFields = prompt.answers
   const octets = prompt.address.includes(".") ? prompt.address.split(".") : []
   const result = checked ? checkSubnetPracticeAnswers(answers, prompt) : {}
   const correctCount = checked ? Object.values(result).filter(Boolean).length : 0
   const perfect = checked && correctCount === answerFields.length
+  const parsedPrefix = Number.parseInt(calculatorPrefix, 10)
+  const calculatorReady = isValidIpv4Address(calculatorAddress) && Number.isInteger(parsedPrefix) && parsedPrefix >= 1 && parsedPrefix <= 32
+  const calculatorResult = calculatorReady ? calculateSubnet(calculatorAddress, parsedPrefix) : null
   const setAnswer = (key, value) => {
     setAnswers((current) => ({ ...current, [key]: value }))
     setChecked(false)
@@ -33,6 +38,11 @@ export function SubnettingPractice({ onBack = null }) {
     setAnswers({})
     setChecked(false)
   }
+  const loadQuestionInCalculator = () => {
+    if (!prompt.address.includes(".") || prompt.prefix === null) return
+    setCalculatorAddress(prompt.address)
+    setCalculatorPrefix(String(prompt.prefix))
+  }
 
   return (
     <section className="subnet-phone-shell" aria-label="Subnetting Practice">
@@ -44,6 +54,47 @@ export function SubnettingPractice({ onBack = null }) {
       </header>
       <div className="subnet-drill-meter" aria-label={`Question ${index + 1} of ${bank.length}`}>
         <span style={{ width: `${((index + 1) / bank.length) * 100}%` }} />
+      </div>
+      <div className="subnet-calculator-card">
+        <div className="subnet-calculator-heading">
+          <div>
+            <span>Subnet calculator</span>
+            <strong>Check the boundary before you drill</strong>
+          </div>
+          <button type="button" onClick={loadQuestionInCalculator} disabled={!prompt.address.includes(".") || prompt.prefix === null}>
+            Use prompt
+          </button>
+        </div>
+        <div className="subnet-calculator-inputs">
+          <label>
+            IP address
+            <input
+              value={calculatorAddress}
+              onChange={(event) => setCalculatorAddress(event.target.value)}
+              inputMode="decimal"
+              aria-label="Calculator IP address"
+            />
+          </label>
+          <label>
+            Prefix
+            <input
+              value={calculatorPrefix}
+              onChange={(event) => setCalculatorPrefix(event.target.value)}
+              inputMode="numeric"
+              aria-label="Calculator CIDR prefix"
+            />
+          </label>
+        </div>
+        {calculatorResult ? (
+          <div className="subnet-calculator-results" aria-label="Subnet calculator results">
+            <span><b>Network</b>{calculatorResult.networkAddress}</span>
+            <span><b>Broadcast</b>{calculatorResult.broadcastAddress}</span>
+            <span><b>Mask</b>{calculatorResult.subnetMask}</span>
+            <span><b>Hosts</b>{calculatorResult.usableHosts.toLocaleString()}</span>
+          </div>
+        ) : (
+          <p className="subnet-calculator-error" role="alert">Enter a valid IPv4 address and /1 through /32 prefix.</p>
+        )}
       </div>
       <div className="subnet-question-card">
         <div className="subnet-orbit" aria-hidden="true">

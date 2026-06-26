@@ -790,7 +790,7 @@ function TierRail({ progress, onOpenTier, compact = false }) {
       {tiers.map((tier, index) => {
         const value = getTierProgress(tier, progress);
         const recommended = tier.id === recommendedTier.id;
-        const badge = compact && tier.id === "tier-subnetting" ? "IP" : tier.number;
+        const badge = tier.number;
         return (
           <button
             key={tier.id}

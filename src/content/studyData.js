@@ -14590,7 +14590,7 @@ export const tiers = [
   },
   {
     "id": "tier-subnetting",
-    "number": "Subnet",
+    "number": "/24",
     "title": "Subnetting Practice",
     "subtitle": "Fast repeated subnetting drills plus separate concept lessons.",
     "difficulty": "practice",
